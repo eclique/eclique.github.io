@@ -100,8 +100,8 @@ jQuery(document).ready(function(){
 
   var img = document.getElementById('original-img');
   ctx.drawImage(img, 0, 0);
-  // var imgd2 = ctx.getImageData(0, 0, img.width, img.height);
-  var imgd2 = imgd1;
+  var imgd2 = ctx.getImageData(0, 0, img.width, img.height);
+  // var imgd2 = imgd1;
 
   ctx1 = document.getElementById('canvas1').getContext("2d");
   ctx2 = document.getElementById('canvas2').getContext("2d");
