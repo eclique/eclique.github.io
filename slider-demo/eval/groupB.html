@@ -1,0 +1,133 @@
+<!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Basic concepts</strong></div>
+
+<div class="panel-body">
+<p>In this task you are asked to... </p>
+<p>Definitions:</p>
+<ul>
+	<li><b>Model</b> is an artificial intelligence agent that is designed to solve some problem. In this task model will be trying to classify the main object in an image.</li>
+    <li><b>Prediction</b> is a label given to the image by the model.</li>
+</ul>
+</div>
+</div>
+<!-- End Instructions --><!-- Content Body -->
+
+<section>
+<fieldset><label>1. Familiarize with the model behaviour.</label><br />
+Some of the model predictions match the true labels of images. In such cases we say that the model is correct. Look at the images below to see when the model is correct and when it errs. Hover over the image to see which parts of it are more important (<font color="red">red</font>) and which are less important (<font color="blue">blue</font>) to the model. See how important areas correspond with model's answers.
+Check the boxes for images where model is correct.
+    
+<table align="center" border=1px bordercolor=#000 style="margin-top: 30px">
+    <tr align="center">
+        <td><label>
+            <figure><figcaption>Prediction: <b>Boat</b><br />
+                                True label: <b>Boat</b></figcaption>
+            <img src="tr.jpg" onmouseover="this.src='tr_ex.jpg';" onmouseout="this.src='tr.jpg';"></figure>
+            <input name="q01" type="checkbox" value="True" /> Model is correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Train</b><br />
+                                True label: <b>Boat</b></figcaption>
+            <img src="tr.jpg" onmouseover="this.src='tr_ex.jpg';" onmouseout="this.src='tr.jpg';"></figure>
+            <input name="q02" type="checkbox" value="True" /> Model is correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Boat</b><br />
+                                True label: <b>Boat</b></figcaption>
+            <img src="tr.jpg" onmouseover="this.src='tr_ex.jpg';" onmouseout="this.src='tr.jpg';"></figure>
+            <input name="q03" type="checkbox" value="True" /> Model is correct<br />
+            </label></td>
+    </tr>
+    <tr align="center">
+        <td><label>
+            <figure><figcaption>Prediction: <b>Train</b><br />
+                                True label: <b>Boat</b></figcaption>
+            <img src="tr.jpg" onmouseover="this.src='tr_ex.jpg';" onmouseout="this.src='tr.jpg';"></figure>
+            <input name="q01" type="checkbox" value="True" /> Model is correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Boat</b><br />
+                                True label: <b>Boat</b></figcaption>
+            <img src="tr.jpg" onmouseover="this.src='tr_ex.jpg';" onmouseout="this.src='tr.jpg';"></figure>
+            <input name="q02" type="checkbox" value="True" /> Model is correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Train</b><br />
+                                True label: <b>Boat</b></figcaption>
+            <img src="tr.jpg" onmouseover="this.src='tr_ex.jpg';" onmouseout="this.src='tr.jpg';"></figure>
+            <input name="q03" type="checkbox" value="True" /> Model is correct<br />
+            </label></td>
+    </tr>
+</table>
+</fieldset>
+
+<fieldset><label>2. Predict model behaviour.</label><br />
+For the next images true label is not given. Based on examples provided in the previous section try to guess, whether the model's prediction will be correct or wrong.
+    
+<table align="center" border=1px bordercolor=#000 style="margin-top: 30px">
+    <tr align="center">
+        <td><label>
+            <figure><figcaption>Prediction: <b>Cow</b></figcaption>
+            <img src="te.jpg" onmouseover="this.src='te_ex.jpg';" onmouseout="this.src='te.jpg';"></figure>
+            <input name="qB1" type="checkbox" value="True" /> Model will be correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Sheep</b></figcaption>
+            <img src="te.jpg" onmouseover="this.src='te_ex.jpg';" onmouseout="this.src='te.jpg';"></figure>
+            <input name="qB2" type="checkbox" value="True" /> Model will be correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Cow</b></figcaption>
+            <img src="te.jpg" onmouseover="this.src='te_ex.jpg';" onmouseout="this.src='te.jpg';"></figure>
+            <input name="qB3" type="checkbox" value="True" /> Model will be correct<br />
+            </label></td>
+    </tr>
+    <tr align="center">
+        <td><label>
+            <figure><figcaption>Prediction: <b>Sheep</b></figcaption>
+            <img src="te.jpg" onmouseover="this.src='te_ex.jpg';" onmouseout="this.src='te.jpg';"></figure>
+            <input name="qB4" type="checkbox" value="True" /> Model will be correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Cow</b></figcaption>
+            <img src="te.jpg" onmouseover="this.src='te_ex.jpg';" onmouseout="this.src='te.jpg';"></figure>
+            <input name="qB5" type="checkbox" value="True" /> Model will be correct<br />
+            </label></td>
+        <td><label>
+            <figure><figcaption>Prediction: <b>Sheep</b></figcaption>
+            <img src="te.jpg" onmouseover="this.src='te_ex.jpg';" onmouseout="this.src='te.jpg';"></figure>
+            <input name="qB6" type="checkbox" value="True" /> Model will be correct<br />
+            </label></td>
+    </tr>
+</table>
+</fieldset>
+
+</section>
+<!-- End Content Body --></div>
+</section>
+<!-- close container -->
+
+<style type="text/css">
+    fieldset {
+        padding: 10px;
+        background:#f1f1f1;
+        border-radius:5px;
+        margin-bottom:10px;
+    }
+    td {
+        padding: 5px 15px 0px 15px;
+    }
+    img {
+        width: 300px;
+    }
+    figcaption {
+        font-weight: 100;
+    }
+    #img1:hover {
+        border: 1px
+    }
+</style>

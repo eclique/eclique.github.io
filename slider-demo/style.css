@@ -1,0 +1,76 @@
+#amount {
+  display: inline;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 95%;
+  padding: 5px 5px;
+}
+input, .btn {
+    font-size: inherit;
+    padding: 10px;
+    /* margin: 0.1em 0.2em; */
+}
+.btn-rise-demo {
+  margin-bottom: 2px;
+}
+#slider {
+  margin-bottom: 10px;
+}
+.mycontainer {
+  display: flex;
+  justify-content: space-around;
+}
+.plot {
+  height: 250px;
+  width: 250px;
+}
+.double-img {
+  position: relative;
+}
+.double-img .top-img {
+  position: relative;
+}
+.double-img .bot-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.double-img .cover-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0.5;
+  transition-duration: 0.5s;
+}
+.double-img .uncover-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  padding: 20px 5px;
+  transition-duration: 0.5s;
+}
+.double-img .cover-img:hover {
+  opacity: 0;
+}
+.double-img .uncover-img:hover {
+  opacity: 0.5;
+}
+.preview-container {
+    min-width: 640px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.preview-item {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px 5px;
+    cursor: pointer;
+}
+.vertical-text {
+	transform: rotate(270deg);
+	transform-origin: left top 0;
+}
