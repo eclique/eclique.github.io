@@ -119,14 +119,10 @@ const renderPreviewPage = () => {
     previewContainer.className = 'preview-container';
 
     previews.forEach(preview => previewContainer.appendChild(preview));
-    console.log('hi');
     app.appendChild(previewContainer);
 
     currentPage = 'preview';
 };
 
-var rise_ins_g;
 renderPreviewPage();
-$.getScript("rise_ins.js", function( data, textStatus, jqxhr ) {
-  rise_ins_g = rise_ins;
-});
+$.getScript("rise_ins.js");
