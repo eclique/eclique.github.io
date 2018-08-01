@@ -125,10 +125,8 @@ const renderPreviewPage = () => {
     currentPage = 'preview';
 };
 
+var rise_ins;
 renderPreviewPage();
 $.getScript("rise_ins.js", function( data, textStatus, jqxhr ) {
-  console.log( data ); // Data returned
-  console.log( textStatus ); // Success
-  console.log( jqxhr.status ); // 200
-  console.log( "Load was performed." );
+  console.log( data.rise_ins ); // Data returned
 });
