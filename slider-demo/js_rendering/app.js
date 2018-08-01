@@ -125,8 +125,8 @@ const renderPreviewPage = () => {
     currentPage = 'preview';
 };
 
-var rise_ins;
+var rise_ins_g;
 renderPreviewPage();
 $.getScript("rise_ins.js", function( data, textStatus, jqxhr ) {
-  console.log( data.rise_ins ); // Data returned
+  rise_ins_g = rise_ins;
 });
