@@ -73,13 +73,17 @@ details summary::-webkit-details-marker {
 /* details[open]>summary::-webkit-details-marker {
     color: #2b4b82;
 }  */
-details.method>summary {
+/* details.method>summary { */
     /* font-size: 1.2em; */
+    /* color: #4C74B9; */
+/* } */
+
+details.category>summary {
     color: #4C74B9;
 }
 
 details.method-all>summary {
-    color: #4C74B9;
+    /* color: #4C74B9; */
     padding-bottom: 0.5em;
 }
 
