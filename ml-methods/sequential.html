@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PWC Categories</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script>
+		MathJax = {
+			tex: {
+				inlineMath: [['$', '$']],
+				displayMath: [['$$', '$$']]
+			}
+		};
+	</script>
+	<!-- <script>
+		window.onload = function() {
+			// Select all <details> elements
+			var details = document.querySelectorAll('details');
+
+			// Loop through each <details> element
+			details.forEach(function(detail) {
+				// Set the 'open' attribute to true
+				// if not detail.classList.contains('method')
+				if (!detail.classList.contains('method'))
+					detail.setAttribute('open', true);
+			});
+		};
+	</script> -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var navButtons = document.querySelectorAll(".nav-btn");
+
+			navButtons.forEach(function (button) {
+				if (button.href === window.location.href) {
+					button.classList.add("active");
+				}
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('click', function (event) {
+			if (document.getElementById('lightbox').style.display != 'none') {
+				// Close lightbox
+				document.getElementById('lightbox').style.display = 'none';
+			}
+			else if (event.target.tagName == 'IMG') {
+				// Open lightbox
+				document.getElementById('lightbox-image').src = event.target.src;
+				document.getElementById('lightbox').style.display = 'block';
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<div class="lightbox" id="lightbox" style="display: none">
+		<img src="" id="lightbox-image" alt="Enlarged Image">
+	</div>
+	<div class="navbar">
+		<a class="nav-btn" href="general.html">General</a>
+		<a class="nav-btn" href="computer-vision.html">Computer Vision</a>
+		<a class="nav-btn" href="natural-language-processing.html">NLP</a>
+		<a class="nav-btn" href="reinforcement-learning.html">Reinforcement Learning</a>
+		<a class="nav-btn" href="audio.html">Audio</a>
+		<a class="nav-btn" href="sequential.html">Sequential</a>
+		<a class="nav-btn" href="graphs.html">Graphs</a>
+	</div>
+	<div class="container mx-auto">
+        <ul class="parent">
+            <p>1. Recurrent Neural Networks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>LSTM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  An
+  <strong>
+   LSTM
+  </strong>
+  is a type of
+  <a href="https://paperswithcode.com/methods/category/recurrent-neural-networks">
+   recurrent neural network
+  </a>
+  that addresses the vanishing gradient problem in vanilla RNNs through additional cells, input and output gates. Intuitively, vanishing gradients are solved through additional
+  <em>
+   additive
+  </em>
+  components, and forget gate activations, that allow the gradients to flow through the network without vanishing as quickly.
+ </p>
+ <p>
+  (Image Source
+  <a href="https://medium.com/datadriveninvestor/how-do-lstm-networks-solve-the-problem-of-vanishing-gradients-a6784971a577">
+   here
+  </a>
+  )
+ </p>
+ <p>
+  (Introduced by Hochreiter and Schmidhuber)
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000495-71f37086_nITzEnB.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>GRU</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Gated Recurrent Unit
+  </strong>
+  , or
+  <strong>
+   GRU
+  </strong>
+  , is a type of recurrent neural network. It is similar to an
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  , but only has two gates - a reset gate and an update gate - and notably lacks an output gate. Fewer parameters means GRUs are generally easier/faster to train than their LSTM counterparts.
+ </p>
+ <p>
+  Image Source:
+  <a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AGated_Recurrent_Unit%2C_type_1.svg&amp;psig=AOvVaw3EmNX8QXC5hvyxeenmJIUn&amp;ust=1590332062671000&amp;source=images&amp;cd=vfe&amp;ved=0CA0QjhxqFwoTCMiev9-eyukCFQAAAAAdAAAAABAR">
+   here
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000014-20baf651.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>ConvLSTM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   ConvLSTM
+  </strong>
+  is a type of recurrent neural network for spatio-temporal prediction that has convolutional structures in both the input-to-state and state-to-state transitions. The ConvLSTM determines the future state of a certain cell in the grid by the inputs and past states of its local neighbors. This can easily be achieved by using a
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  operator in the state-to-state and input-to-state transitions (see Figure). The key equations of ConvLSTM are shown  below, where $∗$ denotes the convolution operator and $\odot$ the Hadamard product:
+ </p>
+ <p>
+  $$ i_{t} = \sigma\left(W_{xi} ∗ X_{t} + W_{hi} ∗ H_{t−1} + W_{ci} \odot \mathcal{C}_{t−1} + b_{i}\right) $$
+ </p>
+ <p>
+  $$ f_{t} = \sigma\left(W_{xf} ∗ X_{t} + W_{hf} ∗ H_{t−1} + W_{cf} \odot \mathcal{C}_{t−1} + b_{f}\right) $$
+ </p>
+ <p>
+  $$ \mathcal{C}_{t} = f_{t} \odot \mathcal{C}_{t−1} + i_{t} \odot \text{tanh}\left(W_{xc} ∗ X_{t} + W_{hc} ∗ \mathcal{H}_{t−1} + b_{c}\right) $$
+ </p>
+ <p>
+  $$ o_{t} = \sigma\left(W_{xo} ∗ X_{t} + W_{ho} ∗ \mathcal{H}_{t−1} + W_{co} \odot \mathcal{C}_{t} + b_{o}\right) $$
+ </p>
+ <p>
+  $$ \mathcal{H}_{t} = o_{t} \odot \text{tanh}\left(C_{t}\right) $$
+ </p>
+ <p>
+  If we view the states as the hidden representations of moving objects, a ConvLSTM with a larger transitional kernel should be able to capture faster motions while one with a smaller kernel can capture slower motions.
+ </p>
+ <p>
+  To ensure that the states have the same number of rows and same number of columns as the inputs, padding is needed before applying the convolution operation. Here, padding of the hidden states on the boundary points can be viewed as using the state of the outside world for calculation. Usually, before the first input comes, we initialize all the states of the
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  to zero which corresponds to "total ignorance" of the future.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000816-bc0562d9_GcXEnR7.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Mamba</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Pointer Network</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Pointer Networks
+  </strong>
+  tackle problems where input and output data are sequential data, but can't be solved by seq2seq type models because discrete categories of output elements depend on the variable input size (and are not decided in advance).
+ </p>
+ <p>
+  A Pointer Network learns the conditional  probability of an output sequence with elements that are discrete tokens corresponding to positions in an input sequence. They solve the problem of variable size output dictionaries using
+  <a href="https://paperswithcode.com/method/additive-attention">
+   additive attention
+  </a>
+  . But instead of using attention to blend hidden units of an encoder to a context vector at each decoder step, Pointer Networks use attention as a pointer to select a member of the input sequence as the output.
+ </p>
+ <p>
+  Pointer-Nets can be used to learn approximate solutions to challenging geometric problems such as finding planar convex hulls, computing Delaunay triangulations, and the planar Travelling Salesman Problem.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000041311-cd212ee9_mXP5Spl.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>BiGRU</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Bidirectional GRU
+  </strong>
+  , or
+  <strong>
+   BiGRU
+  </strong>
+  , is a sequence processing model that consists of two
+  <a href="https://paperswithcode.com/method/gru">
+   GRUs
+  </a>
+  . one taking the input in a forward direction, and the other in a backwards direction. It is a bidirectional recurrent neural network with only the input and forget gates.
+ </p>
+ <p>
+  Image Source:
+  <em>
+   Rana R (2016). Gated Recurrent Unit (GRU) for Emotion Classification from Noisy Speech.
+  </em>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000607-2b363d83_uD8eY3z.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Residual GRU</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Residual GRU
+  </strong>
+  is a
+  <a href="https://paperswithcode.com/method/gru">
+   gated recurrent unit (GRU)
+  </a>
+  that incorporates the idea of residual connections from
+  <a href="https://paperswithcode.com/method/resnet">
+   ResNets
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000611-47d50ccd_8CZX1Ve.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            <br>
+        <li>
+            <details class="category depth1">
+            <summary>Bidirectional Recurrent Neural Networks</summary>
+            <ul>
+                <li class="col-md-12">
+                    
+                </li>
+                
+        <li>
+            <details class="method depth2">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>BiGRU</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Bidirectional GRU
+  </strong>
+  , or
+  <strong>
+   BiGRU
+  </strong>
+  , is a sequence processing model that consists of two
+  <a href="https://paperswithcode.com/method/gru">
+   GRUs
+  </a>
+  . one taking the input in a forward direction, and the other in a backwards direction. It is a bidirectional recurrent neural network with only the input and forget gates.
+ </p>
+ <p>
+  Image Source:
+  <em>
+   Rana R (2016). Gated Recurrent Unit (GRU) for Emotion Classification from Noisy Speech.
+  </em>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000607-2b363d83_uD8eY3z.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>CNN BiLSTM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   CNN BiLSTM
+  </strong>
+  is a hybrid bidirectional
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  and CNN architecture. In the original formulation applied to named entity recognition, it learns both character-level and word-level features. The CNN component is used to induce the character-level features. For each word the model employs a
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  and a
+  <a href="https://paperswithcode.com/method/max-pooling">
+   max pooling
+  </a>
+  layer to extract a new feature vector from the per-character feature vectors such as character embeddings and (optionally) character type.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000060-62c4d019.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>U-RNNs</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  An aspect of Bi-RNNs that could be undesirable is the architecture's symmetry in both time directions.
+ </p>
+ <p>
+  Bi-RNNs are often used in natural language processing, where the order of the words is almost exclusively determined by grammatical rules and not by temporal sequentiality.  However, in some cases, the data has a preferred direction in time: the forward direction.
+ </p>
+ <p>
+  Another potential drawback of Bi-RNNs is that their output is simply the concatenation of two naive readings of the input in both directions. In consequence, Bi-RNNs never actually read an input by knowing what happens in the future. Conversely, the idea behind U-RNN, is to first do a backward pass, and then use during the forward pass information about the future.
+ </p>
+ <p>
+  We accumulate information while knowing which part of the information will be useful in the future as it should be relevant to do so if the forward direction is the preferred direction of the data.
+ </p>
+ <p>
+  The backward and forward hidden states $(h^b_t)$ and  $(h^f_t)$ are obtained according to these equations:
+ </p>
+ <p>
+  \begin{equation}
+\begin{aligned}
+&amp;h_{t-1}^{b}=R N N\left(h_{t}^{b}, e_{t}, W_{b}\right) \
+&amp;h_{t+1}^{f}=R N N\left(h_{t}^{f},\left[e_{t}, h_{t}^{b}\right], W_{f}\right)
+\end{aligned}
+\end{equation}
+ </p>
+ <p>
+  where $W_b$ and $W_f$ are learnable weights that are shared among pedestrians, and $[\cdot, \cdot]$ denotes concatenation. The last hidden state $h^f_{T_{obs}}$ is then used as the encoding of the sequence.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001149-51783e37_L6E0L00.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>GRIN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/1b3af6c0-52f0-4329-8637-52fbe4e729de.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+                
+            </ul>
+            </details>
+        </li>
+
+        
+        </ul>
+        
+        <ul class="parent">
+            <p>2. Sequence To Sequence Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Seq2Seq</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Seq2Seq
+  </strong>
+  , or
+  <strong>
+   Sequence To Sequence
+  </strong>
+  , is a model used in sequence prediction tasks, such as language modelling and machine translation. The idea is to use one
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  , the
+  <em>
+   encoder
+  </em>
+  , to read the input sequence one timestep at a time, to obtain a large fixed dimensional vector representation (a context vector), and then to use another LSTM, the
+  <em>
+   decoder
+  </em>
+  , to extract the output sequence
+from that vector. The second LSTM is essentially a recurrent neural network language model except that it is conditioned on the input sequence.
+ </p>
+ <p>
+  (Note that this page refers to the original seq2seq not general sequence-to-sequence models)
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005529-54b7e509_qP1I8XX.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>T5</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   T5
+  </strong>
+  , or
+  <strong>
+   Text-to-Text Transfer Transformer
+  </strong>
+  , is a
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  based architecture that uses a text-to-text approach. Every task – including translation, question answering, and classification – is cast as feeding the model text as input and training it to generate some target text. This allows for the use of the same model, loss function, hyperparameters, etc. across our diverse set of tasks. The changes compared to
+  <a href="https://paperswithcode.com/method/bert">
+   BERT
+  </a>
+  include:
+ </p>
+ <ul>
+  <li>
+   adding a
+   <em>
+    causal
+   </em>
+   decoder to the bidirectional architecture.
+  </li>
+  <li>
+   replacing the fill-in-the-blank cloze task with a mix of alternative pre-training tasks.
+  </li>
+ </ul>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>BART</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   BART
+  </strong>
+  is a
+  <a href="https://paperswithcode.com/method/denoising-autoencoder">
+   denoising autoencoder
+  </a>
+  for pretraining sequence-to-sequence models. It is trained by (1) corrupting text with an arbitrary noising function, and (2) learning a model to reconstruct the original text. It uses a standard
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  -based neural machine translation architecture. It uses a standard seq2seq/NMT architecture with a bidirectional encoder (like
+  <a href="https://paperswithcode.com/method/bert">
+   BERT
+  </a>
+  ) and a left-to-right decoder (like
+  <a href="https://paperswithcode.com/method/gpt">
+   GPT
+  </a>
+  ). This means the encoder's attention mask is fully visible, like BERT, and the decoder's attention mask is causal, like
+  <a href="https://paperswithcode.com/method/gpt-2">
+   GPT2
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000153-e194680b_0MCpSUL.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Pointer Network</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Pointer Networks
+  </strong>
+  tackle problems where input and output data are sequential data, but can't be solved by seq2seq type models because discrete categories of output elements depend on the variable input size (and are not decided in advance).
+ </p>
+ <p>
+  A Pointer Network learns the conditional  probability of an output sequence with elements that are discrete tokens corresponding to positions in an input sequence. They solve the problem of variable size output dictionaries using
+  <a href="https://paperswithcode.com/method/additive-attention">
+   additive attention
+  </a>
+  . But instead of using attention to blend hidden units of an encoder to a context vector at each decoder step, Pointer Networks use attention as a pointer to select a member of the input sequence as the output.
+ </p>
+ <p>
+  Pointer-Nets can be used to learn approximate solutions to challenging geometric problems such as finding planar convex hulls, computing Delaunay triangulations, and the planar Travelling Salesman Problem.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000041311-cd212ee9_mXP5Spl.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Tacotron</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Tacotron
+  </strong>
+  is an end-to-end generative text-to-speech model that takes a character sequence as input and outputs the corresponding spectrogram. The backbone of Tacotron is a seq2seq model with attention. The Figure depicts the model, which includes an encoder, an attention-based decoder, and a post-processing net. At a high-level, the model takes characters as input and produces spectrogram
+frames, which are then converted to waveforms.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057305-de0e6f99.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>mBART</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   mBART
+  </strong>
+  is a sequence-to-sequence denoising auto-encoder pre-trained on large-scale monolingual corpora in many languages using the
+  <a href="https://paperswithcode.com/method/bart">
+   BART objective
+  </a>
+  . The input texts are noised by masking phrases and permuting sentences, and a single
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer model
+  </a>
+  is learned to recover the texts. Different from other pre-training approaches for machine translation, mBART pre-trains a complete autoregressive
+  <a href="https://paperswithcode.com/method/seq2seq">
+   Seq2Seq
+  </a>
+  model. mBART is trained once for all languages, providing a set of parameters that can be fine-tuned for any of the language pairs in both supervised and unsupervised settings, without any task-specific or language-specific modifications or initialization schemes.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>3. Time Series Analysis</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    Time series analysis comprises methods for analyzing time series data in order to extract meaningful statistics and other characteristics of the data.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>DTW</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Dynamic Time Warping (DTW) [1] is one of well-known distance measures between a pairwise of time series. The main idea of DTW is to compute the distance from the matching of similar elements between time series. It uses the dynamic programming technique to find the optimal temporal matching between elements of two time series.
+ </p>
+ <p>
+  For instance, similarities in walking could be detected using DTW, even if one person was walking faster than the other, or if there were accelerations and decelerations during the course of an observation. DTW has been applied to temporal sequences of video, audio, and graphics data — indeed, any data that can be turned into a linear sequence can be analyzed with DTW. A well known application has been automatic speech recognition, to cope with different speaking speeds. Other applications include speaker recognition and online signature recognition. It can also be used in partial shape matching application.
+ </p>
+ <p>
+  In general, DTW is a method that calculates an optimal match between two given sequences (e.g. time series) with certain restriction and rules:
+ </p>
+ <ol>
+  <li>
+   Every index from the first sequence must be matched with one or more indices from the other sequence, and vice versa
+  </li>
+  <li>
+   The first index from the first sequence must be matched with the first index from the other sequence (but it does not have to be its only match)
+  </li>
+  <li>
+   The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)
+  </li>
+  <li>
+   The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if j&gt;i  are indices from the first sequence, then there must not be two indices l&gt;k in the other sequence, such that index i is matched with index l and index j is matched with index k, and vice versa.
+  </li>
+ </ol>
+ <p>
+  [1] Sakoe, Hiroaki, and Seibi Chiba. "Dynamic programming algorithm optimization for spoken word recognition." IEEE transactions on acoustics, speech, and signal processing 26, no. 1 (1978): 43-49.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000899-9347c1f0_abD4kIo.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>ROCKET</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Linear classifier using random convolutional kernels applied to time series.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>InceptionTime</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>EMF</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  BCI MI framework to classifiy brain signals using a multimodal decission making phase, with an addtional differentiation of the signal.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>4. Temporal Convolutions</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Dilated Causal Convolution</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Dilated Causal Convolution
+  </strong>
+  is a
+  <a href="https://paperswithcode.com/method/causal-convolution">
+   causal convolution
+  </a>
+  where the filter is applied over an area larger than its length by skipping input values with a certain step. A dilated causal
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  effectively allows the network to have very large receptive fields with just a few layers.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056870-3b8adffc.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Gated Convolution</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Gated Convolution
+  </strong>
+  is a type of temporal
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  with a gating mechanism. Zero-padding is used to ensure that future context can not be seen.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057014-31f9410e_w3QH9UC.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Causal Convolution</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Causal convolutions
+  </strong>
+  are a type of
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  used for temporal data which ensures the model cannot violate the ordering in which we model the data: the prediction $p(x_{t+1} | x_{1}, \ldots, x_{t})$ emitted by the model at timestep $t$ cannot depend on any of the future timesteps $x_{t+1}, x_{t+2}, \ldots, x_{T}$. For images, the equivalent of a causal convolution is a
+  <a href="https://paperswithcode.com/method/masked-convolution">
+   masked convolution
+  </a>
+  which can be implemented by constructing a mask tensor and doing an element-wise multiplication of this mask with the convolution kernel before applying it. For 1-D data such as audio one can more easily implement this by shifting the output of a normal convolution by a few timesteps.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056869-0c3e0f5c_NZ6MVbO.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DynamicConv</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   DynamicConv
+  </strong>
+  is a type of
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  for sequential modelling where it has kernels that vary over time as a learned function of the individual time steps. It builds upon
+  <a href="https://paperswithcode.com/method/lightconv">
+   LightConv
+  </a>
+  and takes the same form but uses a time-step dependent kernel:
+ </p>
+ <p>
+  $$ \text{DynamicConv}\left(X, i, c\right) = \text{LightConv}\left(X, f\left(X_{i}\right)_{h,:}, i, c\right) $$
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000849-85e053cd_eCZzdX7.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>5. Bidirectional Recurrent Neural Networks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>BiGRU</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Bidirectional GRU
+  </strong>
+  , or
+  <strong>
+   BiGRU
+  </strong>
+  , is a sequence processing model that consists of two
+  <a href="https://paperswithcode.com/method/gru">
+   GRUs
+  </a>
+  . one taking the input in a forward direction, and the other in a backwards direction. It is a bidirectional recurrent neural network with only the input and forget gates.
+ </p>
+ <p>
+  Image Source:
+  <em>
+   Rana R (2016). Gated Recurrent Unit (GRU) for Emotion Classification from Noisy Speech.
+  </em>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000607-2b363d83_uD8eY3z.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>CNN BiLSTM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   CNN BiLSTM
+  </strong>
+  is a hybrid bidirectional
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  and CNN architecture. In the original formulation applied to named entity recognition, it learns both character-level and word-level features. The CNN component is used to induce the character-level features. For each word the model employs a
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  and a
+  <a href="https://paperswithcode.com/method/max-pooling">
+   max pooling
+  </a>
+  layer to extract a new feature vector from the per-character feature vectors such as character embeddings and (optionally) character type.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000060-62c4d019.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>U-RNNs</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  An aspect of Bi-RNNs that could be undesirable is the architecture's symmetry in both time directions.
+ </p>
+ <p>
+  Bi-RNNs are often used in natural language processing, where the order of the words is almost exclusively determined by grammatical rules and not by temporal sequentiality.  However, in some cases, the data has a preferred direction in time: the forward direction.
+ </p>
+ <p>
+  Another potential drawback of Bi-RNNs is that their output is simply the concatenation of two naive readings of the input in both directions. In consequence, Bi-RNNs never actually read an input by knowing what happens in the future. Conversely, the idea behind U-RNN, is to first do a backward pass, and then use during the forward pass information about the future.
+ </p>
+ <p>
+  We accumulate information while knowing which part of the information will be useful in the future as it should be relevant to do so if the forward direction is the preferred direction of the data.
+ </p>
+ <p>
+  The backward and forward hidden states $(h^b_t)$ and  $(h^f_t)$ are obtained according to these equations:
+ </p>
+ <p>
+  \begin{equation}
+\begin{aligned}
+&amp;h_{t-1}^{b}=R N N\left(h_{t}^{b}, e_{t}, W_{b}\right) \
+&amp;h_{t+1}^{f}=R N N\left(h_{t}^{f},\left[e_{t}, h_{t}^{b}\right], W_{f}\right)
+\end{aligned}
+\end{equation}
+ </p>
+ <p>
+  where $W_b$ and $W_f$ are learnable weights that are shared among pedestrians, and $[\cdot, \cdot]$ denotes concatenation. The last hidden state $h^f_{T_{obs}}$ is then used as the encoding of the sequence.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001149-51783e37_L6E0L00.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>GRIN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/1b3af6c0-52f0-4329-8637-52fbe4e729de.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>6. Multi-scale analysis</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    Methods for analysing signals over multiple scales.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>timecauslimitkernel</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The time-causal limit kernel is a temporal smoothing kernel that is (i) time-causal, (ii) time-recursive and (iii) obeys temporal scale covariance. This kernel constitutes the limit case of coupling an infinite number of truncated exponential kernels in cascade, with specifically chosen time constants to obtain temporal scale covariance. For practical purposes, the infinite convolution operation can often be well approximated by a moderate number (4-8) truncated exponential kernels coupled in cascade. The discrete implementation can, in turn, be performed by a set of first-order recursive filters coupled in cascade.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>time-caus-scsp</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The time-causal and time-recursive scale-space representation is obtained by filtering any 1-D signal with the time-causal limit kernel, and provides a way to define a multi-scale analysis for signals, for which the future cannot be accessed and additionally the computations should be strictly time-recursive, in order to not require any complementary memory of the past beyond the temporal scale-space representation itself.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>timecausgabor</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The time-causal and time-recursive analogue of the Gabor transform provides a way to define a Gabor-like time-frequency analysis for real-time signals, for which the future cannot be accessed. This is achieved by choosing the temporal window function in a windowed Fourier transform as the time-causal limit kernel, which is a temporal kernel that is (i) time-causal, (ii) time-recursive and (iii) obeys temporal scale covariance.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>intgauss</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The integrated Gaussian kernel is obtained by integrating the values of the Gaussian kernel over each pixel support region. In this way, some of the severe artefacts of sampling the Gaussian kernel at too fine scales can be reduced.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>7. Time Series Modules</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Temporal Distribution Characterization</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Temporal Distribution Characterization
+  </strong>
+  , or
+  <strong>
+   TDC
+  </strong>
+  , is a module used in the
+  <a href="https://paperswithcode.com/method/adarnn">
+   AdaRNN
+  </a>
+  architecture to characterize the distributional information in a time series.
+ </p>
+ <p>
+  Based on the principle of maximum entropy, maximizing the utilization of shared knowledge underlying a times series under temporal covariate shift can be done by finding periods which are most dissimilar to each other, which is also considered as the worst case of temporal covariate shift since the cross-period distributions are the most diverse. TDC achieves this goal for splitting the time-series by solving an optimization problem whose objective can be formulated as:
+ </p>
+ <p>
+  $$
+\max _{0&lt;K \leq K_{0}} \max _{n_{1}, \cdots, n_{K}} \frac{1}{K} \sum_{1 \leq i \neq j \leq K} d\left(\mathcal{D}_{i}, \mathcal{D}_{j}\right) 
+$$
+ </p>
+ <p>
+  $$
+\text { s.t. } \forall i, \Delta_{1}&lt;\left|\mathcal{D}_{i}\right|&lt;\Delta_{2} ; \sum_{i}\left|\mathcal{D}_{i}\right|=n
+$$
+ </p>
+ <p>
+  where $d$ is a distance metric, $\Delta_{1}$ and $\Delta_{2}$ are predefined parameters to avoid trivial solutions (e.g., very small values or very large values may fail to capture the distribution information), and $K_{0}$ is the hyperparameter to avoid over-splitting. The metric $d(\cdot, \cdot)$ above can be any distance function, e.g., Euclidean or Editing distance, or some distribution-based distance / divergence, like MMD [14] and KL-divergence.
+ </p>
+ <p>
+  The learning goal of the optimization problem (1) is to maximize the averaged period-wise distribution distances by searching $K$ and the corresponding periods so that the distributions of each period are as diverse as possible and the learned prediction model has better a more generalization ability.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/e554f509-73cc-4a0a-9eb5-352ee0bb4b9f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Temporal Distribution Matching</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Temporal Distribution Matching
+  </strong>
+  , or
+  <strong>
+   TDM
+  </strong>
+  ,  is a module used in the
+  <a href="https://paperswithcode.com/method/adarnn">
+   AdaRNN
+  </a>
+  architecture to match the distributions of the discovered periods to build a time series prediction model $\mathcal{M}$ Given the learned time periods, the TDM module is designed to learn the common knowledge shared by different periods via matching their distributions. Thus, the learned model $\mathcal{M}$ is expected to generalize well on unseen test data compared with the methods which only rely on local or statistical information.
+ </p>
+ <p>
+  Within the context of AdaRNN, Temporal Distribution Matching aims to adaptively match the distributions between the
+  <a href="https://paperswithcode.com/methods/category/recurrent-neural-networks">
+   RNN
+  </a>
+  cells of two periods while capturing the temporal dependencies. TDM introduces the importance vector $\mathbf{\alpha} \in \mathbb{R}^{\hat{V}}$ to learn the relative importance of $V$ hidden states inside the RNN, where all the hidden states are weighted with a normalized $\alpha$. Note that for each pair of periods, there is an $\mathbf{\alpha}$, and we omit the subscript if there is no confusion. In this way, we can dynamically reduce the distribution divergence of cross-periods.
+ </p>
+ <p>
+  Given a period-pair $\left(\mathcal{D}_{i}, \mathcal{D}_{j}\right)$, the loss of temporal distribution matching is formulated as:
+ </p>
+ <p>
+  $$
+\mathcal{L}_{t d m}\left(\mathcal{D}_{i}, \mathcal{D}_{j} ; \theta\right)=\sum_{t=1}^{V} \alpha_{i, j}^{t} d\left(\mathbf{h}_{i}^{t}, \mathbf{h}_{j}^{t} ; \theta\right)
+$$
+ </p>
+ <p>
+  where $\alpha_{i, j}^{t}$ denotes the distribution importance between the periods $\mathcal{D}_{i}$ and $\mathcal{D}_{j}$ at state $t$.
+ </p>
+ <p>
+  All the hidden states of the RNN can be easily computed by following the standard RNN computation. Denote by $\delta(\cdot)$ the computation of a next hidden state based on a previous state. The state computation can be formulated as
+ </p>
+ <p>
+  $$
+\mathbf{h}_{i}^{t}=\delta\left(\mathbf{x}_{i}^{t}, \mathbf{h}_{i}^{t-1}\right)
+$$
+ </p>
+ <p>
+  The final objective of temporal distribution matching (one RNN layer) is:
+ </p>
+ <p>
+  $$
+\mathcal{L}(\theta, \mathbf{\alpha})=\mathcal{L}_{\text {pred }}(\theta)+\lambda \frac{2}{K(K-1)} \sum_{i, j}^{i \neq j} \mathcal{L}_{t d m}\left(\mathcal{D}_{i}, \mathcal{D}_{j} ; \theta, \mathbf{\alpha}\right)
+$$
+ </p>
+ <p>
+  where $\lambda$ is a trade-off hyper-parameter. Note that in the second term, we compute the average of the distribution distances of all pairwise periods. For computation, we take a mini-batch of $\mathcal{D}_{i}$ and $\mathcal{D}_{j}$ to perform forward operation in RNN layers and concatenate all hidden features. Then, we can perform TDM using the above equation.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/9359d08c-7d66-4eb7-8cd8-2201c7adf7cb.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>8. Medical waveform analysis</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>GAM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>9. Generative Sequence Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>TD-VAE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   TD-VAE
+  </strong>
+  , or
+  <strong>
+   Temporal Difference VAE
+  </strong>
+  , is a generative sequence model that learns representations containing explicit beliefs about states several steps into the future, and that can be rolled out directly without single-step transitions. TD-VAE is trained on pairs of temporally separated time points, using an analogue of
+  <a href="https://paperswithcode.com/method/td-lambda">
+   temporal difference learning
+  </a>
+  used in reinforcement learning.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000436-92a59593.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>10. Sequential Blocks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>CBHG</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   CBHG
+  </strong>
+  is a building block used in the
+  <a href="https://paperswithcode.com/method/tacotron">
+   Tacotron
+  </a>
+  text-to-speech model. It consists of a bank of 1-D convolutional filters, followed by highway networks and a bidirectional gated recurrent unit (
+  <a href="https://paperswithcode.com/method/bigru">
+   BiGRU
+  </a>
+  ).
+ </p>
+ <p>
+  The module is used to extract representations from sequences. The input sequence is first
+convolved with $K$ sets of 1-D convolutional filters, where the $k$-th set contains $C_{k}$ filters of width $k$ (i.e. $k = 1, 2, \dots , K$). These filters explicitly model local and contextual information (akin to modeling unigrams, bigrams, up to K-grams). The
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  outputs are stacked together and further max pooled along time to increase local invariances. A stride of 1 is used to  preserve the original time resolution. The processed sequence is further passed to a few fixed-width 1-D convolutions, whose outputs are added with the original input sequence via residual connections.
+  <a href="https://paperswithcode.com/method/batch-normalization">
+   Batch normalization
+  </a>
+  is used for all convolutional layers. The convolution outputs are fed into a multi-layer
+  <a href="https://paperswithcode.com/method/highway-network">
+   highway network
+  </a>
+  to extract high-level features. Finally, a bidirectional
+  <a href="https://paperswithcode.com/method/gru">
+   GRU
+  </a>
+  RNN is stacked on top to extract sequential features from both forward and backward context.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000370-fdc1421a_j2r7ihh.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        </div></body></html>

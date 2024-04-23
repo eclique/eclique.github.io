@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PWC Categories</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script>
+		MathJax = {
+			tex: {
+				inlineMath: [['$', '$']],
+				displayMath: [['$$', '$$']]
+			}
+		};
+	</script>
+	<!-- <script>
+		window.onload = function() {
+			// Select all <details> elements
+			var details = document.querySelectorAll('details');
+
+			// Loop through each <details> element
+			details.forEach(function(detail) {
+				// Set the 'open' attribute to true
+				// if not detail.classList.contains('method')
+				if (!detail.classList.contains('method'))
+					detail.setAttribute('open', true);
+			});
+		};
+	</script> -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var navButtons = document.querySelectorAll(".nav-btn");
+
+			navButtons.forEach(function (button) {
+				if (button.href === window.location.href) {
+					button.classList.add("active");
+				}
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('click', function (event) {
+			if (document.getElementById('lightbox').style.display != 'none') {
+				// Close lightbox
+				document.getElementById('lightbox').style.display = 'none';
+			}
+			else if (event.target.tagName == 'IMG') {
+				// Open lightbox
+				document.getElementById('lightbox-image').src = event.target.src;
+				document.getElementById('lightbox').style.display = 'block';
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<div class="lightbox" id="lightbox" style="display: none">
+		<img src="" id="lightbox-image" alt="Enlarged Image">
+	</div>
+	<div class="navbar">
+		<a class="nav-btn" href="general.html">General</a>
+		<a class="nav-btn" href="computer-vision.html">Computer Vision</a>
+		<a class="nav-btn" href="natural-language-processing.html">NLP</a>
+		<a class="nav-btn" href="reinforcement-learning.html">Reinforcement Learning</a>
+		<a class="nav-btn" href="audio.html">Audio</a>
+		<a class="nav-btn" href="sequential.html">Sequential</a>
+		<a class="nav-btn" href="graphs.html">Graphs</a>
+	</div>
+	<div class="container mx-auto">
+        <ul class="parent">
+            <p>1. Policy Gradient Methods</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+<strong>
+     Policy Gradient Methods
+    </strong>
+    try to optimize the policy function directly in reinforcement learning. This contrasts with, for example, Q-Learning, where the policy manifests itself as maximizing a value function. Below you can find a continuously updating catalog of policy gradient methods.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>PPO</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Proximal Policy Optimization
+  </strong>
+  , or
+  <strong>
+   PPO
+  </strong>
+  , is a policy gradient method for reinforcement learning. The motivation was to have an algorithm with the data efficiency and reliable performance of
+  <a href="https://paperswithcode.com/method/trpo">
+   TRPO
+  </a>
+  , while using only first-order optimization.
+ </p>
+ <p>
+  Let $r_{t}\left(\theta\right)$ denote the probability ratio $r_{t}\left(\theta\right) = \frac{\pi_{\theta}\left(a_{t}\mid{s_{t}}\right)}{\pi_{\theta_{old}}\left(a_{t}\mid{s_{t}}\right)}$, so $r\left(\theta_{old}\right) = 1$. TRPO maximizes a “surrogate” objective:
+ </p>
+ <p>
+  $$ L^{\text{CPI}}\left({\theta}\right) = \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t}\mid{s_{t}}\right)}{\pi_{\theta_{old}}\left(a_{t}\mid{s_{t}}\right)})\hat{A}_{t}\right] = \hat{\mathbb{E}}_{t}\left[r_{t}\left(\theta\right)\hat{A}_{t}\right] $$
+ </p>
+ <p>
+  Where $CPI$ refers to a conservative policy iteration. Without a constraint, maximization of $L^{CPI}$ would lead to an excessively large policy update; hence, we PPO modifies the objective, to penalize changes to the policy that move $r_{t}\left(\theta\right)$ away from 1:
+ </p>
+ <p>
+  $$ J^{\text{CLIP}}\left({\theta}\right) = \hat{\mathbb{E}}_{t}\left[\min\left(r_{t}\left(\theta\right)\hat{A}_{t}, \text{clip}\left(r_{t}\left(\theta\right), 1-\epsilon, 1+\epsilon\right)\hat{A}_{t}\right)\right] $$
+ </p>
+ <p>
+  where $\epsilon$ is a hyperparameter, say, $\epsilon = 0.2$. The motivation for this objective is as follows. The first term inside the min is $L^{CPI}$. The second term, $\text{clip}\left(r_{t}\left(\theta\right), 1-\epsilon, 1+\epsilon\right)\hat{A}_{t}$ modifies the surrogate
+objective by clipping the probability ratio, which removes the incentive for moving $r_{t}$ outside of the interval $\left[1 − \epsilon, 1 + \epsilon\right]$. Finally, we take the minimum of the clipped and unclipped objective, so the final objective is a lower bound (i.e., a pessimistic bound) on the unclipped objective. With this scheme, we only ignore the change in probability ratio when it would make the objective improve, and we include it when it makes the objective worse.
+ </p>
+ <p>
+  One detail to note is that when we apply PPO for a network where we have shared parameters for actor and critic functions, we typically add to the objective function an error term on value estimation and an entropy term to encourage exploration.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000574-965e3a73_JF2G6SY.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DDPG</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   DDPG
+  </strong>
+  , or
+  <strong>
+   Deep Deterministic Policy Gradient
+  </strong>
+  , is an actor-critic, model-free algorithm based on the deterministic policy gradient that can operate over continuous action spaces. It combines the actor-critic approach with insights from
+  <a href="https://paperswithcode.com/method/dqn">
+   DQNs
+  </a>
+  : in particular, the insights that 1) the network is trained off-policy with samples from a replay buffer to minimize correlations between samples, and 2) the network is trained with a target Q network to give consistent targets during temporal difference backups. DDPG makes use of the same ideas along with
+  <a href="https://paperswithcode.com/method/batch-normalization">
+   batch normalization
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000165-7e74433a.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>REINFORCE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   REINFORCE
+  </strong>
+  is a Monte Carlo variant of a policy gradient algorithm in reinforcement learning. The agent collects samples of an episode using its current policy, and uses it to update the policy parameter $\theta$. Since one full trajectory must be completed to construct a sample space, it is updated as an off-policy algorithm.
+ </p>
+ <p>
+  $$ \nabla_{\theta}J\left(\theta\right) = \mathbb{E}_{\pi}\left[G_{t}\nabla_{\theta}\ln\pi_{\theta}\left(A_{t}\mid{S_{t}}\right)\right]$$
+ </p>
+ <p>
+  Image Credit:
+  <a href="http://www.cs.toronto.edu/~tingwuwang/REINFORCE.pdf">
+   Tingwu Wang
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000265-61078f6f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>TD3</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   TD3
+  </strong>
+  builds on the
+  <a href="https://paperswithcode.com/method/ddpg">
+   DDPG
+  </a>
+  algorithm for reinforcement learning, with a couple of modifications aimed at tackling overestimation bias with the value function. In particular, it utilises
+  <a href="https://paperswithcode.com/method/clipped-double-q-learning">
+   clipped double Q-learning
+  </a>
+  , delayed update of target and policy networks, and
+  <a href="https://paperswithcode.com/method/target-policy-smoothing">
+   target policy smoothing
+  </a>
+  (which is similar to a
+  <a href="https://paperswithcode.com/method/sarsa">
+   SARSA
+  </a>
+  based update; a safer update, as they provide higher value to actions resistant to perturbations).
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000045-0b5e4409.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>TRPO</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Trust Region Policy Optimization
+  </strong>
+  , or
+  <strong>
+   TRPO
+  </strong>
+  , is a policy gradient method in reinforcement learning that avoids parameter updates that change the policy too much with a KL divergence constraint on the size of the policy update at each iteration.
+ </p>
+ <p>
+  Take the case of off-policy reinforcement learning, where the policy $\beta$ for collecting trajectories on rollout workers is different from the policy $\pi$ to optimize for. The objective function in an off-policy model measures the total advantage over the state visitation distribution and actions, while the mismatch between the training data distribution and the true policy state distribution is compensated with an importance sampling estimator:
+ </p>
+ <p>
+  $$ J\left(\theta\right) = \sum_{s\in{S}}p^{\pi_{\theta_{old}}}\sum_{a\in\mathcal{A}}\left(\pi_{\theta}\left(a\mid{s}\right)\hat{A}_{\theta_{old}}\left(s, a\right)\right) $$
+ </p>
+ <p>
+  $$ J\left(\theta\right) = \sum_{s\in{S}}p^{\pi_{\theta_{old}}}\sum_{a\in\mathcal{A}}\left(\beta\left(a\mid{s}\right)\frac{\pi_{\theta}\left(a\mid{s}\right)}{\beta\left(a\mid{s}\right)}\hat{A}_{\theta_{old}}\left(s, a\right)\right) $$
+ </p>
+ <p>
+  $$ J\left(\theta\right) = \mathbb{E}_{s\sim{p}^{\pi_{\theta_{old}}}, a\sim{\beta}} \left(\frac{\pi_{\theta}\left(a\mid{s}\right)}{\beta\left(a\mid{s}\right)}\hat{A}_{\theta_{old}}\left(s, a\right)\right)$$
+ </p>
+ <p>
+  When training on policy, theoretically the policy for collecting data is same as the policy that we want to optimize. However, when rollout workers and optimizers are running in parallel asynchronously, the behavior policy can get stale. TRPO considers this subtle difference: It labels the behavior policy as $\pi_{\theta_{old}}\left(a\mid{s}\right)$ and thus the objective function becomes:
+ </p>
+ <p>
+  $$ J\left(\theta\right) = \mathbb{E}_{s\sim{p}^{\pi_{\theta_{old}}}, a\sim{\pi_{\theta_{old}}}} \left(\frac{\pi_{\theta}\left(a\mid{s}\right)}{\pi_{\theta_{old}}\left(a\mid{s}\right)}\hat{A}_{\theta_{old}}\left(s, a\right)\right)$$
+ </p>
+ <p>
+  TRPO aims to maximize the objective function $J\left(\theta\right)$ subject to a trust region constraint which enforces the distance between old and new policies measured by KL-divergence to be small enough, within a parameter $\delta$:
+ </p>
+ <p>
+  $$ \mathbb{E}_{s\sim{p}^{\pi_{\theta_{old}}}} \left[D_{KL}\left(\pi_{\theta_{old}}\left(.\mid{s}\right)\mid\mid\pi_{\theta}\left(.\mid{s}\right)\right)\right] \leq \delta$$
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000629-16c4dd9c.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>A2C</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   A2C
+  </strong>
+  , or
+  <strong>
+   Advantage Actor Critic
+  </strong>
+  , is a synchronous version of the
+  <a href="https://paperswithcode.com/method/a3c">
+   A3C
+  </a>
+  policy gradient method. As an alternative to the asynchronous implementation of A3C, A2C is a synchronous, deterministic implementation that waits for each actor to finish its segment of experience before updating, averaging over all of the actors. This more effectively uses GPUs due to larger batch sizes.
+ </p>
+ <p>
+  Image Credit:
+  <a href="https://openai.com/blog/baselines-acktr-a2c/">
+   OpenAI Baselines
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000171-96baf2c0.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>2. Off-Policy TD Control</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Q-Learning</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Q-Learning
+  </strong>
+  is an off-policy temporal difference control algorithm:
+ </p>
+ <p>
+  $$Q\left(S_{t}, A_{t}\right) \leftarrow Q\left(S_{t}, A_{t}\right) + \alpha\left[R_{t+1} + \gamma\max_{a}Q\left(S_{t+1}, a\right) - Q\left(S_{t}, A_{t}\right)\right] $$
+ </p>
+ <p>
+  The learned action-value function $Q$ directly approximates $q_{*}$, the optimal action-value function, independent of the policy being followed.
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000466-c720d688.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DQN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   DQN
+  </strong>
+  , or Deep Q-Network, approximates a state-value function in a
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-Learning
+  </a>
+  framework with a neural network. In the Atari Games case, they take in several frames of the game as an input and output state values for each action as an output.
+ </p>
+ <p>
+  It is usually used in conjunction with
+  <a href="https://paperswithcode.com/method/experience-replay">
+   Experience Replay
+  </a>
+  , for storing the episode steps in memory for off-policy learning, where samples are drawn from the replay memory at random. Additionally, the Q-Network is usually optimized towards a frozen target network that is periodically updated with the latest weights every $k$ steps (where $k$ is a hyperparameter). The latter makes training more stable by preventing short-term oscillations from a moving target. The former tackles autocorrelation that would occur from on-line learning, and having a replay memory makes the problem more like a supervised learning problem.
+ </p>
+ <p>
+  Image Source:
+  <a href="https://www.researchgate.net/publication/319643003_Autonomous_Quadrotor_Landing_using_Deep_Reinforcement_Learning">
+   here
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000486-9af61132.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Double Q-learning</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Double Q-learning
+  </strong>
+  is an off-policy reinforcement learning algorithm that utilises double estimation to counteract overestimation problems with traditional Q-learning.
+ </p>
+ <p>
+  The max operator in standard
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-learning
+  </a>
+  and
+  <a href="https://paperswithcode.com/method/dqn">
+   DQN
+  </a>
+  uses the same values both to select and to evaluate an action. This makes it more likely to select overestimated values, resulting in overoptimistic value estimates. To prevent this, we can decouple the selection from the evaluation, which is the idea behind Double Q-learning:
+ </p>
+ <p>
+  $$ Y^{Q}_{t} = R_{t+1} + \gamma{Q}\left(S_{t+1}, \arg\max_{a}Q\left(S_{t+1}, a; \mathbb{\theta}_{t}\right);\mathbb{\theta}_{t}\right) $$
+ </p>
+ <p>
+  The Double Q-learning error can then be written as:
+ </p>
+ <p>
+  $$ Y^{DoubleQ}_{t} = R_{t+1} + \gamma{Q}\left(S_{t+1}, \arg\max_{a}Q\left(S_{t+1}, a; \mathbb{\theta}_{t}\right);\mathbb{\theta}^{'}_{t}\right) $$
+ </p>
+ <p>
+  Here the selection of the action in the $\arg\max$ is still due to the online weights $\theta_{t}$. But we use a second set of weights $\mathbb{\theta}^{'}_{t}$ to fairly evaluate the value of this policy.
+ </p>
+ <p>
+  Source:
+  <a href="https://paperswithcode.com/paper/deep-reinforcement-learning-with-double-q">
+   Deep Reinforcement Learning with Double Q-learning
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/e9a6987d-1e42-455d-be32-6af4f3327fbe.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Clipped Double Q-learning</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Clipped Double Q-learning
+  </strong>
+  is a variant on
+  <a href="https://paperswithcode.com/method/double-q-learning">
+   Double Q-learning
+  </a>
+  that upper-bounds the less biased Q estimate $Q_{\theta_{2}}$ by the biased estimate $Q_{\theta_{1}}$. This is equivalent to taking the minimum of the two estimates, resulting in the following target update:
+ </p>
+ <p>
+  $$ y_{1} = r + \gamma\min_{i=1,2}Q_{\theta'_{i}}\left(s', \pi_{\phi_{1}}\left(s'\right)\right) $$
+ </p>
+ <p>
+  The motivation for this extension is that vanilla double
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-learning
+  </a>
+  is sometimes ineffective if the target and current networks are too similar, e.g. with a slow-changing policy in an actor-critic framework.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000051-b30872c2.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            <br>
+        <li>
+            <details class="category depth1">
+            <summary>Q-Learning Networks</summary>
+            <ul>
+                <li class="col-md-12">
+                    
+                </li>
+                
+        <li>
+            <details class="method depth2">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>DQN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   DQN
+  </strong>
+  , or Deep Q-Network, approximates a state-value function in a
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-Learning
+  </a>
+  framework with a neural network. In the Atari Games case, they take in several frames of the game as an input and output state values for each action as an output.
+ </p>
+ <p>
+  It is usually used in conjunction with
+  <a href="https://paperswithcode.com/method/experience-replay">
+   Experience Replay
+  </a>
+  , for storing the episode steps in memory for off-policy learning, where samples are drawn from the replay memory at random. Additionally, the Q-Network is usually optimized towards a frozen target network that is periodically updated with the latest weights every $k$ steps (where $k$ is a hyperparameter). The latter makes training more stable by preventing short-term oscillations from a moving target. The former tackles autocorrelation that would occur from on-line learning, and having a replay memory makes the problem more like a supervised learning problem.
+ </p>
+ <p>
+  Image Source:
+  <a href="https://www.researchgate.net/publication/319643003_Autonomous_Quadrotor_Landing_using_Deep_Reinforcement_Learning">
+   here
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000486-9af61132.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Double DQN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Double Deep Q-Network
+  </strong>
+  , or
+  <strong>
+   Double DQN
+  </strong>
+  utilises
+  <a href="https://paperswithcode.com/method/double-q-learning">
+   Double Q-learning
+  </a>
+  to reduce overestimation by decomposing the max operation in the target into action selection and action evaluation. We evaluate the greedy policy according to the online network, but we use the target network to estimate its value.  The update is the same as for
+  <a href="https://paperswithcode.com/method/dqn">
+   DQN
+  </a>
+  , but replacing the target $Y^{DQN}_{t}$ with:
+ </p>
+ <p>
+  $$ Y^{DoubleDQN}_{t} = R_{t+1}+\gamma{Q}\left(S_{t+1}, \arg\max_{a}Q\left(S_{t+1}, a; \theta_{t}\right);\theta_{t}^{-}\right) $$
+ </p>
+ <p>
+  Compared to the original formulation of Double
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-Learning
+  </a>
+  , in Double DQN the weights of the second network $\theta^{'}_{t}$ are replaced with the weights of the target network $\theta_{t}^{-}$ for the evaluation of the current greedy policy.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000215-c4cf0872_t9m8RIs.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>REM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Random Ensemble Mixture (REM) is an easy to implement extension of
+  <a href="https://paperswithcode.com/method/dqn">
+   DQN
+  </a>
+  inspired by
+  <a href="https://paperswithcode.com/method/dropout">
+   Dropout
+  </a>
+  . The key intuition behind REM is that if one has access to multiple estimates of Q-values, then a weighted combination of the Q-value estimates is also an estimate for Q-values. Accordingly, in each training step, REM randomly combines multiple Q-value estimates and uses this random combination for robust training.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000763-44b3207f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Dueling Network</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Dueling Network
+  </strong>
+  is a type of Q-Network that has two streams to separately estimate (scalar) state-value and the advantages for each action. Both streams share a common convolutional feature learning module. The two streams are combined via a special aggregating layer to produce an
+estimate of the state-action value function Q as shown in the figure to the right.
+ </p>
+ <p>
+  The last module uses the following mapping:
+ </p>
+ <p>
+  $$ Q\left(s, a, \theta, \alpha, \beta\right) =V\left(s, \theta, \beta\right) + \left(A\left(s, a, \theta, \alpha\right) - \frac{1}{|\mathcal{A}|}\sum_{a'}A\left(s, a'; \theta, \alpha\right)\right) $$
+ </p>
+ <p>
+  This formulation is chosen for identifiability so that the advantage function has zero advantage for the chosen action, but instead of a maximum we use an average operator to increase the stability of the optimization.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056994-519b39d9_Z2Ui1AF.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+                
+            </ul>
+            </details>
+        </li>
+
+        
+        </ul>
+        
+        <ul class="parent">
+            <p>3. Reinforcement Learning Frameworks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>AM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>SCST</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>POMO</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DDQL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>4. Q-Learning Networks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>DQN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   DQN
+  </strong>
+  , or Deep Q-Network, approximates a state-value function in a
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-Learning
+  </a>
+  framework with a neural network. In the Atari Games case, they take in several frames of the game as an input and output state values for each action as an output.
+ </p>
+ <p>
+  It is usually used in conjunction with
+  <a href="https://paperswithcode.com/method/experience-replay">
+   Experience Replay
+  </a>
+  , for storing the episode steps in memory for off-policy learning, where samples are drawn from the replay memory at random. Additionally, the Q-Network is usually optimized towards a frozen target network that is periodically updated with the latest weights every $k$ steps (where $k$ is a hyperparameter). The latter makes training more stable by preventing short-term oscillations from a moving target. The former tackles autocorrelation that would occur from on-line learning, and having a replay memory makes the problem more like a supervised learning problem.
+ </p>
+ <p>
+  Image Source:
+  <a href="https://www.researchgate.net/publication/319643003_Autonomous_Quadrotor_Landing_using_Deep_Reinforcement_Learning">
+   here
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000486-9af61132.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Double DQN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Double Deep Q-Network
+  </strong>
+  , or
+  <strong>
+   Double DQN
+  </strong>
+  utilises
+  <a href="https://paperswithcode.com/method/double-q-learning">
+   Double Q-learning
+  </a>
+  to reduce overestimation by decomposing the max operation in the target into action selection and action evaluation. We evaluate the greedy policy according to the online network, but we use the target network to estimate its value.  The update is the same as for
+  <a href="https://paperswithcode.com/method/dqn">
+   DQN
+  </a>
+  , but replacing the target $Y^{DQN}_{t}$ with:
+ </p>
+ <p>
+  $$ Y^{DoubleDQN}_{t} = R_{t+1}+\gamma{Q}\left(S_{t+1}, \arg\max_{a}Q\left(S_{t+1}, a; \theta_{t}\right);\theta_{t}^{-}\right) $$
+ </p>
+ <p>
+  Compared to the original formulation of Double
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-Learning
+  </a>
+  , in Double DQN the weights of the second network $\theta^{'}_{t}$ are replaced with the weights of the target network $\theta_{t}^{-}$ for the evaluation of the current greedy policy.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000215-c4cf0872_t9m8RIs.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>REM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Random Ensemble Mixture (REM) is an easy to implement extension of
+  <a href="https://paperswithcode.com/method/dqn">
+   DQN
+  </a>
+  inspired by
+  <a href="https://paperswithcode.com/method/dropout">
+   Dropout
+  </a>
+  . The key intuition behind REM is that if one has access to multiple estimates of Q-values, then a weighted combination of the Q-value estimates is also an estimate for Q-values. Accordingly, in each training step, REM randomly combines multiple Q-value estimates and uses this random combination for robust training.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000763-44b3207f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Dueling Network</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Dueling Network
+  </strong>
+  is a type of Q-Network that has two streams to separately estimate (scalar) state-value and the advantages for each action. Both streams share a common convolutional feature learning module. The two streams are combined via a special aggregating layer to produce an
+estimate of the state-action value function Q as shown in the figure to the right.
+ </p>
+ <p>
+  The last module uses the following mapping:
+ </p>
+ <p>
+  $$ Q\left(s, a, \theta, \alpha, \beta\right) =V\left(s, \theta, \beta\right) + \left(A\left(s, a, \theta, \alpha\right) - \frac{1}{|\mathcal{A}|}\sum_{a'}A\left(s, a'; \theta, \alpha\right)\right) $$
+ </p>
+ <p>
+  This formulation is chosen for identifiability so that the advantage function has zero advantage for the chosen action, but instead of a maximum we use an average operator to increase the stability of the optimization.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056994-519b39d9_Z2Ui1AF.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>5. Heuristic Search Algorithms</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>GA</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Genetic Algorithms are search algorithms that mimic Darwinian biological evolution in order to select and propagate better solutions.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000882-66e4e71b.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Monte-Carlo Tree Search</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Monte-Carlo Tree Search
+  </strong>
+  is a planning algorithm that accumulates value estimates obtained from Monte Carlo simulations in order to successively direct simulations towards more highly-rewarded trajectories. We execute MCTS after encountering each new state to select an agent's action for that state: it is executed again to select the action for the next state. Each execution is an iterative process that simulates many trajectories starting from the current state to the terminal state. The core idea is to successively focus multiple simulations starting at the current state by extending the initial portions of trajectories that have received high evaluations from earlier simulations.
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning (2nd Edition)
+ </p>
+ <p>
+  Image Credit:
+  <a href="https://www.aaai.org/Papers/AIIDE/2008/AIIDE08-036.pdf">
+   Chaslot et al
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057296-7a3cec86.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Firefly algorithm</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Metaheuristic algorithm
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>4D A*</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The aim of 4D A* is to find the shortest path between two four-dimensional (4D) nodes of a 4D search space - a starting node and a target node - as long as there is a path. It achieves both optimality and completeness. The former is because the path is shortest possible, and the latter because if the solution exists the algorithm is guaranteed to find it.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000879-fb6d5280.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>6. Value Function Estimation</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>HOC</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>V-trace</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   V-trace
+  </strong>
+  is an off-policy actor-critic reinforcement learning algorithm that helps tackle the lag between when actions are generated by the actors and when the learner estimates the gradient. Consider a trajectory $\left(x_{t}, a_{t}, r_{t}\right)^{t=s+n}_{t=s}$ generated by the actor following some policy $\mu$. We can define the $n$-steps V-trace target for $V\left(x_{s}\right)$, our value approximation at state $x_{s}$ as:
+ </p>
+ <p>
+  $$ v_{s} = V\left(x_{s}\right) + \sum^{s+n-1}_{t=s}\gamma^{t-s}\left(\prod^{t-1}_{i=s}c_{i}\right)\delta_{t}V $$
+ </p>
+ <p>
+  Where $\delta_{t}V = \rho_{t}\left(r_{t} + \gamma{V}\left(x_{t+1}\right) - V\left(x_{t}\right)\right)$ is a temporal difference algorithm for $V$, and $\rho_{t} = \text{min}\left(\bar{\rho}, \frac{\pi\left(a_{t}\mid{x_{t}}\right)}{\mu\left(a_{t}\mid{x_{t}}\right)}\right)$ and $c_{i} = \text{min}\left(\bar{c}, \frac{\pi\left(a_{t}\mid{x_{t}}\right)}{\mu\left(a_{t}\mid{x_{t}}\right)}\right)$ are truncated importance sampling weights. We assume that the truncation levels are such that $\bar{\rho} \geq \bar{c}$.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057011-863b485d.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Retrace</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Retrace
+  </strong>
+  is an off-policy Q-value estimation algorithm which has guaranteed convergence for a target and behaviour policy $\left(\pi, \beta\right)$. With off-policy rollout for TD learning, we must use importance sampling for the update:
+ </p>
+ <p>
+  $$ \Delta{Q}^{\text{imp}}\left(S_{t}, A_{t}\right) = \gamma^{t}\prod_{1\leq{\tau}\leq{t}}\frac{\pi\left(A_{\tau}\mid{S_{\tau}}\right)}{\beta\left(A_{\tau}\mid{S_{\tau}}\right)}\delta_{t} $$
+ </p>
+ <p>
+  This product term can lead to high variance, so Retrace modifies $\Delta{Q}$ to have importance weights truncated by no more than a constant $c$:
+ </p>
+ <p>
+  $$ \Delta{Q}^{\text{imp}}\left(S_{t}, A_{t}\right) = \gamma^{t}\prod_{1\leq{\tau}\leq{t}}\min\left(c, \frac{\pi\left(A_{\tau}\mid{S_{\tau}}\right)}{\beta\left(A_{\tau}\mid{S_{\tau}}\right)}\right)\delta_{t} $$
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000181-7727e594.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>N-step Returns</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   $n$-step Returns
+  </strong>
+  are used for value function estimation in reinforcement learning. Specifically, for $n$ steps we can write the complete return as:
+ </p>
+ <p>
+  $$ R_{t}^{(n)} = r_{t+1} + \gamma{r}_{t+2} + \cdots + \gamma^{n-1}_{t+n} + \gamma^{n}V_{t}\left(s_{t+n}\right) $$
+ </p>
+ <p>
+  We can then write an $n$-step backup, in the style of TD learning, as:
+ </p>
+ <p>
+  $$ \Delta{V}_{r}\left(s_{t}\right) = \alpha\left[R_{t}^{(n)} - V_{t}\left(s_{t}\right)\right] $$
+ </p>
+ <p>
+  Multi-step returns often lead to faster learning with suitably tuned $n$.
+ </p>
+ <p>
+  Image Credit: Sutton and Barto, Reinforcement Learning
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000045745-856211df.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>7. Distributed Reinforcement Learning</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>IMPALA</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   IMPALA
+  </strong>
+  , or the
+  <strong>
+   Importance Weighted Actor Learner Architecture
+  </strong>
+  , is an off-policy actor-critic framework that decouples acting from learning and learns from experience trajectories using
+  <a href="https://paperswithcode.com/method/v-trace">
+   V-trace
+  </a>
+  . Unlike the popular
+  <a href="https://paperswithcode.com/method/a3c">
+   A3C
+  </a>
+  -based agents, in which workers communicate gradients with respect to the parameters of the policy to a central parameter server, IMPALA actors communicate trajectories of experience (sequences of states, actions, and rewards) to a centralized learner. Since the learner in IMPALA has access to full trajectories of experience we use a GPU to perform updates on mini-batches of trajectories while aggressively parallelising all time independent operations.
+ </p>
+ <p>
+  This type of decoupled architecture can achieve very high throughput. However, because the policy used to generate a trajectory can lag behind the policy on the learner by several updates at the time of gradient calculation, learning becomes off-policy. The V-trace off-policy actor-critic algorithm is used to correct for this harmful discrepancy.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000618-ec4a8176.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Ape-X</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Ape-X
+  </strong>
+  is a distributed architecture for deep reinforcement learning. The algorithm decouples acting from learning: the actors interact with their own instances of the environment by selecting actions according to a shared neural network, and accumulate the resulting experience in a shared
+  <a href="https://paperswithcode.com/method/experience-replay">
+   experience replay
+  </a>
+  memory; the learner replays samples of experience and updates the neural network. The architecture relies on
+  <a href="https://paperswithcode.com/method/prioritized-experience-replay">
+   prioritized experience replay
+  </a>
+  to focus only on the most significant data generated by the actors.
+ </p>
+ <p>
+  In contrast to Gorila, Ape-X uses a shared, centralized replay memory, and instead of sampling
+uniformly, it prioritizes, to sample the most useful data more often. All communications are batched with the centralized replay, increasing the efficiency and throughput at the cost of some latency. 
+And by learning off-policy, Ape-X has the ability to combine data from many distributed actors, by giving the different actors different exploration policies, broadening the diversity of the experience they jointly encounter.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000714-f96c6be9.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DD-PPO</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Decentralized Distributed Proximal Policy Optimization (DD-PPO)
+  </strong>
+  is a method for distributed reinforcement learning in resource-intensive simulated environments. DD-PPO is distributed (uses multiple machines), decentralized (lacks a centralized server), and synchronous (no computation is ever `stale'), making it conceptually simple and easy to implement.
+ </p>
+ <p>
+  Proximal Policy Optimization, or
+  <a href="https://paperswithcode.com/method/ppo">
+   PPO
+  </a>
+  , is a policy gradient method for reinforcement learning. The motivation was to have an algorithm with the data efficiency and reliable performance of
+  <a href="https://paperswithcode.com/method/trpo">
+   TRPO
+  </a>
+  , while using only first-order optimization.
+ </p>
+ <p>
+  Let $r_{t}\left(\theta\right)$ denote the probability ratio $r_{t}\left(\theta\right) = \frac{\pi_{\theta}\left(a_{t}\mid{s_{t}}\right)}{\pi_{\theta_{old}}\left(a_{t}\mid{s_{t}}\right)}$, so $r\left(\theta_{old}\right) = 1$. TRPO maximizes a “surrogate” objective:
+ </p>
+ <p>
+  $$ L^{v}\left({\theta}\right) = \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t}\mid{s_{t}}\right)}{\pi_{\theta_{old}}\left(a_{t}\mid{s_{t}}\right)})\hat{A}_{t}\right] = \hat{\mathbb{E}}_{t}\left[r_{t}\left(\theta\right)\hat{A}_{t}\right] $$
+ </p>
+ <p>
+  As a general abstraction, DD-PPO implements the following:
+at step $k$, worker $n$ has a copy of the parameters, $\theta^k_n$, calculates the gradient, $\delta \theta^k_n$, and updates $\theta$ via
+ </p>
+ <p>
+  $$ \theta^{k+1}_n =  \text{ParamUpdate}\Big(\theta^{k}_n, \text{AllReduce}\big(\delta \theta^k_1, \ldots, \delta \theta^k_N\big)\Big) = \text{ParamUpdate}\Big(\theta^{k}_n, \frac{1}{N}  \sum_{i=1}^{N} { \delta \theta^k_i}   \Big) $$
+ </p>
+ <p>
+  where $\text{ParamUpdate}$ is any first-order optimization technique (e.g. gradient descent) and $\text{AllReduce}$ performs a reduction (e.g. mean) over all copies of a variable and returns the result to all workers.
+Distributed DataParallel scales very well (near-linear scaling up to 32,000 GPUs), and is reasonably simple to implement (all workers synchronously running identical code).
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>APPO</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>8. On-Policy TD Control</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Sarsa</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Sarsa
+  </strong>
+  is an on-policy TD control algorithm:
+ </p>
+ <p>
+  $$Q\left(S_{t}, A_{t}\right) \leftarrow Q\left(S_{t}, A_{t}\right) + \alpha\left[R_{t+1} + \gamma{Q}\left(S_{t+1}, A_{t+1}\right) - Q\left(S_{t}, A_{t}\right)\right] $$
+ </p>
+ <p>
+  This update is done after every transition from a nonterminal state $S_{t}$. if $S_{t+1}$ is terminal, then $Q\left(S_{t+1}, A_{t+1}\right)$ is defined as zero.
+ </p>
+ <p>
+  To design an on-policy control algorithm using Sarsa, we estimate $q_{\pi}$ for a behaviour policy $\pi$ and then change $\pi$ towards greediness with respect to $q_{\pi}$.
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000468-deac60b0.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>TD Lambda</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   TD_INLINE_MATH_1
+  </strong>
+  is a generalisation of
+  <strong>
+   TD_INLINE_MATH_2
+  </strong>
+  reinforcement learning algorithms, but it employs an
+  <a href="https://paperswithcode.com/method/eligibility-trace">
+   eligibility trace
+  </a>
+  $\lambda$ and $\lambda$-weighted returns. The eligibility trace vector is initialized to zero at the beginning of the episode, and it is incremented on each time step by the value gradient, and then fades away by $\gamma\lambda$:
+ </p>
+ <p>
+  $$ \textbf{z}_{-1} = \mathbf{0} $$
+$$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \mathbf{w}_{t}\right), 0 \leq t \leq T$$
+ </p>
+ <p>
+  The eligibility trace keeps track of which components of the weight vector contribute to recent state valuations. Here $\nabla\hat{v}\left(S_{t}, \mathbf{w}_{t}\right)$ is the feature vector.
+ </p>
+ <p>
+  The TD error for state-value prediction is:
+ </p>
+ <p>
+  $$ \delta_{t} = R_{t+1} + \gamma\hat{v}\left(S_{t+1}, \mathbf{w}_{t}\right) - \hat{v}\left(S_{t}, \mathbf{w}_{t}\right) $$
+ </p>
+ <p>
+  In
+  <strong>
+   TD_INLINE_MATH_1
+  </strong>
+  , the weight vector is updated on each step proportional to the scalar TD error and the vector eligibility trace:
+ </p>
+ <p>
+  $$ \mathbf{w}_{t+1} = \mathbf{w}_{t} + \alpha\delta\mathbf{z}_{t}  $$
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000591-8a10fb4a.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Expected Sarsa</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Expected Sarsa
+  </strong>
+  is like
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-learning
+  </a>
+  but instead of taking the maximum over next state-action pairs, we use the expected value, taking into account how likely each action is under the current policy.
+ </p>
+ <p>
+  $$Q\left(S_{t}, A_{t}\right) \leftarrow Q\left(S_{t}, A_{t}\right) + \alpha\left[R_{t+1} + \gamma\sum_{a}\pi\left(a\mid{S_{t+1}}\right)Q\left(S_{t+1}, a\right) - Q\left(S_{t}, A_{t}\right)\right] $$
+ </p>
+ <p>
+  Except for this change to the update rule, the algorithm otherwise follows the scheme of Q-learning. It is more computationally expensive than
+  <a href="https://paperswithcode.com/method/sarsa">
+   Sarsa
+  </a>
+  but it eliminates the variance due to the random selection of $A_{t+1}$.
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000168-77bcdf09_CkOeCWd.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>True Online TD Lambda</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   True Online $TD\left(\lambda\right)$
+  </strong>
+  seeks to approximate the ideal online $\lambda$-return algorithm. It seeks to invert this ideal forward-view algorithm to produce an efficient backward-view algorithm using eligibility traces. It uses dutch traces rather than accumulating traces.
+ </p>
+ <p>
+  Source:
+  <a href="http://proceedings.mlr.press/v32/seijen14.pdf">
+   Sutton and Seijen
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056990-27a18816_DTlx1QN.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>9. Imitation Learning Methods</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Parrot</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Parrot
+  </strong>
+  is an imitation learning approach to automatically learn cache access patterns by leveraging Belady’s optimal policy. Belady’s optimal policy is an oracle policy that computes the theoretically optimal cache eviction decision based on knowledge of future cache accesses, which Parrot approximates with a policy that only conditions on the past accesses.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/a7bad1a5-ab8a-4612-8c63-8101b03d3100.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>PWIL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Primal Wasserstein Imitation Learning
+  </strong>
+  , or
+  <strong>
+   PWIL
+  </strong>
+  , is a method for imitation learning which ties to the primal form of the Wasserstein distance between the expert and the agent state-action distributions. The reward function is derived offline, as opposed to recent adversarial IL algorithms that learn a reward function through interactions with the environment, and requires little fine-tuning.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001360-0687452f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>IQ-Learn</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Inverse Q-Learning (IQ-Learn)
+  </strong>
+  is a a simple, stable &amp; data-efficient framework for Imitation Learning (IL), that directly learns
+  <em>
+   soft Q-functions
+  </em>
+  from expert data. IQ-Learn enables
+  <strong>
+   non-adverserial
+  </strong>
+  imitation learning, working on both offline and online IL settings. It is performant even with very sparse expert data, and scales to complex image-based environments, surpassing prior methods by more than
+  <strong>
+   3x
+  </strong>
+  .
+ </p>
+ <p>
+  It is very simple to implement requiring ~15 lines of code on top of existing RL methods.
+ </p>
+ <p>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c9159d50-ccf3-4f29-a419-94a485c9cd45.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>CLIPort</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  CLIPort, a language-conditioned imitation-learning agent that combines the broad semantic understanding (what) of CLIP [1] with the spatial precision (where) of Transporter [2].
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>10. Board Game Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>AlphaZero</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   AlphaZero
+  </strong>
+  is a reinforcement learning agent for playing board games such as Go, chess, and shogi.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000018973-841a128f_zj4WDJ9.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>MuZero</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   MuZero
+  </strong>
+  is a model-based reinforcement learning algorithm. It builds upon
+  <a href="https://paperswithcode.com/method/alphazero">
+   AlphaZero
+  </a>
+  's search and search-based policy iteration algorithms, but incorporates a learned model into the training procedure.
+ </p>
+ <p>
+  The main idea of the algorithm is to predict those aspects of the future that are directly relevant for planning. The model receives the observation (e.g. an image of the Go board or the Atari screen) as an
+input and transforms it into a hidden state. The hidden state is then updated iteratively by a recurrent process that receives the previous hidden state and a hypothetical next action. At every one of these steps the model predicts the policy (e.g. the move to play), value function (e.g. the predicted winner), and immediate reward (e.g. the points scored by playing a move). The model is trained end-to-end, with the sole objective of accurately estimating these three important quantities, so as to match the improved estimates of policy and value generated by search as well as the observed reward.
+ </p>
+ <p>
+  There is no direct constraint or requirement for the hidden state to capture all information necessary to reconstruct the original observation, drastically reducing the amount of information the model has to maintain and predict; nor is there any requirement for the hidden state to match the unknown, true state of the environment; nor any other constraints on the semantics of state. Instead, the hidden states are free to represent state in whatever way is relevant to predicting current and future values and policies. Intuitively, the agent can invent, internally, the rules or dynamics that lead to most accurate planning.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000450-2a3153fe.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>TD-Gammon</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   TD-Gammon
+  </strong>
+  is a game-learning architecture for playing backgammon. It involves the use of a $TD\left(\lambda\right)$ learning algorithm and a feedforward neural network.
+ </p>
+ <p>
+  Credit:
+  <a href="https://cling.csd.uwo.ca/cs346a/extra/tdgammon.pdf">
+   Temporal Difference Learning and
+TD-Gammon
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056982-cbc26df4.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>11. Eligibility Traces</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Accumulating Eligibility Trace</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  An
+  <strong>
+   Accumulating Eligibility Trace
+  </strong>
+  is a type of
+  <a href="https://paperswithcode.com/method/eligibility-trace">
+   eligibility trace
+  </a>
+  where the trace increments in an accumulative way. For the memory vector $\textbf{e}_{t} \in \mathbb{R}^{b} \geq \textbf{0}$:
+ </p>
+ <p>
+  $$\mathbf{e_{0}} = \textbf{0}$$
+ </p>
+ <p>
+  $$\textbf{e}_{t} = \nabla{\hat{v}}\left(S_{t}, \mathbf{\theta}_{t}\right) + \gamma\lambda\textbf{e}_{t}$$
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056987-ca9f26f4.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Eligibility Trace</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  An
+  <strong>
+   Eligibility Trace
+  </strong>
+  is a memory vector $\textbf{z}_{t} \in \mathbb{R}^{d}$ that parallels the long-term weight vector $\textbf{w}_{t} \in \mathbb{R}^{d}$. The idea is that when a component of $\textbf{w}_{t}$ participates in producing an estimated value, the corresponding component of $\textbf{z}_{t}$ is bumped up and then begins to fade away. Learning will then occur in that component of $\textbf{w}_{t}$ if a nonzero TD error occurs before the trade falls back to zero. The trace-decay parameter $\lambda \in \left[0, 1\right]$ determines the rate at which the trace falls.
+ </p>
+ <p>
+  Intuitively, they tackle the credit assignment problem by capturing both a frequency heuristic - states that are visited more often deserve more credit - and a recency heuristic - states that are visited more recently deserve more credit.
+ </p>
+ <p>
+  $$E_{0}\left(s\right) = 0 $$
+$$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S_{t} = s\right) $$
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056986-7441401b_BprPztK.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Dutch Eligibility Trace</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Dutch Eligibility Trace
+  </strong>
+  is a type of
+  <a href="https://paperswithcode.com/method/eligibility-trace">
+   eligibility trace
+  </a>
+  where the trace increments grow less quickly than the accumulative eligibility trace (helping avoid large variance updates). For the memory vector $\textbf{e}_{t} \in \mathbb{R}^{b} \geq \textbf{0}$:
+ </p>
+ <p>
+  $$\mathbf{e_{0}} = \textbf{0}$$
+ </p>
+ <p>
+  $$\textbf{e}_{t} = \gamma\lambda\textbf{e}_{t-1} + \left(1-\alpha\gamma\lambda\textbf{e}_{t-1}^{T}\phi_{t}\right)\phi_{t}$$
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056988-52bdff31.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Replacing Eligibility Trace</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  In a
+  <strong>
+   Replacing Eligibility Trace
+  </strong>
+  , each time the state is revisited, the trace is reset to $1$ regardless of the presence of a prior trace.. For the memory vector $\textbf{e}_{t} \in \mathbb{R}^{b} \geq \textbf{0}$:
+ </p>
+ <p>
+  $$\mathbf{e_{0}} = \textbf{0}$$
+ </p>
+ <p>
+  $$\textbf{e}_{t} = \gamma\lambda{e}_{t-1}\left(s\right) \text{ if } s \neq s_{t}$$
+ </p>
+ <p>
+  $$\textbf{e}_{t} = 1 \text{ if } s = s_{t}$$
+ </p>
+ <p>
+  They can be seen as crude approximation to dutch traces, which have largely superseded them as they perform better than replacing traces and have a clearer theoretical basis. Accumulating traces remain of interest for nonlinear function approximations where dutch traces are not available.
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056989-9d4bc918_SpMT7Ln.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>12. Behaviour Policies</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Go-Explore</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Go-Explore
+  </strong>
+  is a family of algorithms aiming to tackle two challenges with effective exploration in reinforcement learning: algorithms forgetting how to reach previously visited states ("detachment") and from failing to first return to a state before exploring from it ("derailment").
+ </p>
+ <p>
+  To avoid detachment, Go-Explore builds an archive of the different states it has visited in the environment, thus ensuring that states cannot be forgotten. Starting with an archive beginning with the initial state, the archive is built iteratively. In Go-Explore we:
+ </p>
+ <p>
+  (a) Probabilistically select a state from the archive, preferring states associated with promising cells.
+ </p>
+ <p>
+  (b) Return to the selected state, such as by restoring simulator state or by running a goal-conditioned policy.
+ </p>
+ <p>
+  (c) Explore from that state by taking random actions or sampling from a trained policy.
+ </p>
+ <p>
+  (d) Map every state encountered during returning and exploring to a low-dimensional cell representation.
+ </p>
+ <p>
+  (e) Add states that map to new cells to the archive and update other archive entries.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001226-5298c4cf_CPN1f8R.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Epsilon Greedy Exploration</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   $\epsilon$-Greedy Exploration
+  </strong>
+  is an exploration strategy in reinforcement learning that takes an exploratory action with probability $\epsilon$ and a greedy action with probability $1-\epsilon$. It tackles the exploration-exploitation tradeoff with reinforcement learning algorithms: the desire to explore the state space with the desire to seek an optimal policy. Despite its simplicity, it is still commonly used as an behaviour policy $\pi$ in several state-of-the-art reinforcement learning models.
+ </p>
+ <p>
+  Image Credit:
+  <a href="https://cran.r-project.org/web/packages/contextual/vignettes/sutton_barto.html">
+   Robin van Embden
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056995-f2c061ec.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>13. Offline Reinforcement Learning Methods</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>R2D2</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Building on the recent successes of distributed training of RL agents, R2D2 is an RL approach that trains a RNN-based RL agents from distributed prioritized experience replay. 
+Using a single network architecture and fixed set of hyperparameters, Recurrent Replay Distributed DQN quadrupled the previous state of the art on Atari-57, and matches the state of the art on DMLab-30. 
+It was the first agent to exceed human-level performance in 52 of the 57 Atari games.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>IQL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Fisher-BRC</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Fisher-BRC
+  </strong>
+  is an actor critic algorithm for offline reinforcement learning that encourages the learned policy to stay close to the data, namely parameterizing the critic as the $\log$-behavior-policy, which generated the offline dataset, plus a state-action value offset term, which can be learned using a neural network. Behavior regularization then corresponds to an appropriate regularizer on the offset term. A gradient penalty regularizer is used for the offset term, which is equivalent to Fisher divergence regularization, suggesting connections to the score matching and generative energy-based model literature.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001553-2d3da05d_pw5JHxS.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>14. Replay Memory</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Experience Replay</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Experience Replay
+  </strong>
+  is a replay memory technique used in reinforcement learning where we store the agent’s experiences at each time-step, $e_{t} = \left(s_{t}, a_{t}, r_{t}, s_{t+1}\right)$ in a data-set $D = e_{1}, \cdots, e_{N}$ , pooled over many episodes into a replay memory. We then usually sample the memory randomly for a minibatch of experience, and use this to learn off-policy, as with Deep Q-Networks. This tackles the problem of autocorrelation leading to unstable training, by making the problem more like a supervised learning problem.
+ </p>
+ <p>
+  Image Credit:
+  <a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781788836524">
+   Hands-On Reinforcement Learning with Python, Sudharsan Ravichandiran
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000021052-634c7be5.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Prioritized Experience Replay</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Prioritized Experience Replay
+  </strong>
+  is a type of
+  <a href="https://paperswithcode.com/method/experience-replay">
+   experience replay
+  </a>
+  in reinforcement learning where we more frequently replay transitions with high expected learning progress, as measured by the magnitude of their temporal-difference (TD) error. This prioritization can lead to a loss of diversity, which is alleviated with stochastic prioritization, and introduce bias, which can be corrected with importance sampling.
+ </p>
+ <p>
+  The stochastic sampling method interpolates between pure greedy prioritization and uniform random sampling. The probability of being sampled is ensured to be monotonic in a transition's priority,  while guaranteeing a non-zero probability even for the lowest-priority transition. Concretely, define the probability of sampling transition $i$ as
+ </p>
+ <p>
+  $$P(i) = \frac{p_i^{\alpha}}{\sum_k p_k^{\alpha}}$$
+ </p>
+ <p>
+  where $p_i &gt; 0$ is the priority of transition $i$. The exponent $\alpha$ determines how much prioritization is used, with $\alpha=0$ corresponding to the uniform case.
+ </p>
+ <p>
+  Prioritized replay introduces bias because it changes this distribution in an uncontrolled fashion, and therefore changes the solution that the estimates will converge to. We can correct this bias by using
+importance-sampling (IS) weights:
+ </p>
+ <p>
+  $$ w_{i} = \left(\frac{1}{N}\cdot\frac{1}{P\left(i\right)}\right)^{\beta} $$
+ </p>
+ <p>
+  that fully compensates for the non-uniform probabilities $P\left(i\right)$ if $\beta = 1$. These weights can be folded into the
+  <a href="https://paperswithcode.com/method/q-learning">
+   Q-learning
+  </a>
+  update by using $w_{i}\delta_{i}$ instead of $\delta_{i}$ - weighted IS rather than ordinary IS. For stability reasons, we always normalize weights by $1/\max_{i}w_{i}$ so
+that they only scale the update downwards.
+ </p>
+ <p>
+  The two types of prioritization are proportional based, where $p_{i} = |\delta_{i}| + \epsilon$ and rank-based, where $p_{i} = \frac{1}{\text{rank}\left(i\right)}$, the latter where $\text{rank}\left(i\right)$ is the rank of transition $i$ when the replay memory is sorted according to |$\delta_{i}$|, For proportional based, hyperparameters used were $\alpha = 0.7$, $\beta_{0} = 0.5$. For the rank-based variant, hyperparameters used were $\alpha = 0.6$, $\beta_{0} = 0.4$.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c27d508d-9fda-4fce-a8bd-6ab1081d68a4.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>15. Efficient Planning</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Prioritized Sweeping</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Prioritized Sweeping
+  </strong>
+  is a reinforcement learning technique for model-based algorithms that prioritizes updates according to a measure of urgency, and performs these updates first. A queue is maintained of every state-action pair whose estimated value would change nontrivially if updated, prioritized by the size of the change. When the top pair in the queue is updated, the effect on each of its predecessor pairs is computed. If the effect is greater than some threshold, then the pair is inserted in the queue with the new priority.
+ </p>
+ <p>
+  Source: Sutton and Barto, Reinforcement Learning, 2nd Edition
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000160-99e3f0bd.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>16. Randomized Value Functions</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>REM</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Random Ensemble Mixture (REM) is an easy to implement extension of
+  <a href="https://paperswithcode.com/method/dqn">
+   DQN
+  </a>
+  inspired by
+  <a href="https://paperswithcode.com/method/dropout">
+   Dropout
+  </a>
+  . The key intuition behind REM is that if one has access to multiple estimates of Q-values, then a weighted combination of the Q-value estimates is also an estimate for Q-values. Accordingly, in each training step, REM randomly combines multiple Q-value estimates and uses this random combination for robust training.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000763-44b3207f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Noisy Linear Layer</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Noisy Linear Layer
+  </strong>
+  is a
+  <a href="https://paperswithcode.com/method/linear-layer">
+   linear layer
+  </a>
+  with parametric noise added to the weights. This induced stochasticity can be used in reinforcement learning networks for the agent's policy to aid efficient exploration. The parameters of the noise are learned with gradient descent along with any other remaining network weights. Factorized Gaussian noise is the type of noise usually employed.
+ </p>
+ <p>
+  The noisy linear layer takes the form:
+ </p>
+ <p>
+  $$y = \left(b + Wx\right) + \left(b_{noisy}\odot\epsilon^{b}+\left(W_{noisy}\odot\epsilon^{w}\right)x\right) $$
+ </p>
+ <p>
+  where $\epsilon^{b}$ and $\epsilon^{w}$ are random variables.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056996-52211715.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>17. Video Game Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>CARLA</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  CARLA is an open-source simulator for autonomous driving research. CARLA has been developed from the ground up to support development, training, and validation of autonomous urban driving systems. In addition to open-source code and protocols, CARLA provides open digital assets (urban layouts, buildings, vehicles) that were created for this purpose and can be used freely.
+ </p>
+ <p>
+  Source:
+  <a href="https://arxiv.org/pdf/1711.03938v1.pdf">
+   Dosovitskiy et al.
+  </a>
+ </p>
+ <p>
+  Image source:
+  <a href="https://arxiv.org/pdf/1711.03938v1.pdf">
+   Dosovitskiy et al.
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000886-be502495.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>AlphaStar</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   AlphaStar
+  </strong>
+  is a reinforcement learning agent for tackling the game of Starcraft II. It learns a policy $\pi_{\theta}\left(a_{t}\mid{s_{t}}, z\right) = P\left[a_{t}\mid{s_{t}}, z\right]$ using a neural network for parameters $\theta$ that receives observations $s_{t} = \left(o_{1:t}, a_{1:t-1}\right)$ as inputs and chooses actions as outputs. Additionally, the policy conditions on a statistic $z$ that summarizes a strategy sampled from human data such as a build order [1].
+ </p>
+ <p>
+  AlphaStar uses numerous types of architecture to incorporate different types of features. Observations of player and enemy units are processed with a
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  . Scatter connections are used to integrate spatial and non-spatial information. The temporal sequence of observations is processed by a core
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  . Minimap features are extracted with a Residual Network. To manage the combinatorial action space, the agent uses an autoregressive policy and a recurrent
+  <a href="https://paperswithcode.com/method/pointer-net">
+   pointer network
+  </a>
+  .
+ </p>
+ <p>
+  The agent is trained first with supervised learning from human replays. Parameters are subsequently trained using reinforcement learning that maximizes the win rate against opponents.  The RL algorithm is based on a policy-gradient algorithm similar to actor-critic. Updates are performed asynchronously and off-policy. To deal with this, a combination of $TD\left(\lambda\right)$ and
+  <a href="https://paperswithcode.com/method/v-trace">
+   V-trace
+  </a>
+  are used, as well as a new self-imitation algorithm (UPGO).
+ </p>
+ <p>
+  Lastly, to address game-theoretic challenges, AlphaStar is trained with league training to try to approximate a fictitious self-play (FSP) setting which avoids cycles by computing a best response against a uniform mixture of all previous policies. The league of potential opponents includes a diverse range of agents, including policies from current and previous agents.
+ </p>
+ <p>
+  Image Credit:
+  <a href="https://ychai.uk/notes/2019/07/21/RL/DRL/Decipher-AlphaStar-on-StarCraft-II/">
+   Yekun Chai
+  </a>
+ </p>
+ <h4>
+  References
+ </h4>
+ <ol>
+  <li>
+   Chai, Yekun. "AlphaStar: Grandmaster level in StarCraft II Explained." (2019).
+   <a href="https://ychai.uk/notes/2019/07/21/RL/DRL/Decipher-AlphaStar-on-StarCraft-II/">
+    https://ychai.uk/notes/2019/07/21/RL/DRL/Decipher-AlphaStar-on-StarCraft-II/
+   </a>
+  </li>
+ </ol>
+ <h4>
+  Code Implementation
+ </h4>
+ <ol>
+  <li>
+   https://github.com/opendilab/DI-star
+  </li>
+ </ol>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/25650e6f-2079-4d7e-9a59-4632bc879ea6.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>18. RL Transformers</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>GTrXL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Gated Transformer-XL
+  </strong>
+  , or
+  <strong>
+   GTrXL
+  </strong>
+  , is a
+  <a href="https://paperswithcode.com/methods/category/transformers">
+   Transformer
+  </a>
+  -based architecture for reinforcement learning. It introduces architectural modifications that improve the stability and learning speed of the original Transformer and XL variant. Changes include:
+ </p>
+ <ul>
+  <li>
+   Placing the
+   <a href="https://paperswithcode.com/method/layer-normalization">
+    layer normalization
+   </a>
+   on only the input stream of the submodules. A key benefit to this reordering is that it now enables an identity map from the input of the transformer at the first layer to the output of the transformer after the last layer. This is in contrast to the canonical transformer, where there are a series of layer normalization operations that non-linearly transform the state encoding.
+  </li>
+  <li>
+   Replacing
+   <a href="https://paperswithcode.com/method/residual-connection">
+    residual connections
+   </a>
+   with gating layers. The authors' experiments found that
+   <a href="https://www.paperswithcode.com/method/gru">
+    GRUs
+   </a>
+   were the most effective form of gating.
+  </li>
+ </ul>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8e028d84-2231-45d4-9a6e-5cab2058eedd.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>CoBERL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Contrastive BERT
+  </strong>
+  is a reinforcement learning agent that combines a new contrastive loss and a hybrid
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  -
+  <a href="https://paperswithcode.com/method/transformer">
+   transformer
+  </a>
+  architecture to tackle the challenge of improving data efficiency for RL. It uses bidirectional masked prediction in combination with a generalization of recent contrastive methods to learn better representations for transformers in RL, without the need of hand engineered data augmentations.
+ </p>
+ <p>
+  For the architecture, a residual network is used to encode observations into embeddings $Y_{t}$. $Y_{t}$  is fed through a causally masked
+  <a href="https://www.paperswithcode.com/method/gtrxl">
+   GTrXL transformer
+  </a>
+  , which computes the predicted masked inputs $X_{t}$ and passes those together with $Y_{t}$ to a learnt gate. The output of the gate is passed through a single
+  <a href="https://www.paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  layer to produce the values that we use for computing the RL loss. A contrastive loss is computed using predicted masked inputs $X_{t}$ and $Y_{t}$ as targets. For this, we do not use the causal mask of the Transformer.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/6f04b24c-f908-4124-9e2b-ad8400105ce4.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>19. Exploration Strategies</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Counterfactuals</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>gSDE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Generalized State-Dependent Exploration
+  </strong>
+  , or
+  <strong>
+   gSDE
+  </strong>
+  , is an exploration method for reinforcement learning that uses more general features and re-sampling the noise periodically.
+ </p>
+ <p>
+  State-Dependent Exploration (SDE) is an intermediate solution for exploration that consists in adding noise as a function of the state $s_{t}$, to the deterministic action $\mu\left(\mathbf{s}_{t}\right)$. At the beginning of an episode, the parameters $\theta_{\epsilon}$ of that exploration function are drawn from a Gaussian distribution. The resulting action $\mathbf{a}_{t}$ is as follows:
+ </p>
+ <p>
+  $$
+\mathbf{a}_{t}=\mu\left(\mathbf{s}_{t} ; \theta_{\mu}\right)+\epsilon\left(\mathbf{s}_{t} ; \theta_{\epsilon}\right), \quad \theta_{\epsilon} \sim \mathcal{N}\left(0, \sigma^{2}\right)
+$$
+ </p>
+ <p>
+  This episode-based exploration is smoother and more consistent than the unstructured step-based exploration. Thus, during one episode, instead of oscillating around a mean value, the action a for a given state $s$ will be the same.
+ </p>
+ <p>
+  In the case of a linear exploration function $\epsilon\left(\mathbf{s} ; \theta_{\epsilon}\right)=\theta_{\epsilon} \mathbf{s}$, by operation on Gaussian distributions, Rückstieß et al. show that the action element $\mathbf{a}_{j}$ is normally distributed:
+ </p>
+ <p>
+  $$
+\pi]_{j}\left(\mathbf{a}_{j} \mid \mathbf{s}\right) \sim \mathcal{N}\left(\mu_{j}(\mathbf{s}), \hat{\sigma_{j}}^{2}\right)
+$$
+ </p>
+ <p>
+  where $\hat{\sigma}$ is a diagonal matrix with elements $\hat{\sigma}_{j}=\sqrt{\sum_{i}\left(\sigma_{i j} \mathbf{s}_{i}\right)^{2}}$.
+ </p>
+ <p>
+  Because we know the policy distribution, we can obtain the derivative of the log-likelihood $\log \pi(\mathbf{a} \mid \mathbf{s})$ with respect to the variance $\sigma$ :
+ </p>
+ <p>
+  $$
+\frac{\partial \log \pi(\mathbf{a} \mid \mathbf{s})}{\partial \sigma_{i j}}=\frac{\left(\mathbf{a}_{j}-\mu_{j}\right)^{2}-\hat{\sigma_{j}}^{2}}{\hat{\sigma}_{j}^{3}} \frac{\mathbf{s}_{i}^{2} \sigma_{i j}}{\hat{\sigma_{j}}}
+$$
+ </p>
+ <p>
+  This can be easily plugged into the likelihood ratio gradient estimator, which allows to adapt $\sigma$ during training. SDE is therefore compatible with standard policy gradient methods, while addressing most shortcomings of the unstructured exploration.
+ </p>
+ <p>
+  For gSDE, two improvements are suggested:
+ </p>
+ <ol>
+  <li>
+   We sample the parameters $\theta_{\epsilon}$ of the exploration function every $n$ steps instead of every episode.
+  </li>
+  <li>
+   Instead of the state s, we can in fact use any features. We chose policy features $\mathbf{z}_{\mu}\left(\mathbf{s} ; \theta_{\mathbf{z}_{\mu}}\right)$ (last layer before the deterministic output $\left.\mu(\mathbf{s})=\theta_{\mu} \mathbf{z}_{\mu}\left(\mathbf{s} ; \theta_{\mathbf{z}_{\mu}}\right)\right)$ as input to the noise function $\epsilon\left(\mathbf{s} ; \theta_{\epsilon}\right)=\theta_{\epsilon} \mathbf{z}_{\mu}(\mathbf{s})$
+  </li>
+ </ol>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/4e37422d-8040-4970-a385-97a79106f966.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>20. State Similarity Metrics</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Policy Similarity Metric</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Policy Similarity Metric
+  </strong>
+  , or
+  <strong>
+   PSM
+  </strong>
+  , is a similarity metric for measuring behavioral similarity between states in reinforcement learning. It assigns high similarity to states for which the optimal policies in those states as well as in future states are similar. PSM is reward-agnostic, making it more robust for generalization compared to approaches that rely on reward information.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001559-c383ef98.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Playstyle Distance</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  This method proposes first discretizing observations and calculating the action distribution distance under comparable cases (intersection states).
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>21. Motion Control</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>PPMC</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Path Planning and Motion Control
+  </strong>
+  , or
+  <strong>
+   PPMC RL
+  </strong>
+  , is a training algorithm that teaches path planning and motion control to robots using reinforcement learning in a simulated environment. The focus is on promoting generalization where there are environmental uncertainties such as rough environments like lunar services. The algorithm is coupled with any generic reinforcement learning algorithm to teach robots how to respond to user commands and to travel to designated locations on a single neural network. The algorithm works independently of the robot structure, demonstrating that it works on a wheeled rover in addition to the past results on a quadruped walking robot.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001345-b8ac7ca5.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>22. Policy Evaluation</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>KOVA</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Kalman Optimization for Value Approximation
+  </strong>
+  , or
+  <strong>
+   KOVA
+  </strong>
+  is a general framework for addressing uncertainties while approximating value-based functions in deep RL domains. KOVA minimizes a regularized objective function that concerns both parameter and noisy return uncertainties. It is feasible when using non-linear approximation functions as DNNs and can estimate the value in both on-policy and off-policy settings. It can be incorporated as a policy evaluation component in policy optimization algorithms.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001329-3c3d2af5.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>23. Bayesian Reinforcement Learning</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Bayesian REX</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Bayesian Reward Extrapolation
+  </strong>
+  is a Bayesian reward learning algorithm that scales to high-dimensional imitation learning problems by pre-training a low-dimensional feature encoding via self-supervised tasks and then leveraging preferences over demonstrations to perform fast Bayesian inference.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001338-51cac747.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>24. Path Planning</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>PPMC</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Path Planning and Motion Control
+  </strong>
+  , or
+  <strong>
+   PPMC RL
+  </strong>
+  , is a training algorithm that teaches path planning and motion control to robots using reinforcement learning in a simulated environment. The focus is on promoting generalization where there are environmental uncertainties such as rough environments like lunar services. The algorithm is coupled with any generic reinforcement learning algorithm to teach robots how to respond to user commands and to travel to designated locations on a single neural network. The algorithm works independently of the robot structure, demonstrating that it works on a wheeled rover in addition to the past results on a quadruped walking robot.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001345-b8ac7ca5.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>25. Actor-Critic Algorithms</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>FORK</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   FORK
+  </strong>
+  , or
+  <strong>
+   Forward Looking Actor
+  </strong>
+  is a type of actor for actor-critic algorithms. In particular, FORK includes a neural network that forecasts the next state given the current state and current action, called system network; and a neural network that forecasts the
+reward given a (state, action) pair, called reward network. With the system network and reward network, FORK can forecast the next state and consider the value of the next state when improving the policy.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001474-4aaa9255.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>26. Environment Design Methods</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Protagonist Antagonist Induced Regret Environment Design</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Protagonist Antagonist Induced Regret Environment Design
+  </strong>
+  , or
+  <strong>
+   PAIRED
+  </strong>
+  , is an adversarial method for approximate minimax regret to generate environments for reinforcement learning. It introduces an antagonist which is allied with the environment generating adversary. The primary agent we are trying to train is the protagonist. The environment adversary’s goal is to design environments in which the antagonist achieves high reward and the protagonist receives low reward. If the adversary generates unsolvable environments, the antagonist and protagonist would perform the same and the adversary would get a score of zero, but if the adversary finds environments the antagonist solves and the protagonist does not solve, the adversary achieves a positive score. Thus, the environment adversary is incentivized to create challenging but feasible environments, in which the antagonist can outperform the protagonist. Moreover, as the protagonist learns to solves the simple environments, the antagonist must generate more complex environments to make the protagonist fail, increasing the complexity of the generated tasks and leading to automatic curriculum generation.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8920498d-1463-400d-882e-57cc86675ead.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>27. Density Ratio Learning</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>GradientDICE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   GradientDICE
+  </strong>
+  is a density ratio learning method for estimating the density ratio between the state distribution of the target policy and the sampling distribution in off-policy reinforcement learning. It optimizes a different objective from
+  <a href="https://arxiv.org/abs/2002.09072">
+   GenDICE
+  </a>
+  by using the Perron-Frobenius theorem and eliminating GenDICE’s use of divergence, such that nonlinearity in parameterization is not necessary for GradientDICE, which is provably convergent under linear function approximation.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/06b7783a-1811-4b6d-932a-2bc1e68edb0b.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>28. Card Game Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>DouZero</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   DouZero
+  </strong>
+  is an AI system for the card game DouDizhu that enhances traditional Monte-Carlo methods with deep neural networks, action encoding, and parallel actors. The
+  <a href="https://paperswithcode.com/method/dqn">
+   Q-network
+  </a>
+  of DouZero consists of an
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  to encode historical actions and six layers of
+  <a href="https://paperswithcode.com/method/feedforward-network">
+   MLP
+  </a>
+  with hidden dimension of 512. The network predicts a value for a given state-action pair based on the concatenated representation of action and state.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/88121bc4-d21d-4cd2-b402-7e14b4bf770e.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        </div></body></html>

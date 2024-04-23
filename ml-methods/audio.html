@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PWC Categories</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script>
+		MathJax = {
+			tex: {
+				inlineMath: [['$', '$']],
+				displayMath: [['$$', '$$']]
+			}
+		};
+	</script>
+	<!-- <script>
+		window.onload = function() {
+			// Select all <details> elements
+			var details = document.querySelectorAll('details');
+
+			// Loop through each <details> element
+			details.forEach(function(detail) {
+				// Set the 'open' attribute to true
+				// if not detail.classList.contains('method')
+				if (!detail.classList.contains('method'))
+					detail.setAttribute('open', true);
+			});
+		};
+	</script> -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var navButtons = document.querySelectorAll(".nav-btn");
+
+			navButtons.forEach(function (button) {
+				if (button.href === window.location.href) {
+					button.classList.add("active");
+				}
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('click', function (event) {
+			if (document.getElementById('lightbox').style.display != 'none') {
+				// Close lightbox
+				document.getElementById('lightbox').style.display = 'none';
+			}
+			else if (event.target.tagName == 'IMG') {
+				// Open lightbox
+				document.getElementById('lightbox-image').src = event.target.src;
+				document.getElementById('lightbox').style.display = 'block';
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<div class="lightbox" id="lightbox" style="display: none">
+		<img src="" id="lightbox-image" alt="Enlarged Image">
+	</div>
+	<div class="navbar">
+		<a class="nav-btn" href="general.html">General</a>
+		<a class="nav-btn" href="computer-vision.html">Computer Vision</a>
+		<a class="nav-btn" href="natural-language-processing.html">NLP</a>
+		<a class="nav-btn" href="reinforcement-learning.html">Reinforcement Learning</a>
+		<a class="nav-btn" href="audio.html">Audio</a>
+		<a class="nav-btn" href="sequential.html">Sequential</a>
+		<a class="nav-btn" href="graphs.html">Graphs</a>
+	</div>
+	<div class="container mx-auto">
+        <ul class="parent">
+            <p>1. Generative Audio Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>WaveNet</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   WaveNet
+  </strong>
+  is an audio generative model based on the
+  <a href="https://paperswithcode.com/method/pixelcnn">
+   PixelCNN
+  </a>
+  architecture. In order to deal with long-range temporal dependencies needed for raw audio generation, architectures are developed based on dilated causal convolutions, which exhibit very large receptive fields.
+ </p>
+ <p>
+  The joint probability of a waveform $\vec{x} = { x_1, \dots, x_T }$ is factorised as a product of conditional probabilities as follows:
+ </p>
+ <p>
+  $$p\left(\vec{x}\right) = \prod_{t=1}^{T} p\left(x_t \mid x_1, \dots ,x_{t-1}\right)$$
+ </p>
+ <p>
+  Each audio sample $x_t$ is therefore conditioned on the samples at all previous timesteps.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000588-3b8adffc.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>WaveGAN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   WaveGAN
+  </strong>
+  is a generative adversarial network for unsupervised synthesis of raw-waveform audio (as opposed to image-like spectrograms).
+ </p>
+ <p>
+  The WaveGAN architecture is based off
+  <a href="https://paperswithcode.com/method/dcgan">
+   DCGAN
+  </a>
+  . The DCGAN generator uses the
+  <a href="https://paperswithcode.com/method/transposed-convolution">
+   transposed convolution
+  </a>
+  operation to iteratively upsample low-resolution feature maps into a high-resolution image. WaveGAN modifies this transposed
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  operation to widen its receptive field, using a longer one-dimensional filters of length 25 instead of two-dimensional filters of size 5x5, and upsampling by a factor of 4 instead of 2 at each layer. The discriminator is modified in a similar way, using length-25 filters in one dimension and increasing stride
+from 2 to 4. These changes result in WaveGAN having the same number of parameters, numerical
+operations, and output dimensionality as DCGAN. An additional layer is added afterwards to allow for more audio samples. Further changes include:
+ </p>
+ <ol>
+  <li>
+   Flattening 2D convolutions into 1D (e.g. 5x5 2D conv becomes length-25 1D).
+  </li>
+  <li>
+   Increasing the stride factor for all convolutions (e.g. stride 2x2 becomes stride 4).
+  </li>
+  <li>
+   Removing
+   <a href="https://paperswithcode.com/method/batch-normalization">
+    batch normalization
+   </a>
+   from the generator and discriminator.
+  </li>
+  <li>
+   Training using the
+   <a href="https://paperswithcode.com/method/wgan">
+    WGAN
+   </a>
+   -GP strategy.
+  </li>
+ </ol>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/1f99106c-ce3b-4f29-abbf-ef80371d8839.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>HiFi-GAN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   HiFi-GAN
+  </strong>
+  is a generative adversarial network for speech synthesis. HiFi-GAN consists of one generator and two discriminators: multi-scale and multi-period discriminators. The generator and discriminators are trained adversarially, along with two additional losses for improving training stability and model performance.
+ </p>
+ <p>
+  The generator is a fully convolutional neural network. It uses a mel-spectrogram as input and upsamples it through transposed convolutions until the length of the output sequence matches the temporal resolution of raw waveforms. Every
+  <a href="https://paperswithcode.com/method/transposed-convolution">
+   transposed convolution
+  </a>
+  is followed by a multi-receptive field fusion (MRF) module.
+ </p>
+ <p>
+  For the discriminator, a multi-period discriminator (MPD) is used consisting of several sub-discriminators each handling a portion of periodic signals of input audio. Additionally, to capture consecutive patterns and long-term dependencies, the multi-scale discriminator (MSD) proposed in
+  <a href="https://paperswithcode.com/method/melgan">
+   MelGAN
+  </a>
+  is used, which consecutively evaluates audio samples at different levels.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001422-eeaff2d2.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>WaveRNN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   WaveRNN
+  </strong>
+  is a single-layer recurrent neural network for audio generation that is designed efficiently predict 16-bit raw audio samples.
+ </p>
+ <p>
+  The overall computation in the WaveRNN is as follows (biases omitted for brevity):
+ </p>
+ <p>
+  $$ \mathbf{x}_{t} = \left[\mathbf{c}_{t−1},\mathbf{f}_{t−1}, \mathbf{c}_{t}\right] $$
+ </p>
+ <p>
+  $$ \mathbf{u}_{t} = \sigma\left(\mathbf{R}_{u}\mathbf{h}_{t-1} + \mathbf{I}^{*}_{u}\mathbf{x}_{t}\right) $$
+ </p>
+ <p>
+  $$ \mathbf{r}_{t} = \sigma\left(\mathbf{R}_{r}\mathbf{h}_{t-1} + \mathbf{I}^{*}_{r}\mathbf{x}_{t}\right) $$
+ </p>
+ <p>
+  $$ \mathbf{e}_{t} = \tau\left(\mathbf{r}_{t} \odot \left(\mathbf{R}_{e}\mathbf{h}_{t-1}\right) + \mathbf{I}^{*}_{e}\mathbf{x}_{t} \right) $$
+ </p>
+ <p>
+  $$ \mathbf{h}_{t} = \mathbf{u}_{t} \cdot \mathbf{h}_{t-1} + \left(1-\mathbf{u}_{t}\right) \cdot \mathbf{e}_{t} $$
+ </p>
+ <p>
+  $$ \mathbf{y}_{c}, \mathbf{y}_{f} = \text{split}\left(\mathbf{h}_{t}\right) $$
+ </p>
+ <p>
+  $$ P\left(\mathbf{c}_{t}\right) = \text{softmax}\left(\mathbf{O}_{2}\text{relu}\left(\mathbf{O}_{1}\mathbf{y}_{c}\right)\right) $$
+ </p>
+ <p>
+  $$ P\left(\mathbf{f}_{t}\right) = \text{softmax}\left(\mathbf{O}_{4}\text{relu}\left(\mathbf{O}_{3}\mathbf{y}_{f}\right)\right) $$
+ </p>
+ <p>
+  where the $*$ indicates a masked matrix whereby the last coarse input $\mathbf{c}_{t}$ is only connected to the fine part of the states $\mathbf{u}_{t}$, $\mathbf{r}_{t}$, $\mathbf{e}_{t}$ and $\mathbf{h}_{t}$ and thus only affects the fine output $\mathbf{y}_{f}$. The coarse and fine parts $\mathbf{c}_{t}$ and $\mathbf{f}_{t}$ are encoded as scalars in $\left[0, 255\right]$ and scaled to the interval $\left[−1, 1\right]$. The matrix $\mathbf{R}$ formed from the matrices $\mathbf{R}_{u}$, $\mathbf{R}_{r}$, $\mathbf{R}_{e}$ is computed as a single matrix-vector product to produce the contributions to all three gates $\mathbf{u}_{t}$, $mathbf{r}_{t}$ and $\mathbf{e}_{t}$ (a variant of the
+  <a href="https://paperswithcode.com/method/gru">
+   GRU cell
+  </a>
+  . $\sigma$ and $\tau$ are the standard sigmoid and tanh non-linearities.
+ </p>
+ <p>
+  Each part feeds into a
+  <a href="https://paperswithcode.com/method/softmax">
+   softmax
+  </a>
+  layer over the corresponding 8 bits and the prediction of the 8 fine bits is conditioned on the 8 coarse bits. The resulting Dual Softmax layer allows for efficient prediction of 16-bit samples using two small output spaces (2 8 values each) instead of a single large output space (with 2 16 values).
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000777-91a6e96e_x3OKpq0.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>2. Audio Model Blocks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>MelGAN Residual Block</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The
+  <strong>
+   MelGAN Residual Block
+  </strong>
+  is a convolutional
+  <a href="https://paperswithcode.com/method/residual-block">
+   residual block
+  </a>
+  used in the
+  <a href="https://paperswithcode.com/method/melgan">
+   MelGAN
+  </a>
+  generative audio architecture. It employs residual connections with dilated convolutions. Dilations are used so that temporally far output activations of each subsequent layer has significant overlapping inputs. Receptive field of a stack of
+  <a href="https://paperswithcode.com/method/dilated-convolution">
+   dilated convolution
+  </a>
+  layers increases exponentially with the number of layers. Incorporating these into the MelGAN generator allows us to efficiently increase the induced receptive fields of each output time-step. This effectively implies larger overlap in the induced receptive field of far apart time-steps, leading to better long range correlation.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000043-6fe49bc3.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DV3 Convolution Block</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   DV3 Convolution Block
+  </strong>
+  is a convolutional block used for the
+  <a href="https://paperswithcode.com/method/deep-voice-3">
+   Deep Voice 3
+  </a>
+  text-to-speech architecture. It consists of a 1-D
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  with a gated linear unit and a
+  <a href="https://paperswithcode.com/method/residual-connection">
+   residual connection
+  </a>
+  . In the Figure, $c$ denotes the dimensionality of the input. The convolution output of size $2 \cdot c$ is split into equal-sized portions: the gate vector and the input vector. A scaling factor $\sqrt{0.5}$ is used to ensure that we preserve the input variance early in training. The gated linear unit provides a linear path for the gradient flow, which alleviates the vanishing gradient issue for stacked convolution blocks while retaining non-linearity. To introduce speaker-dependent control, a speaker-dependent embedding is added as a bias to the convolution filter output, after a softsign function. The authors use the softsign nonlinearity because it limits the range of the output while also avoiding the saturation problem that exponential based nonlinearities sometimes exhibit. Convolution filter weights are initialized with zero-mean and unit-variance activations throughout the entire network.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000789-54803bb8_oJwNO82.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DV3 Attention Block</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   DV3 Attention Block
+  </strong>
+  is an attention-based module used in the
+  <a href="https://paperswithcode.com/method/deep-voice-3">
+   Deep Voice 3
+  </a>
+  architecture. It uses a
+  <a href="https://paperswithcode.com/method/dot-product-attention">
+   dot-product attention
+  </a>
+  mechanism. A query vector (the hidden states of the decoder) and the per-timestep key vectors from the encoder are used to compute attention weights. This then outputs a context vector computed as the weighted average of the value vectors.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000790-c49d174c_STqDhk2.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Bridge-net</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Bridge-net
+  </strong>
+  is an audio model block used in the
+  <a href="https://paperswithcode.com/method/clarinet">
+   ClariNet
+  </a>
+  text-to-speech architecture. Bridge-net maps frame-level hidden representation to sample-level through several
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  blocks and
+  <a href="https://paperswithcode.com/method/transposed-convolution">
+   transposed convolution
+  </a>
+  layers interleaved with softsign non-linearities.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000803-f0d3c0b0.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>3. Text-to-Speech Models</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Tacotron</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Tacotron
+  </strong>
+  is an end-to-end generative text-to-speech model that takes a character sequence as input and outputs the corresponding spectrogram. The backbone of Tacotron is a seq2seq model with attention. The Figure depicts the model, which includes an encoder, an attention-based decoder, and a post-processing net. At a high-level, the model takes characters as input and produces spectrogram
+frames, which are then converted to waveforms.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057305-de0e6f99.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Tacotron 2</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Tacotron 2
+  </strong>
+  is a neural network architecture for speech synthesis directly from text. It consists of two components:
+ </p>
+ <ul>
+  <li>
+   a recurrent sequence-to-sequence feature prediction network with
+attention which predicts a sequence of mel spectrogram frames from
+an input character sequence
+  </li>
+  <li>
+   a modified version of
+   <a href="https://paperswithcode.com/method/wavenet">
+    WaveNet
+   </a>
+   which generates time-domain waveform samples conditioned on the
+predicted mel spectrogram frames
+  </li>
+ </ul>
+ <p>
+  In contrast to the original
+  <a href="https://paperswithcode.com/method/tacotron">
+   Tacotron
+  </a>
+  , Tacotron 2 uses simpler building blocks, using vanilla
+  <a href="https://paperswithcode.com/method/lstm">
+   LSTM
+  </a>
+  and convolutional layers in the encoder and decoder instead of
+  <a href="https://paperswithcode.com/method/cbhg">
+   CBHG
+  </a>
+  stacks and
+  <a href="https://paperswithcode.com/method/gru">
+   GRU
+  </a>
+  recurrent layers. Tacotron 2 does not use a “reduction factor”, i.e., each decoder step corresponds to a single spectrogram frame. Location-sensitive attention is used instead of
+  <a href="https://paperswithcode.com/method/additive-attention">
+   additive attention
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/5b3d39be-36fe-48bf-8f14-44ea952882fd.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>FastSpeech 2</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   FastSpeech2
+  </strong>
+  is a text-to-speech model that aims to improve upon FastSpeech by better solving the one-to-many mapping problem in TTS, i.e., multiple speech variations corresponding to the same text. It attempts to solve this problem by 1) directly training the model with ground-truth target instead of the simplified output from teacher, and 2) introducing more variation information of speech (e.g., pitch, energy and more accurate duration) as conditional inputs. Specifically, in FastSpeech 2, we extract duration, pitch and energy from speech waveform and directly take them as conditional inputs in training and use predicted values in inference.
+ </p>
+ <p>
+  The encoder converts the phoneme embedding sequence into the phoneme hidden sequence, and then the variance adaptor adds different variance information such as duration, pitch and energy into the hidden sequence, finally the mel-spectrogram decoder converts the adapted hidden sequence into mel-spectrogram sequence in parallel. FastSpeech 2 uses a feed-forward
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  block, which is a stack of
+  <a href="https://paperswithcode.com/method/multi-head-attention">
+   self-attention
+  </a>
+  and 1D-
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  as in FastSpeech, as the basic structure for the encoder and mel-spectrogram decoder.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/5592e286-781a-4d8d-bd21-50fd53c71c16.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>FastPitch</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   FastPitch
+  </strong>
+  is a fully-parallel text-to-speech model based on FastSpeech, conditioned on fundamental frequency contours. The architecture of FastPitch is shown in the Figure. It is based on FastSpeech and composed mainly of two feed-forward
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  (FFTr) stacks. The first one operates in the resolution of input tokens, the second one in the resolution of the output frames. Let $x=\left(x_{1}, \ldots, x_{n}\right)$ be the sequence of input lexical units, and $\mathbf{y}=\left(y_{1}, \ldots, y_{t}\right)$ be the sequence of target mel-scale spectrogram frames. The first FFTr stack produces the hidden representation $\mathbf{h}=\operatorname{FFTr}(\mathbf{x})$. The hidden representation $h$ is used to make predictions about the duration and average pitch of every character with a 1-D CNN
+ </p>
+ <p>
+  $$
+\hat{\mathbf{d}}=\text { DurationPredictor }(\mathbf{h}), \quad \hat{\mathbf{p}}=\operatorname{PitchPredictor}(\mathbf{h})
+$$
+ </p>
+ <p>
+  where $\hat{\mathbf{d}} \in \mathbb{N}^{n}$ and $\hat{\mathbf{p}} \in \mathbb{R}^{n}$. Next, the pitch is projected to match the dimensionality of the hidden representation $h \in$ $\mathbb{R}^{n \times d}$ and added to $\mathbf{h}$. The resulting sum $\mathbf{g}$ is discretely upsampled and passed to the output FFTr, which produces the output mel-spectrogram sequence
+ </p>
+ <p>
+  $$
+\mathbf{g}=\mathbf{h}+\operatorname{PitchEmbedding}(\mathbf{p})
+$$
+ </p>
+ <p>
+  $$
+\hat{\mathbf{y}}=\operatorname{FFTr}\left([\underbrace{g_{1}, \ldots, g_{1}}_{d_{1}}, \ldots \underbrace{g_{n}, \ldots, g_{n}}_{d_{n}}]\right)
+$$
+ </p>
+ <p>
+  Ground truth $\mathbf{p}$ and $\mathbf{d}$ are used during training, and predicted $\hat{\mathbf{p}}$ and $\hat{\mathbf{d}}$ are used during inference. The model optimizes mean-squared error (MSE) between the predicted and ground-truth modalities
+ </p>
+ <p>
+  $$
+\mathcal{L}=|\hat{\mathbf{y}}-\mathbf{y}|_{2}^{2}+\alpha|\hat{\mathbf{p}}-\mathbf{p}|_{2}^{2}+\gamma|\hat{\mathbf{d}}-\mathbf{d}|_{2}^{2}
+$$
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/eab6f844-a242-4c7f-8b2b-f98f9c7ed529.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>4. Speech Separation Models</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    Estimate individual speech signals from a mixture.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>SepFormer</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   SepFormer
+  </strong>
+  is
+  <a href="https://paperswithcode.com/methods/category/transformers">
+   Transformer
+  </a>
+  -based neural network for speech separation. The SepFormer learns short and long-term dependencies with a multi-scale approach that employs transformers. It is mainly composed of multi-head attention and feed-forward layers. A dual-path framework (introduced by DPRNN) is adopted and
+  <a href="https://paperswithcode.com/methods/category/recurrent-neural-networks">
+   RNNs
+  </a>
+  are replaced with a multiscale pipeline composed of transformers that learn both short and long-term dependencies. The dual-path framework enables the mitigation of the quadratic complexity of transformers, as transformers in the dual-path framework process smaller chunks.
+ </p>
+ <p>
+  The model is based on the learned-domain masking approach and employs an encoder, a decoder, and a masking network, as shown in the figure. The encoder is fully convolutional, while the decoder employs two Transformers embedded inside the dual-path processing block. The decoder finally reconstructs the separated signals in the time domain by using the masks predicted by the masking network.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/ea587774-740c-4453-83ca-d24e7aeb8aa4.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>ConvTasNet</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Combines learned time-frequency representation with a masker architecture based on 1D
+  <a href="https://paperswithcode.com/method/dilated-convolution">
+   dilated convolution
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001023-6e51de65.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>VoiceFilter-Lite</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   VoiceFilter-Lite
+  </strong>
+  is a single-channel source separation model that runs on the device to preserve only the speech signals from a target user, as part of a streaming speech recognition system. In this architecture, the voice filtering model operates as a frame-by-frame frontend signal processor to enhance the features consumed by the speech recognizer, without reconstructing audio signals from the features. The key contributions are (1) A system to perform speech separation directly on ASR input features; (2) An asymmetric loss function to penalize oversuppression during training, to make the model harmless under various acoustic environments, (3) An adaptive suppression strength mechanism to adapt to different noise conditions.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001432-f466624e.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Directional Sparse Filtering</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>5. Speech Recognition</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>XLSR</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   XLSR
+  </strong>
+  is a multilingual speech recognition model built on wav2vec 2.0 which is trained by solving a contrastive task over masked latent speech representations and jointly learns a quantization of the latents shared across languages. The model is fine-tuned on labeled data and experiments show that cross-lingual pretraining significantly outperforms monolingual pretraining. A shared quantization module over feature encoder representations produces multilingual quantized speech units whose embeddings are then used as targets for a
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  trained by contrastive learning. The model learns to share discrete tokens across languages, creating bridges across languages.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001357-74cda28a.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>IPL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Iterative Pseudo-Labeling
+  </strong>
+  (IPL) is a semi-supervised algorithm for speech recognition which efficiently performs multiple iterations of pseudo-labeling on unlabeled data as the acoustic model evolves. In particular, IPL fine tunes an existing model at each iteration using both labeled data and a subset of unlabeled data.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001412-1c866163.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>wav2vec-U</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   wav2vec-U
+  </strong>
+  is an unsupervised method to train speech recognition models without any labeled data. It leverages self-supervised speech representations to segment unlabeled language and learn a mapping from these representations to phonemes via adversarial training.
+ </p>
+ <p>
+  Specifically, we learn self-supervised representations with wav2vec 2.0 on unlabeled speech audio, then identify clusters in the representations with k-means to segment the audio data. Next, we build segment representations by mean pooling the wav2vec 2.0 representations, performing
+  <a href="https://paperswithcode.com/method/pca">
+   PCA
+  </a>
+  and a second mean pooling step between adjacent segments. This is input to the generator which outputs a phoneme sequence that is fed to the discriminator, similar to phonemized unlabeled text to perform adversarial training.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001562-9a61bcd3.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>6. Phase Reconstruction</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Griffin-Lim Algorithm</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  The
+  <strong>
+   Griffin-Lim Algorithm (GLA)
+  </strong>
+  is a phase reconstruction method based on the redundancy of the short-time Fourier transform. It promotes the consistency of a spectrogram by iterating two projections, where a spectrogram is said to be consistent when its inter-bin dependency owing to the redundancy of STFT is retained.  GLA is based only on the consistency and does not take any prior knowledge about the target signal into account.
+ </p>
+ <p>
+  This algorithm expects to recover a complex-valued spectrogram, which is consistent and maintains the given amplitude $\mathbf{A}$, by the following alternative projection procedure:
+ </p>
+ <p>
+  $$ \mathbf{X}^{[m+1]} = P_{\mathcal{C}}\left(P_{\mathcal{A}}\left(\mathbf{X}^{[m]}\right)\right) $$
+ </p>
+ <p>
+  where $\mathbf{X}$ is a complex-valued spectrogram updated through the iteration, $P_{\mathcal{S}}$ is the metric projection onto a set $\mathcal{S}$, and $m$ is the iteration index. Here, $\mathcal{C}$ is the set of consistent spectrograms, and $\mathcal{A}$ is the set of spectrograms whose amplitude is the same as the given one. The metric projections onto these sets $\mathcal{C}$ and $\mathcal{A}$ are given by:
+ </p>
+ <p>
+  $$ P_{\mathcal{C}}(\mathbf{X}) = \mathcal{GG}^{†}\mathbf{X} $$
+$$ P_{\mathcal{A}}(\mathbf{X}) = \mathbf{A} \odot \mathbf{X} \oslash |\mathbf{X}| $$
+ </p>
+ <p>
+  where $\mathcal{G}$ represents STFT, $\mathcal{G}^{†}$ is the pseudo inverse of STFT (iSTFT), $\odot$ and $\oslash$ are element-wise multiplication and division, respectively, and division by zero is replaced by zero. GLA is obtained as an algorithm for the following optimization problem:
+ </p>
+ <p>
+  $$ \min_{\mathbf{X}} || \mathbf{X} - P_{\mathcal{C}}\left(\mathbf{X}\right) ||^{2}_{\text{Fro}} \text{ s.t. } \mathbf{X} \in \mathcal{A} $$
+ </p>
+ <p>
+  where $ || · ||_{\text{Fro}}$ is the Frobenius norm. This equation minimizes the energy of the inconsistent components under the constraint on amplitude which must be equal to the given one. Although GLA has been widely utilized because of its simplicity, GLA often involves many iterations until it converges to a certain spectrogram and results in low reconstruction quality. This is because the cost function only requires the consistency, and the characteristics of the target signal are not taken into account.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000691-b9c5f6dd.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>PGHI</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Z. Průša, P. Balazs and P. L. Søndergaard, "A Noniterative Method for Reconstruction of Phase From STFT Magnitude," in IEEE/ACM Transactions on Audio, Speech, and Language Processing, vol. 25, no. 5, pp. 1154-1164, May 2017, doi: 10.1109/TASLP.2017.2678166.
+Abstract: A noniterative method for the reconstruction of the short-time fourier transform (STFT) phase from the magnitude is presented. The method is based on the direct relationship between the partial derivatives of the phase and the logarithm of the magnitude of the un-sampled STFT with respect to the Gaussian window. Although the theory holds in the continuous setting only, the experiments show that the algorithm performs well even in the discretized setting (discrete Gabor transform) with low redundancy using the sampled Gaussian window, the truncated Gaussian window and even other compactly supported windows such as the Hann window. Due to the noniterative nature, the algorithm is very fast and it is suitable for long audio signals. Moreover, solutions of iterative phase reconstruction algorithms can be improved considerably by initializing them with the phase estimate provided by the present algorithm. We present an extensive comparison with the state-of-the-art algorithms in a reproducible manner.
+URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;isnumber=7895265
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>7. Speech enhancement</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    Estimate clean speech from a noisy/distorted speech mixture.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>ConvTasNet</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Combines learned time-frequency representation with a masker architecture based on 1D
+  <a href="https://paperswithcode.com/method/dilated-convolution">
+   dilated convolution
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001023-6e51de65.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>8. Speaker Diarization</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>EEND</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   End-to-End Neural Diarization
+  </strong>
+  is a neural network for speaker diarization in which a neural network directly outputs speaker diarization results given a multi-speaker recording. To realize such an end-to-end model, the speaker diarization problem is formulated as a multi-label classification problem and a permutation-free objective function is introduced to directly minimize diarization errors. The EEND method can explicitly handle speaker overlaps during training and inference. Just by feeding multi-speaker recordings with corresponding speaker segment labels, the model can be adapted to real conversations.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001325-aba480eb.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>9. Music Transcription</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    Convert an acoustic musical signal into some form of music notation.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>RSE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Residual Shuffle-Exchange Network
+  </strong>
+  is an efficient alternative to models using an attention mechanism that allows the modelling of long-range dependencies in sequences in O(n log n) time. This model achieved state-of-the-art performance on the MusicNet dataset for music transcription while being able to run inference on a single GPU fast enough to be suitable for real-time audio processing.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/71cf876a-d165-4b3a-9faa-be7c0fa7f96c.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>10. Audio Artifact Removal</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Phase Shuffle</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Phase Shuffle
+  </strong>
+  is a technique for removing pitched noise artifacts that come from using transposed convolutions in audio generation models. Phase shuffle is an operation with hyperparameter $n$. It randomly perturbs the phase of each layer’s activations by −$n$ to $n$ samples before input to the next layer.
+ </p>
+ <p>
+  In the original application in
+  <a href="https://paperswithcode.com/method/wavegan">
+   WaveGAN
+  </a>
+  , the authors only apply phase shuffle to the discriminator, as the latent vector already provides the generator a mechanism to manipulate the phase
+of a resultant waveform. Intuitively speaking, phase shuffle makes the discriminator’s job more challenging by requiring invariance to the phase of the input waveform.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000689-1651d6f3.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>11. Music source separation</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    Estimate individual instrument signals from a mixture.
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>ConvTasNet</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Combines learned time-frequency representation with a masker architecture based on 1D
+  <a href="https://paperswithcode.com/method/dilated-convolution">
+   dilated convolution
+  </a>
+  .
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001023-6e51de65.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>12. Speech Embeddings</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>FRILL</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   FRILL
+  </strong>
+  is a non-semantic speech embedding model trained via knowledge distillation that is fast enough to be run in real-time on a mobile device. The fastest model runs at 0.9 ms, which is 300x faster than TRILL and 25x faster than TRILL-distilled.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001369-78f1021f.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>13. Speech Synthesis Blocks</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>CBHG</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   CBHG
+  </strong>
+  is a building block used in the
+  <a href="https://paperswithcode.com/method/tacotron">
+   Tacotron
+  </a>
+  text-to-speech model. It consists of a bank of 1-D convolutional filters, followed by highway networks and a bidirectional gated recurrent unit (
+  <a href="https://paperswithcode.com/method/bigru">
+   BiGRU
+  </a>
+  ).
+ </p>
+ <p>
+  The module is used to extract representations from sequences. The input sequence is first
+convolved with $K$ sets of 1-D convolutional filters, where the $k$-th set contains $C_{k}$ filters of width $k$ (i.e. $k = 1, 2, \dots , K$). These filters explicitly model local and contextual information (akin to modeling unigrams, bigrams, up to K-grams). The
+  <a href="https://paperswithcode.com/method/convolution">
+   convolution
+  </a>
+  outputs are stacked together and further max pooled along time to increase local invariances. A stride of 1 is used to  preserve the original time resolution. The processed sequence is further passed to a few fixed-width 1-D convolutions, whose outputs are added with the original input sequence via residual connections.
+  <a href="https://paperswithcode.com/method/batch-normalization">
+   Batch normalization
+  </a>
+  is used for all convolutional layers. The convolution outputs are fed into a multi-layer
+  <a href="https://paperswithcode.com/method/highway-network">
+   highway network
+  </a>
+  to extract high-level features. Finally, a bidirectional
+  <a href="https://paperswithcode.com/method/gru">
+   GRU
+  </a>
+  RNN is stacked on top to extract sequential features from both forward and backward context.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000370-fdc1421a_j2r7ihh.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        </div></body></html>

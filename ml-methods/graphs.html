@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PWC Categories</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script>
+		MathJax = {
+			tex: {
+				inlineMath: [['$', '$']],
+				displayMath: [['$$', '$$']]
+			}
+		};
+	</script>
+	<!-- <script>
+		window.onload = function() {
+			// Select all <details> elements
+			var details = document.querySelectorAll('details');
+
+			// Loop through each <details> element
+			details.forEach(function(detail) {
+				// Set the 'open' attribute to true
+				// if not detail.classList.contains('method')
+				if (!detail.classList.contains('method'))
+					detail.setAttribute('open', true);
+			});
+		};
+	</script> -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var navButtons = document.querySelectorAll(".nav-btn");
+
+			navButtons.forEach(function (button) {
+				if (button.href === window.location.href) {
+					button.classList.add("active");
+				}
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('click', function (event) {
+			if (document.getElementById('lightbox').style.display != 'none') {
+				// Close lightbox
+				document.getElementById('lightbox').style.display = 'none';
+			}
+			else if (event.target.tagName == 'IMG') {
+				// Open lightbox
+				document.getElementById('lightbox-image').src = event.target.src;
+				document.getElementById('lightbox').style.display = 'block';
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<div class="lightbox" id="lightbox" style="display: none">
+		<img src="" id="lightbox-image" alt="Enlarged Image">
+	</div>
+	<div class="navbar">
+		<a class="nav-btn" href="general.html">General</a>
+		<a class="nav-btn" href="computer-vision.html">Computer Vision</a>
+		<a class="nav-btn" href="natural-language-processing.html">NLP</a>
+		<a class="nav-btn" href="reinforcement-learning.html">Reinforcement Learning</a>
+		<a class="nav-btn" href="audio.html">Audio</a>
+		<a class="nav-btn" href="sequential.html">Sequential</a>
+		<a class="nav-btn" href="graphs.html">Graphs</a>
+	</div>
+	<div class="container mx-auto">
+        <ul class="parent">
+            <p>1. Graph Models</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    The Graph Methods include neural network architectures for learning on graphs with prior structure information, popularly called as Graph Neural Networks (GNNs).
+   </p>
+<p>
+    Recently, deep learning approaches are being extended to work on graph-structured data, giving rise to a series of graph neural networks addressing different challenges. Graph neural networks are particularly useful in applications where data are generated from non-Euclidean domains and represented as graphs with complex relationships.
+   </p>
+<p>
+    Some tasks where GNNs are widely used include
+    <a href="https://paperswithcode.com/task/node-classification">
+     node classification
+    </a>
+    ,
+    <a href="https://paperswithcode.com/task/graph-classification">
+     graph classification
+    </a>
+    ,
+    <a href="https://paperswithcode.com/task/link-prediction">
+     link prediction
+    </a>
+    , and much more.
+   </p>
+<p>
+    In the taxonomy presented by
+    <a href="https://paperswithcode.com/paper/a-comprehensive-survey-on-graph-neural">
+     Wu et al. (2019)
+    </a>
+    , graph neural networks can be divided into four categories:
+    <strong>
+     recurrent graph neural networks
+    </strong>
+    ,
+    <strong>
+     convolutional graph neural networks
+    </strong>
+    ,
+    <strong>
+     graph autoencoders
+    </strong>
+    , and
+    <strong>
+     spatial-temporal graph neural networks
+    </strong>
+    .
+   </p>
+<p>
+    Image source:
+    <a href="https://arxiv.org/pdf/1901.00596.pdf">
+     A Comprehensive Survey on Graph NeuralNetworks
+    </a>
+</p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+<div class="mb-3">
+<a id="pop">
+<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/272fdcd2-ba44-4eac-ab2b-5653662f4857.png" width="100%"/>
+</a>
+</div>
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>GCN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Graph Convolutional Network
+  </strong>
+  , or
+  <strong>
+   GCN
+  </strong>
+  , is an approach for semi-supervised learning on graph-structured data. It is based on an efficient variant of
+  <a href="https://paperswithcode.com/methods/category/convolutional-neural-networks">
+   convolutional neural networks
+  </a>
+  which operate directly on graphs. The choice of convolutional architecture is motivated via a localized first-order approximation of spectral graph convolutions. The model scales linearly in the number of graph edges and learns hidden layer representations that encode both local graph structure and features of nodes.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000009-0b3cf8af.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DCNN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  Diffusion-convolutional neural networks (DCNN) is a model for graph-structured data. Through the introduction of a diffusion-convolution operation, diffusion-based representations can be learned from graph structured data and used as an effective basis for node classification.
+ </p>
+ <p>
+  Description and image from:
+  <a href="https://arxiv.org/pdf/1511.02136.pdf">
+   Diffusion-Convolutional Neural Networks
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c8ee592b-d890-4c89-bcba-997d2480eb9d.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Graph Transformer</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  This is
+  <strong>
+   Graph Transformer
+  </strong>
+  method, proposed as a generalization of
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  Neural Network architectures, for arbitrary graphs.
+ </p>
+ <p>
+  Compared to the original Transformer, the highlights of the presented architecture are:
+ </p>
+ <ul>
+  <li>
+   The attention mechanism is a function of neighborhood connectivity for each node in the graph.
+  </li>
+  <li>
+   The position encoding is represented by Laplacian eigenvectors, which naturally generalize the sinusoidal positional encodings often used in NLP.
+  </li>
+  <li>
+   The
+   <a href="https://paperswithcode.com/method/layer-normalization">
+    layer normalization
+   </a>
+   is replaced by a
+   <a href="https://paperswithcode.com/method/batch-normalization">
+    batch normalization
+   </a>
+   layer.
+  </li>
+  <li>
+   The architecture is extended to have edge representation, which can be critical to tasks with rich information on the edges, or pairwise interactions (such as bond types in molecules, or relationship type in KGs. etc).
+  </li>
+ </ul>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000959-e28c0ba6_FdfKAVs.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>GAT</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  A
+  <strong>
+   Graph Attention Network (GAT)
+  </strong>
+  is a neural network architecture that operates on graph-structured data, leveraging masked self-attentional layers to address the shortcomings of prior methods based on graph convolutions or their approximations. By stacking layers in which nodes are able to attend over their neighborhoods’ features, a GAT enables (implicitly) specifying different weights to different nodes in a neighborhood, without requiring any kind of costly matrix operation (such as inversion) or depending on knowing the graph structure upfront.
+ </p>
+ <p>
+  See
+  <a href="https://docs.dgl.ai/en/0.4.x/tutorials/models/1_gnn/9_gat.html">
+   here
+  </a>
+  for an explanation by DGL.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000748-6536fb57.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>GraphSAGE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  GraphSAGE is a general inductive framework that leverages node feature information (e.g., text attributes) to efficiently generate node embeddings for previously unseen data.
+ </p>
+ <p>
+  Image from:
+  <a href="https://arxiv.org/pdf/1706.02216v4.pdf">
+   Inductive Representation Learning on Large Graphs
+  </a>
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/31d509ef-4c71-435f-a438-36daf7bd9f88.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>MPNN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  There are at least eight notable examples of models from the literature that can be described using the
+  <strong>
+   Message Passing Neural Networks
+  </strong>
+  (
+  <strong>
+   MPNN
+  </strong>
+  ) framework. For simplicity we describe MPNNs which operate on undirected graphs $G$ with node features $x_{v}$ and edge features $e_{vw}$. It is trivial to extend the formalism to directed multigraphs. The forward pass has two phases, a message passing phase and a readout phase. The message passing phase runs for $T$ time steps and is defined in terms of message functions $M_{t}$ and vertex update functions $U_{t}$. During the message passing phase, hidden states $h_{v}^{t}$ at each node in the graph are updated based on messages $m_{v}^{t+1}$ according to
+$$
+m_{v}^{t+1} = \sum_{w \in N(v)} M_{t}(h_{v}^{t}, h_{w}^{t}, e_{vw})
+$$
+$$
+h_{v}^{t+1} = U_{t}(h_{v}^{t}, m_{v}^{t+1})
+$$
+where in the sum, $N(v)$ denotes the neighbors of $v$ in graph $G$. The readout phase computes a feature vector for the whole graph using some readout function $R$ according to
+$$
+\hat{y} = R(\{ h_{v}^{T} | v \in G \})
+$$
+The message functions $M_{t}$, vertex update functions $U_{t}$, and readout function $R$ are all learned differentiable functions. $R$ operates on the set of node states and must be invariant to permutations of the node states in order for the MPNN to be invariant to graph isomorphism.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000923-a0c5e6b0_i61WQhX.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>2. Graph Embeddings</p>
+            <hr>
+            <div class="row task-content">
+<div class="col-md-9 description">
+<div class="description-content">
+<p>
+    graph embeddings, can be homogeneous graph or heterogeneous graph
+   </p>
+</div>
+</div>
+<div class="col-md-3 task-infobox">
+<div class="mb-3">
+<a id="pop">
+<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/Screen_Shot_2020-05-26_at_11.47.11_PM_ryaXXP6.png" width="100%"/>
+</a>
+</div>
+</div>
+</div>
+
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>LapEigen</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Laplacian PE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <a href="https://paperswithcode.com/paper/laplacian-eigenmaps-and-spectral-techniques">
+   Laplacian eigenvectors
+  </a>
+  represent a natural generalization of the
+  <a href="https://paperswithcode.com/method/transformer">
+   Transformer
+  </a>
+  positional encodings (PE) for graphs as the eigenvectors of a discrete line (NLP graph) are the cosine and sinusoidal functions. They help encode distance-aware information (i.e., nearby nodes have similar positional features and farther nodes have dissimilar positional features).
+ </p>
+ <p>
+  Hence, Laplacian Positional Encoding (PE) is a general method to encode node positions in a graph. For each node, its Laplacian PE is the k smallest non-trivial eigenvectors.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>TuckER</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  TuckER
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>node2vec</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   node2vec
+  </strong>
+  is a framework for learning graph embeddings for nodes in graphs. Node2vec maximizes a likelihood objective over mappings which preserve neighbourhood distances in higher dimensional spaces. From an algorithm design perspective, node2vec exploits the freedom to define neighbourhoods for nodes and provide an explanation for the effect of the choice of neighborhood on the learned representations.
+ </p>
+ <p>
+  For each node, node2vec simulates biased random walks based on an efficient network-aware search strategy and the nodes appearing in the random walk define neighbourhoods. The search strategy accounts for the relative influence nodes exert in a network. It also generalizes prior work alluding to naive search strategies by providing flexibility in exploring neighborhoods.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000009559-69a0a8ef_cU4IFQA.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>TransE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   TransE
+  </strong>
+  is an energy-based model that produces knowledge base embeddings. It models relationships by interpreting them as translations operating on the low-dimensional embeddings of the entities. Relationships are represented as translations in the embedding space: if $\left(h, \mathcal{l}, t\right)$ holds, the embedding of the tail entity $t$ should be close to the embedding of the head entity $h$ plus some vector that depends on the relationship $\mathcal{l}$.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000027731-ca87c2b2_v6ZjG9Y.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>DeepWalk</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   DeepWalk
+  </strong>
+  learns embeddings (social representations) of a graph's vertices, by modeling a stream of short random walks. Social representations are latent features of the vertices that capture neighborhood similarity and community membership. These latent representations encode social relations in a continuous vector space with a relatively small number of dimensions. It generalizes neural language models to process a special language composed of a set of randomly-generated walks.
+ </p>
+ <p>
+  The goal is to learn a latent representation, not only a probability distribution of node co-occurrences, and so as to introduce a mapping function $\Phi \colon v \in V \mapsto \mathbb{R}^{|V|\times d}$.
+This mapping $\Phi$ represents the latent social representation associated with each vertex $v$ in the graph. In practice, $\Phi$ is represented by a $|V| \times d$ matrix of free parameters.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005954-641729f8_JGcfacr.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>3. Graph Representation Learning</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Contrastive Learning</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Graph Neural Network</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>AWARE</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  We propose to theoretically and empirically examine the effect of incorporating weighting schemes into walk-aggregating GNNs. To this end, we propose a simple, interpretable, and end-to-end supervised GNN model, called AWARE (Attentive Walk-Aggregating GRaph Neural NEtwork), for graph-level prediction. AWARE aggregates the walk information by means of weighting schemes at distinct levels (vertex-, walk-, and graph-level) in a principled manner. By virtue of the incorporated weighting schemes at these different levels, AWARE can emphasize the information important for prediction while diminishing the irrelevant ones—leading to representations that can improve learning performance.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/tasks/default.gif" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>SPIN</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/b5606241-77f2-4785-9189-164b91e6efe1.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        
+        <ul class="parent">
+            <p>4. Graph Data Augmentation</p>
+            <hr>
+            
+            
+        <li>
+            <details class="method depth1">
+            <summary>Top methods</summary>
+            <ul>
+                
+        <li>
+            <details class="method">
+            <summary>Canonical Partition</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  \emph{Canonical partition} $\mathcal{P}$ crops the index-restricted d-hop neighborhood around the center node from the target graph. $\mathcal{D}(G_t,v_i,v_c)$ means the shortest distance between $v_i$ and $v_c$ on $G_t$.
+ \begin{equation}
+        \mathcal{P}(G_t, v_c, d) = G_c, \operatorname{ s.t. } G_c \subseteq G_t, V_c = { v_i \in V_t|\mathcal{D}(G_t,v_i,v_c) \leq d , v_i \leq v_c}
+\end{equation}
+ </p>
+ <p>
+  The graph $G_c$ obtained by canonical partition is called the \emph{canonical neighborhood}. Canonical neighborhoods can correctly substitute the target graph in canonical count. The subgraph count of query in target equals the summation of the canonical count of query in canonical neighborhoods for all target nodes. Canonical neighborhoods are acquired with canonical partition $\mathcal{P}$, given any $d$ greater than the diameter of the query.
+\begin{equation}
+    \mathcal{C}(G_q,G_t) = \sum_{v_c \in V_t} \mathcal{C}
+  <em>
+   c(G_q, \mathcal{P}(G_t, v_c, d),v_c), 
+    d \geq \max
+  </em>
+  {v_i, v_j \in V_q} \mathcal{D}(G_q, v_i, v_j)
+\end{equation}
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8b30a8bf-82d1-42d7-809c-9eb2cff9ba2d.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+        <li>
+            <details class="method">
+            <summary>Local Augmentation</summary>
+            <ul class="col-md-12">
+                <li>
+                    <div class="row">
+                        <div class="col-md-8 description">
+ <p>
+  <strong>
+   Local Augmentation for Graph Neural Networks
+  </strong>
+  , or
+  <strong>
+   LA-GNN
+  </strong>
+  , is a data augmentation technique that enhances node features by its local subgraph structures. Specifically, it learns the conditional distribution of the connected neighbors’ representations given the representation of the central node, which has an analogy with the
+  <a href="https://paperswithcode.com/method/skip-gram-word2vec">
+   Skip-gram of word2vec
+  </a>
+  model that predicts the probability of the context given the central word. After augmenting the neighborhood, we concat the initial and the generated feature matrix as input for GNNs.
+ </p>
+</div>
+
+                        <div class="col-md-4">
+                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001523-b752360a.jpg" style="width: 100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </details>
+        </li>
+        
+            </ul>
+            </details>
+        </li>
+    
+            
+        </ul>
+        </div></body></html>
