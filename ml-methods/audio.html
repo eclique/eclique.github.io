@@ -7,52 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	<script>
-		MathJax = {
-			tex: {
-				inlineMath: [['$', '$']],
-				displayMath: [['$$', '$$']]
-			}
-		};
-	</script>
-	<!-- <script>
-		window.onload = function() {
-			// Select all <details> elements
-			var details = document.querySelectorAll('details');
-
-			// Loop through each <details> element
-			details.forEach(function(detail) {
-				// Set the 'open' attribute to true
-				// if not detail.classList.contains('method')
-				if (!detail.classList.contains('method'))
-					detail.setAttribute('open', true);
-			});
-		};
-	</script> -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var navButtons = document.querySelectorAll(".nav-btn");
-
-			navButtons.forEach(function (button) {
-				if (button.href === window.location.href) {
-					button.classList.add("active");
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener('click', function (event) {
-			if (document.getElementById('lightbox').style.display != 'none') {
-				// Close lightbox
-				document.getElementById('lightbox').style.display = 'none';
-			}
-			else if (event.target.tagName == 'IMG') {
-				// Open lightbox
-				document.getElementById('lightbox-image').src = event.target.src;
-				document.getElementById('lightbox').style.display = 'block';
-			}
-		});
-	</script>
+	<script src="script.js"></script>
 </head>
 
 <body>
@@ -68,14 +23,20 @@
 		<a class="nav-btn" href="sequential.html">Sequential</a>
 		<a class="nav-btn" href="graphs.html">Graphs</a>
 	</div>
+	<div class="bottom-right-buttons">
+        <button id="toggle-cats-btn" class="bottom-right-button">Toggle categories</button>
+        <button id="close-methods-btn" class="bottom-right-button">Collapse methods</button>
+    </div>
 	<div class="container mx-auto">
         <ul class="parent">
             <p>1. Generative Audio Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -108,7 +69,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000588-3b8adffc.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-24_at_12.11.35_AM_uO4kv1I.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -171,7 +132,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/1f99106c-ce3b-4f29-abbf-ef80371d8839.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-05_at_4.42.48_PM_T4cQcNZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -209,7 +170,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001422-eeaff2d2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-09_at_9.20.49_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -274,7 +235,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000777-91a6e96e_x3OKpq0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-15_at_12.41.32_PM_BMG1u0M.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -292,10 +253,12 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
         <ul class="parent">
             <p>2. Audio Model Blocks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -328,7 +291,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000043-6fe49bc3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-05_at_5.54.27_PM_8DyvJDa.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -364,7 +327,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000789-54803bb8_oJwNO82.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-16_at_5.19.15_PM_bt5EHfQ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -396,7 +359,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000790-c49d174c_STqDhk2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-16_at_5.28.02_PM_eY5ZnAI.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -432,7 +395,7 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000803-f0d3c0b0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-18_at_8.22.51_AM_luzUHZP.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -450,10 +413,12 @@ operations, and output dimensionality as DCGAN. An additional layer is added aft
         <ul class="parent">
             <p>3. Text-to-Speech Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -474,7 +439,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057305-de0e6f99.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_10.18.26_PM_NgWbQs6.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -536,7 +501,7 @@ predicted mel spectrogram frames
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/5b3d39be-36fe-48bf-8f14-44ea952882fd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-08_at_3.44.14_PM_UeMLowS.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -575,7 +540,7 @@ predicted mel spectrogram frames
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/5592e286-781a-4d8d-bd21-50fd53c71c16.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/c3b27473-b2e1-41b8-9704-9cc1072e33c4.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -629,7 +594,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/eab6f844-a242-4c7f-8b2b-f98f9c7ed529.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/8bad9bac-24a6-4dd1-86eb-6c93d4c70120.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -647,21 +612,23 @@ $$
         <ul class="parent">
             <p>4. Speech Separation Models</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     Estimate individual speech signals from a mixture.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -692,7 +659,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/ea587774-740c-4453-83ca-d24e7aeb8aa4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/47d3b6b3-be48-4e2e-824c-da872ee69f57.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -717,7 +684,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001023-6e51de65.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/tasnet_4isUkmw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -741,7 +708,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001432-f466624e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-10_at_10.35.49_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -777,10 +744,12 @@ $$
         <ul class="parent">
             <p>5. Speech Recognition</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -804,7 +773,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001357-74cda28a.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_1.01.38_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -828,7 +797,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001412-1c866163.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-06_at_10.29.59_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -859,7 +828,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001562-9a61bcd3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_9.12.32_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -877,10 +846,12 @@ $$
         <ul class="parent">
             <p>6. Phase Reconstruction</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -923,7 +894,7 @@ $$ P_{\mathcal{A}}(\mathbf{X}) = \mathbf{A} \odot \mathbf{X} \oslash |\mathbf{X}
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000691-b9c5f6dd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-05_at_5.38.51_PM_NWlcdyB.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -964,21 +935,23 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
         <ul class="parent">
             <p>7. Speech enhancement</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     Estimate clean speech from a noisy/distorted speech mixture.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -999,7 +972,7 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001023-6e51de65.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/tasnet_4isUkmw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1017,10 +990,12 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
         <ul class="parent">
             <p>8. Speaker Diarization</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1040,7 +1015,7 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001325-aba480eb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_9.25.51_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1058,21 +1033,23 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
         <ul class="parent">
             <p>9. Music Transcription</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     Convert an acoustic musical signal into some form of music notation.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1092,7 +1069,7 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/71cf876a-d165-4b3a-9faa-be7c0fa7f96c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/810f3db0-b1f4-4e02-9553-5363835de454.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1110,10 +1087,12 @@ URL: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7890450&amp;is
         <ul class="parent">
             <p>10. Audio Artifact Removal</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1141,7 +1120,7 @@ of a resultant waveform. Intuitively speaking, phase shuffle makes the discrimin
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000689-1651d6f3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-05_at_4.49.54_PM_vEnhkul.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1159,21 +1138,23 @@ of a resultant waveform. Intuitively speaking, phase shuffle makes the discrimin
         <ul class="parent">
             <p>11. Music source separation</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     Estimate individual instrument signals from a mixture.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1194,7 +1175,7 @@ of a resultant waveform. Intuitively speaking, phase shuffle makes the discrimin
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001023-6e51de65.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/tasnet_4isUkmw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1212,10 +1193,12 @@ of a resultant waveform. Intuitively speaking, phase shuffle makes the discrimin
         <ul class="parent">
             <p>12. Speech Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1235,7 +1218,7 @@ of a resultant waveform. Intuitively speaking, phase shuffle makes the discrimin
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001369-78f1021f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-06_at_9.51.44_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1253,10 +1236,12 @@ of a resultant waveform. Intuitively speaking, phase shuffle makes the discrimin
         <ul class="parent">
             <p>13. Speech Synthesis Blocks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1304,7 +1289,7 @@ convolved with $K$ sets of 1-D convolutional filters, where the $k$-th set conta
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000370-fdc1421a_j2r7ihh.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_9.50.03_PM_1fzwGwI.png" style="width: 100%">
                         </div>
                     </div>
                 </li>

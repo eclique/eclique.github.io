@@ -7,52 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	<script>
-		MathJax = {
-			tex: {
-				inlineMath: [['$', '$']],
-				displayMath: [['$$', '$$']]
-			}
-		};
-	</script>
-	<!-- <script>
-		window.onload = function() {
-			// Select all <details> elements
-			var details = document.querySelectorAll('details');
-
-			// Loop through each <details> element
-			details.forEach(function(detail) {
-				// Set the 'open' attribute to true
-				// if not detail.classList.contains('method')
-				if (!detail.classList.contains('method'))
-					detail.setAttribute('open', true);
-			});
-		};
-	</script> -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var navButtons = document.querySelectorAll(".nav-btn");
-
-			navButtons.forEach(function (button) {
-				if (button.href === window.location.href) {
-					button.classList.add("active");
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener('click', function (event) {
-			if (document.getElementById('lightbox').style.display != 'none') {
-				// Close lightbox
-				document.getElementById('lightbox').style.display = 'none';
-			}
-			else if (event.target.tagName == 'IMG') {
-				// Open lightbox
-				document.getElementById('lightbox-image').src = event.target.src;
-				document.getElementById('lightbox').style.display = 'block';
-			}
-		});
-	</script>
+	<script src="script.js"></script>
 </head>
 
 <body>
@@ -68,14 +23,20 @@
 		<a class="nav-btn" href="sequential.html">Sequential</a>
 		<a class="nav-btn" href="graphs.html">Graphs</a>
 	</div>
+	<div class="bottom-right-buttons">
+        <button id="toggle-cats-btn" class="bottom-right-button">Toggle categories</button>
+        <button id="close-methods-btn" class="bottom-right-button">Collapse methods</button>
+    </div>
 	<div class="container mx-auto">
         <ul class="parent">
             <p>1. Recurrent Neural Networks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -114,7 +75,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000495-71f37086_nITzEnB.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/1_PJ5atpFStpNWE_XpB4e8qQ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -153,7 +114,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000014-20baf651.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/780px-Gated_Recurrent_Unit_type_1.svg.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -206,7 +167,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000816-bc0562d9_GcXEnR7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-19_at_5.57.50_PM_XCST01q.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -258,7 +219,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000041311-cd212ee9_mXP5Spl.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-25_at_12.53.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -297,7 +258,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000607-2b363d83_uD8eY3z.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_10.32.16_PM_Mte09yT.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -330,7 +291,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000611-47d50ccd_8CZX1Ve.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_10.41.18_PM_SMTOBGZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -342,7 +303,7 @@
             </details>
         </li>
     
-            <br>
+            
         <li>
             <details class="category depth1">
             <summary>Bidirectional Recurrent Neural Networks</summary>
@@ -352,7 +313,7 @@
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -387,7 +348,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000607-2b363d83_uD8eY3z.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_10.32.16_PM_Mte09yT.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -424,7 +385,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000060-62c4d019.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_network1.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -468,7 +429,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001149-51783e37_L6E0L00.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/u-rnns_bB4Bnil.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -486,7 +447,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/1b3af6c0-52f0-4329-8637-52fbe4e729de.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/4df74367-7844-4c51-9629-e4896e7c1ad5.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -509,10 +470,12 @@
         <ul class="parent">
             <p>2. Sequence To Sequence Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -552,7 +515,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005529-54b7e509_qP1I8XX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-24_at_7.47.32_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -600,7 +563,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -644,7 +607,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000153-e194680b_0MCpSUL.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_9.49.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -678,7 +641,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000041311-cd212ee9_mXP5Spl.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-25_at_12.53.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -703,7 +666,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057305-de0e6f99.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_10.18.26_PM_NgWbQs6.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -739,7 +702,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -757,21 +720,23 @@ frames, which are then converted to waveforms.
         <ul class="parent">
             <p>3. Time Series Analysis</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     Time series analysis comprises methods for analyzing time series data in order to extract meaningful statistics and other characteristics of the data.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -811,7 +776,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000899-9347c1f0_abD4kIo.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Euclidean_vs_DTW_G5ki81Q.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -889,10 +854,12 @@ frames, which are then converted to waveforms.
         <ul class="parent">
             <p>4. Temporal Convolutions</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -921,7 +888,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056870-3b8adffc.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-24_at_12.11.35_AM_RLzUMeS.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -950,7 +917,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057014-31f9410e_w3QH9UC.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_architecture_fi9B5jC.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -982,7 +949,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056869-0c3e0f5c_NZ6MVbO.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-24_at_12.09.54_AM_HZBIcHD.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1017,7 +984,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000849-85e053cd_eCZzdX7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-08-28_at_2.51.50_PM_wkWP47q.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1035,10 +1002,12 @@ frames, which are then converted to waveforms.
         <ul class="parent">
             <p>5. Bidirectional Recurrent Neural Networks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1073,7 +1042,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000607-2b363d83_uD8eY3z.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_10.32.16_PM_Mte09yT.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1110,7 +1079,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000060-62c4d019.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_network1.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1154,7 +1123,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001149-51783e37_L6E0L00.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/u-rnns_bB4Bnil.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1172,7 +1141,7 @@ frames, which are then converted to waveforms.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/1b3af6c0-52f0-4329-8637-52fbe4e729de.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/4df74367-7844-4c51-9629-e4896e7c1ad5.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1190,21 +1159,23 @@ frames, which are then converted to waveforms.
         <ul class="parent">
             <p>6. Multi-scale analysis</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     Methods for analysing signals over multiple scales.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1302,10 +1273,12 @@ frames, which are then converted to waveforms.
         <ul class="parent">
             <p>7. Time Series Modules</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1352,7 +1325,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/e554f509-73cc-4a0a-9eb5-352ee0bb4b9f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/182a2e43-f851-43aa-a683-058df814e822.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1421,7 +1394,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/9359d08c-7d66-4eb7-8cd8-2201c7adf7cb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/ce6113ea-40be-4566-a5dc-a402faba0b48.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1439,10 +1412,12 @@ $$
         <ul class="parent">
             <p>8. Medical waveform analysis</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1474,10 +1449,12 @@ $$
         <ul class="parent">
             <p>9. Generative Sequence Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1505,7 +1482,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000436-92a59593.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-28_at_5.41.08_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1523,10 +1500,12 @@ $$
         <ul class="parent">
             <p>10. Sequential Blocks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1574,7 +1553,7 @@ convolved with $K$ sets of 1-D convolutional filters, where the $k$-th set conta
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000370-fdc1421a_j2r7ihh.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-01_at_9.50.03_PM_1fzwGwI.png" style="width: 100%">
                         </div>
                     </div>
                 </li>

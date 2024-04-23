@@ -7,52 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	<script>
-		MathJax = {
-			tex: {
-				inlineMath: [['$', '$']],
-				displayMath: [['$$', '$$']]
-			}
-		};
-	</script>
-	<!-- <script>
-		window.onload = function() {
-			// Select all <details> elements
-			var details = document.querySelectorAll('details');
-
-			// Loop through each <details> element
-			details.forEach(function(detail) {
-				// Set the 'open' attribute to true
-				// if not detail.classList.contains('method')
-				if (!detail.classList.contains('method'))
-					detail.setAttribute('open', true);
-			});
-		};
-	</script> -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var navButtons = document.querySelectorAll(".nav-btn");
-
-			navButtons.forEach(function (button) {
-				if (button.href === window.location.href) {
-					button.classList.add("active");
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener('click', function (event) {
-			if (document.getElementById('lightbox').style.display != 'none') {
-				// Close lightbox
-				document.getElementById('lightbox').style.display = 'none';
-			}
-			else if (event.target.tagName == 'IMG') {
-				// Open lightbox
-				document.getElementById('lightbox-image').src = event.target.src;
-				document.getElementById('lightbox').style.display = 'block';
-			}
-		});
-	</script>
+	<script src="script.js"></script>
 </head>
 
 <body>
@@ -68,33 +23,39 @@
 		<a class="nav-btn" href="sequential.html">Sequential</a>
 		<a class="nav-btn" href="graphs.html">Graphs</a>
 	</div>
+	<div class="bottom-right-buttons">
+        <button id="toggle-cats-btn" class="bottom-right-button">Toggle categories</button>
+        <button id="close-methods-btn" class="bottom-right-button">Collapse methods</button>
+    </div>
 	<div class="container mx-auto">
         <ul class="parent">
             <p>1. Language Models</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
-<strong>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
+    <strong>
      Language Models
     </strong>
     are models for predicting the next word or character in a document. Below you can find a continuously updating list of language models.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-<div class="mb-3">
-<a id="pop">
-<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/BERT.jpeg" width="100%"/>
-</a>
-</div>
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+  <div class="mb-3">
+   <a id="pop">
+    <img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/BERT.jpeg" width="100%"/>
+   </a>
+  </div>
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -131,7 +92,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f5808fa4-2a12-490a-b1cd-40e722759f6c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_ModalNet-21.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -219,7 +180,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000064-cd0be9b4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_BERT_Overall.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -243,7 +204,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fec78fbb-427d-40c1-bf6f-604a75e71401.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/b51f32e3-d2f1-4592-abb0-ba232ec24555.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -284,7 +245,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fabfd842-6132-4ad2-899f-fd2caf815ef4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_10.27.17_PM_WRE3tj7.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -326,7 +287,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000008233-2f1c2008_1lpKS4e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.41.28_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -355,7 +316,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001095-12ff740c_udCTBbJ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.41.44_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -403,7 +364,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -462,7 +423,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93167444-0305-48d6-94e0-bfccfa793038.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_2.01.27_PM_YPL4rHk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -541,7 +502,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000153-e194680b_0MCpSUL.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_9.49.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -578,7 +539,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005453-f57d6dbb_AnLBMt0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-25_at_8.41.43_PM_DuQFJHG.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -605,7 +566,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fa2a2b77-b63d-4599-b206-1d5ebe298179.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screenshot_2021-02-10_at_16.27.41_2WdgjIH.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -706,7 +667,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000027-212d66bb_rCqXniF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/0_dwpaEuNcwmPQUOKi_COw4cmZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -741,7 +702,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000267-5f78446f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.20.56_PM_sqj0MAw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -769,7 +730,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/59028eee-c084-4883-8ce4-ee113f10365b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/ef5dbabb-23bd-4a09-9a0c-e9c1478fb5b3.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -801,7 +762,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000756-56dbcca4_h4t8hu7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/distilbert_COTEMhF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -849,7 +810,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/60c69e64-e97b-4f63-a2bc-881c00f17fd4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/863602e8-31d8-41ed-b119-4ff8a66cabb0.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -883,7 +844,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/100c33b5-37a5-479d-8305-8a29192b98ac.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/edc6477d-9970-4e24-a7a2-93bbf5e37be2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -929,7 +890,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056976-a7407a73_zQE247U.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_10.21.19_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -982,7 +943,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3f93752-1af5-4c99-adbb-5f4b7d3820fb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9deb264b-f062-4992-b875-8635a3c5796a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1029,7 +990,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000144-d0638059.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.04.33_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1061,7 +1022,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001573-a9ed7dc8_jM7IJIg.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_2.30.03_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1093,7 +1054,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/d5f2e6c6-4797-44b9-afe7-e397a207d592.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/a04cb14e-e6b8-449e-9487-bc4262911d74.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1137,7 +1098,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/11a6a160-2bc3-4f21-8807-a92936697ee3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cdd53959-f9f1-4f79-b604-3f531e431abd.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1165,7 +1126,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000114-a6c557e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_10.49.57_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1201,7 +1162,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1247,7 +1208,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000029173-420c3f0e_UmeSFoz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_XLM.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1259,36 +1220,36 @@ sources in 46 natural and 13 programming languages (59 in total).
             </details>
         </li>
     
-            <br>
+            
         <li>
             <details class="category depth1">
             <summary>Transformers</summary>
             <ul>
                 <li class="col-md-12">
                     <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
-<strong>
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
+    <strong>
      Transformers
     </strong>
     are a type of neural network architecture that have several properties that make them effective for modeling data with long-range dependencies. They generally feature a combination of multi-headed attention mechanisms, residual connections, layer normalization, feedforward connections, and positional embeddings.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-<div class="mb-3">
-<a id="pop">
-<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/trans.jpeg" width="100%"/>
-</a>
-</div>
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+  <div class="mb-3">
+   <a id="pop">
+    <img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/trans.jpeg" width="100%"/>
+   </a>
+  </div>
+ </div>
 </div>
 
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1325,7 +1286,7 @@ sources in 46 natural and 13 programming languages (59 in total).
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f5808fa4-2a12-490a-b1cd-40e722759f6c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_ModalNet-21.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1391,7 +1352,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000064-cd0be9b4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_BERT_Overall.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1432,7 +1393,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fabfd842-6132-4ad2-899f-fd2caf815ef4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_10.27.17_PM_WRE3tj7.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1474,7 +1435,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000008233-2f1c2008_1lpKS4e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.41.28_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1503,7 +1464,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001095-12ff740c_udCTBbJ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.41.44_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1551,7 +1512,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1610,7 +1571,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93167444-0305-48d6-94e0-bfccfa793038.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_2.01.27_PM_YPL4rHk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1654,7 +1615,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000153-e194680b_0MCpSUL.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_9.49.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1689,7 +1650,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000027-212d66bb_rCqXniF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/0_dwpaEuNcwmPQUOKi_COw4cmZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1724,7 +1685,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000267-5f78446f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.20.56_PM_sqj0MAw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1752,7 +1713,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/59028eee-c084-4883-8ce4-ee113f10365b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/ef5dbabb-23bd-4a09-9a0c-e9c1478fb5b3.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1784,7 +1745,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000756-56dbcca4_h4t8hu7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/distilbert_COTEMhF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1832,7 +1793,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/60c69e64-e97b-4f63-a2bc-881c00f17fd4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/863602e8-31d8-41ed-b119-4ff8a66cabb0.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1866,7 +1827,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/100c33b5-37a5-479d-8305-8a29192b98ac.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/edc6477d-9970-4e24-a7a2-93bbf5e37be2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1894,7 +1855,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056976-a7407a73_zQE247U.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_10.21.19_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1922,7 +1883,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3f93752-1af5-4c99-adbb-5f4b7d3820fb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9deb264b-f062-4992-b875-8635a3c5796a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1969,7 +1930,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000144-d0638059.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.04.33_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2001,7 +1962,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001573-a9ed7dc8_jM7IJIg.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_2.30.03_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2045,7 +2006,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/11a6a160-2bc3-4f21-8807-a92936697ee3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cdd53959-f9f1-4f79-b604-3f531e431abd.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2073,7 +2034,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000114-a6c557e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_10.49.57_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2109,7 +2070,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2155,7 +2116,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000029173-420c3f0e_UmeSFoz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_XLM.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2167,7 +2128,7 @@ $$
             </details>
         </li>
     
-                <br>
+                
         <li>
             <details class="category depth2">
             <summary>Autoencoding Transformers</summary>
@@ -2177,7 +2138,7 @@ $$
                 </li>
                 
         <li>
-            <details class="method depth3">
+            <details class="method-all depth3">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2221,7 +2182,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000064-cd0be9b4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_BERT_Overall.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2263,7 +2224,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000008233-2f1c2008_1lpKS4e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.41.28_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2311,7 +2272,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2346,7 +2307,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000267-5f78446f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.20.56_PM_sqj0MAw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2378,7 +2339,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000756-56dbcca4_h4t8hu7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/distilbert_COTEMhF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2426,7 +2387,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/60c69e64-e97b-4f63-a2bc-881c00f17fd4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/863602e8-31d8-41ed-b119-4ff8a66cabb0.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2454,7 +2415,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056976-a7407a73_zQE247U.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_10.21.19_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2482,7 +2443,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3f93752-1af5-4c99-adbb-5f4b7d3820fb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9deb264b-f062-4992-b875-8635a3c5796a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2529,7 +2490,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000144-d0638059.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.04.33_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2573,7 +2534,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/11a6a160-2bc3-4f21-8807-a92936697ee3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cdd53959-f9f1-4f79-b604-3f531e431abd.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2609,7 +2570,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2655,7 +2616,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000029173-420c3f0e_UmeSFoz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_XLM.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2682,7 +2643,7 @@ $$
                 </li>
                 
         <li>
-            <details class="method depth3">
+            <details class="method-all depth3">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2719,7 +2680,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f5808fa4-2a12-490a-b1cd-40e722759f6c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_ModalNet-21.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2760,7 +2721,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fabfd842-6132-4ad2-899f-fd2caf815ef4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_10.27.17_PM_WRE3tj7.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2789,7 +2750,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001095-12ff740c_udCTBbJ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.41.44_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2848,7 +2809,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93167444-0305-48d6-94e0-bfccfa793038.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_2.01.27_PM_YPL4rHk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2883,7 +2844,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000027-212d66bb_rCqXniF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/0_dwpaEuNcwmPQUOKi_COw4cmZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2911,7 +2872,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000114-a6c557e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_10.49.57_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2935,21 +2896,21 @@ a larger batch size of 512 is used.
             <ul>
                 <li class="col-md-12">
                     <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     A transformer-based approach with a mixture of several types of attentions.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
                 </li>
                 
         <li>
-            <details class="method depth3">
+            <details class="method-all depth3">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2966,7 +2927,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/7dd59d7d-b2cf-4462-949d-c34b21fb4736.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/6ccc765a-9fa3-48d9-809d-80e6da7be14a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2994,29 +2955,31 @@ a larger batch size of 512 is used.
         <ul class="parent">
             <p>2. Transformers</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
-<strong>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
+    <strong>
      Transformers
     </strong>
     are a type of neural network architecture that have several properties that make them effective for modeling data with long-range dependencies. They generally feature a combination of multi-headed attention mechanisms, residual connections, layer normalization, feedforward connections, and positional embeddings.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-<div class="mb-3">
-<a id="pop">
-<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/trans.jpeg" width="100%"/>
-</a>
-</div>
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+  <div class="mb-3">
+   <a id="pop">
+    <img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/trans.jpeg" width="100%"/>
+   </a>
+  </div>
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -3053,7 +3016,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f5808fa4-2a12-490a-b1cd-40e722759f6c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_ModalNet-21.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3119,7 +3082,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000064-cd0be9b4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_BERT_Overall.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3160,7 +3123,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fabfd842-6132-4ad2-899f-fd2caf815ef4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_10.27.17_PM_WRE3tj7.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3202,7 +3165,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000008233-2f1c2008_1lpKS4e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.41.28_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3231,7 +3194,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001095-12ff740c_udCTBbJ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.41.44_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3279,7 +3242,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3338,7 +3301,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93167444-0305-48d6-94e0-bfccfa793038.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_2.01.27_PM_YPL4rHk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3382,7 +3345,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000153-e194680b_0MCpSUL.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_9.49.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3417,7 +3380,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000027-212d66bb_rCqXniF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/0_dwpaEuNcwmPQUOKi_COw4cmZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3452,7 +3415,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000267-5f78446f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.20.56_PM_sqj0MAw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3480,7 +3443,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/59028eee-c084-4883-8ce4-ee113f10365b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/ef5dbabb-23bd-4a09-9a0c-e9c1478fb5b3.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3512,7 +3475,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000756-56dbcca4_h4t8hu7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/distilbert_COTEMhF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3560,7 +3523,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/60c69e64-e97b-4f63-a2bc-881c00f17fd4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/863602e8-31d8-41ed-b119-4ff8a66cabb0.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3594,7 +3557,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/100c33b5-37a5-479d-8305-8a29192b98ac.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/edc6477d-9970-4e24-a7a2-93bbf5e37be2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3622,7 +3585,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056976-a7407a73_zQE247U.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_10.21.19_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3650,7 +3613,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3f93752-1af5-4c99-adbb-5f4b7d3820fb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9deb264b-f062-4992-b875-8635a3c5796a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3697,7 +3660,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000144-d0638059.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.04.33_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3729,7 +3692,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001573-a9ed7dc8_jM7IJIg.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_2.30.03_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3773,7 +3736,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/11a6a160-2bc3-4f21-8807-a92936697ee3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cdd53959-f9f1-4f79-b604-3f531e431abd.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3801,7 +3764,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000114-a6c557e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_10.49.57_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3837,7 +3800,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3883,7 +3846,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000029173-420c3f0e_UmeSFoz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_XLM.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3895,7 +3858,7 @@ $$
             </details>
         </li>
     
-            <br>
+            
         <li>
             <details class="category depth1">
             <summary>Autoencoding Transformers</summary>
@@ -3905,7 +3868,7 @@ $$
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -3949,7 +3912,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000064-cd0be9b4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_BERT_Overall.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3991,7 +3954,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000008233-2f1c2008_1lpKS4e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.41.28_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4039,7 +4002,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4074,7 +4037,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000267-5f78446f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.20.56_PM_sqj0MAw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4106,7 +4069,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000756-56dbcca4_h4t8hu7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/distilbert_COTEMhF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4154,7 +4117,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/60c69e64-e97b-4f63-a2bc-881c00f17fd4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/863602e8-31d8-41ed-b119-4ff8a66cabb0.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4182,7 +4145,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056976-a7407a73_zQE247U.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_10.21.19_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4210,7 +4173,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3f93752-1af5-4c99-adbb-5f4b7d3820fb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9deb264b-f062-4992-b875-8635a3c5796a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4257,7 +4220,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000144-d0638059.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.04.33_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4301,7 +4264,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/11a6a160-2bc3-4f21-8807-a92936697ee3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cdd53959-f9f1-4f79-b604-3f531e431abd.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4337,7 +4300,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4383,7 +4346,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000029173-420c3f0e_UmeSFoz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_XLM.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4410,7 +4373,7 @@ $$
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -4447,7 +4410,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f5808fa4-2a12-490a-b1cd-40e722759f6c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_ModalNet-21.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4488,7 +4451,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fabfd842-6132-4ad2-899f-fd2caf815ef4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_10.27.17_PM_WRE3tj7.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4517,7 +4480,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001095-12ff740c_udCTBbJ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.41.44_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4576,7 +4539,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93167444-0305-48d6-94e0-bfccfa793038.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_2.01.27_PM_YPL4rHk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4611,7 +4574,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000027-212d66bb_rCqXniF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/0_dwpaEuNcwmPQUOKi_COw4cmZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4639,7 +4602,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000114-a6c557e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_10.49.57_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4663,21 +4626,21 @@ a larger batch size of 512 is used.
             <ul>
                 <li class="col-md-12">
                     <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     A transformer-based approach with a mixture of several types of attentions.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -4694,7 +4657,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/7dd59d7d-b2cf-4462-949d-c34b21fb4736.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/6ccc765a-9fa3-48d9-809d-80e6da7be14a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4717,10 +4680,12 @@ a larger batch size of 512 is used.
         <ul class="parent">
             <p>3. Autoencoding Transformers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -4764,7 +4729,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000064-cd0be9b4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_BERT_Overall.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4806,7 +4771,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000008233-2f1c2008_1lpKS4e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.41.28_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4854,7 +4819,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/77812ae9-4b36-4692-84ab-39c99963aec4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_text_to_text.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4889,7 +4854,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000267-5f78446f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.20.56_PM_sqj0MAw.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4921,7 +4886,7 @@ are initialized with the same pre-trained parameters.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000756-56dbcca4_h4t8hu7.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/distilbert_COTEMhF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4969,7 +4934,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/60c69e64-e97b-4f63-a2bc-881c00f17fd4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/863602e8-31d8-41ed-b119-4ff8a66cabb0.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -4997,7 +4962,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056976-a7407a73_zQE247U.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_10.21.19_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5025,7 +4990,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3f93752-1af5-4c99-adbb-5f4b7d3820fb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9deb264b-f062-4992-b875-8635a3c5796a.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5072,7 +5037,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000144-d0638059.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.04.33_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5116,7 +5081,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/11a6a160-2bc3-4f21-8807-a92936697ee3.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cdd53959-f9f1-4f79-b604-3f531e431abd.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5152,7 +5117,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001575-54bce4c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.01.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5198,7 +5163,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000029173-420c3f0e_UmeSFoz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_XLM.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5216,10 +5181,12 @@ $$
         <ul class="parent">
             <p>4. Word Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -5245,7 +5212,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/9e26aaaa-e6be-469e-90f9-d71423620f1f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_1.48.38_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5282,7 +5249,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005453-f57d6dbb_AnLBMt0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-25_at_8.41.43_PM_DuQFJHG.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5306,7 +5273,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000004800-0382c37b_kOolRRX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.40.58_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5334,7 +5301,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/da03c4f3-7d23-4f0c-a1a7-bbc751db923c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/6bf9dc19-6dfb-4c31-a71a-450dd32d9850.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5346,7 +5313,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
             </details>
         </li>
     
-            <br>
+            
         <li>
             <details class="category depth1">
             <summary>Contextualized Word Embeddings</summary>
@@ -5356,7 +5323,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -5389,7 +5356,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005453-f57d6dbb_AnLBMt0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-25_at_8.41.43_PM_DuQFJHG.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5445,7 +5412,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056892-26ebab27_fNtoJ5k.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_1.22.59_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5487,7 +5454,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056900-80a5cea6_DVQyP7w.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_4.37.39_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5514,7 +5481,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -5540,7 +5507,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/9e26aaaa-e6be-469e-90f9-d71423620f1f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_1.48.38_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5564,7 +5531,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000004800-0382c37b_kOolRRX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.40.58_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5594,7 +5561,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000054-e6243e7b_01yEwgZ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_2.04.55_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5628,7 +5595,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000063-63d7d996_yPW0vFX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_2.04.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5651,10 +5618,12 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
         <ul class="parent">
             <p>5. Autoregressive Transformers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -5691,7 +5660,7 @@ UNITER takes the visual regions of the image and textual tokens of the sentence 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f5808fa4-2a12-490a-b1cd-40e722759f6c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_ModalNet-21.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5732,7 +5701,7 @@ parameters. It uses the same architecture/model as
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/fabfd842-6132-4ad2-899f-fd2caf815ef4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_10.27.17_PM_WRE3tj7.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5761,7 +5730,7 @@ the unlabeled data to learn the initial parameters of a neural network model. Su
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001095-12ff740c_udCTBbJ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.41.44_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5820,7 +5789,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93167444-0305-48d6-94e0-bfccfa793038.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_2.01.27_PM_YPL4rHk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5855,7 +5824,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000027-212d66bb_rCqXniF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/0_dwpaEuNcwmPQUOKi_COw4cmZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5883,7 +5852,7 @@ a larger batch size of 512 is used.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000114-a6c557e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_10.49.57_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -5901,10 +5870,11 @@ a larger batch size of 512 is used.
         <ul class="parent">
             <p>6. Attention Patterns</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     The original
     <a href="https://paperswithcode.com/method/scaled">
      self-attention component
@@ -5915,20 +5885,21 @@ a larger batch size of 512 is used.
     </a>
     architecture has a $O\left(n^{2}\right)$ time and memory complexity where $n$ is the input sequence length and thus, is not efficient to scale to long inputs. Attention pattern methods look to reduce this complexity by looking at a subset of the space.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-<div class="mb-3">
-<a id="pop">
-<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/strided.png" width="100%"/>
-</a>
-</div>
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+  <div class="mb-3">
+   <a id="pop">
+    <img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/strided.png" width="100%"/>
+   </a>
+  </div>
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -5987,7 +5958,7 @@ $l$ locations, and the other head attend to every $l$th location, where $l$ is t
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/bcae4baf-ef08-4a30-bdac-d702a944a5c1.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_3.19.11_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6060,7 +6031,7 @@ $l$ locations, and the other head attend to every $l$th location, where $l$ is t
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/161c7072-56f4-4299-822a-e027dd3763de.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_5.19.41_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6104,7 +6075,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000049-bca3b852_xr9T9ha.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.27.29_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6151,7 +6122,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000028-b53609cd_AzVFL4B.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.27.43_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6198,7 +6169,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000033-13e90451_hhPYbmE.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_7.27.36_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6216,10 +6187,12 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
         <ul class="parent">
             <p>7. Sentence Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -6279,7 +6252,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001480-2fa35700_c1D3RmL.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-15_at_1.19.35_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6304,7 +6277,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/f12794a3-4e19-4511-b58c-0423f625b554.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/cd18d6ac-ca08-4fdb-bc69-69e4551372d1.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6322,10 +6295,12 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
         <ul class="parent">
             <p>8. Static Word Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -6351,7 +6326,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/9e26aaaa-e6be-469e-90f9-d71423620f1f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_1.48.38_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6375,7 +6350,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000004800-0382c37b_kOolRRX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.40.58_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6405,7 +6380,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000054-e6243e7b_01yEwgZ.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_2.04.55_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6439,7 +6414,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000063-63d7d996_yPW0vFX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_2.04.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6457,10 +6432,12 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
         <ul class="parent">
             <p>9. Contextualized Word Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -6493,7 +6470,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005453-f57d6dbb_AnLBMt0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-25_at_8.41.43_PM_DuQFJHG.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6549,7 +6526,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056892-26ebab27_fNtoJ5k.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_1.22.59_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6591,7 +6568,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056900-80a5cea6_DVQyP7w.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_4.37.39_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6609,10 +6586,12 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
         <ul class="parent">
             <p>10. Text Classification Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -6632,7 +6611,7 @@ $w$ is fixed for all layers). Depending on the application, it might be helpful 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001483-64ae35d6.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-11_at_12.02.59_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6683,7 +6662,7 @@ labeled samples.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001438-b3b6a83b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-25_at_10.05.54_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6722,10 +6701,12 @@ labeled samples.
         <ul class="parent">
             <p>11. Subword Segmentation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -6755,7 +6736,7 @@ labeled samples.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000011161-32efc3dd_9OuNT8p.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.39.23_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6805,7 +6786,7 @@ labeled samples.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000382-17174b8c_JuN7iMu.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.57.20_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6836,7 +6817,7 @@ labeled samples.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001159-c4e289c3_CycyMHx.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screenshot_2021-07-05_at_14.40.01_Oxgsqqn.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6886,7 +6867,7 @@ algorithm.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056952-965ff3fd_5FActbN.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_hyperparameter.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6904,10 +6885,12 @@ algorithm.
         <ul class="parent">
             <p>12. Document Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -6931,7 +6914,7 @@ algorithm.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000930-e7efd005_LZMtSqx.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/logo_e0vXbiC.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -6964,7 +6947,7 @@ algorithm.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056911-979c350e_EVt5wxc.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.18.34_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7026,10 +7009,12 @@ Code: https://github.com/dev-chauhan/PQG-pytorch.
         <ul class="parent">
             <p>13. Synthesized Attention Mechanisms</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7087,7 +7072,7 @@ Code: https://github.com/dev-chauhan/PQG-pytorch.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000438-8a4ee1d0_L7zpsMM.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_11.54.21_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7136,7 +7121,7 @@ Code: https://github.com/dev-chauhan/PQG-pytorch.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000303-f31ab637_7PKpoFh.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_12.06.20_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7185,7 +7170,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000598-f31ab637_T3tXqnP.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_12.06.20_AM_PkacRfG.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7229,7 +7214,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000135-8a4ee1d0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-01_at_11.54.21_PM_52J3Q9s.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7247,10 +7232,12 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
         <ul class="parent">
             <p>14. Language Model Pre-Training</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7287,7 +7274,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001576-129d2b54_PzN20Gb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-17_at_3.25.13_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7311,7 +7298,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001288-47367331.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-04_at_12.44.02_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7359,7 +7346,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001521-adcb19df_qnAaTwU.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_9.43.15_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7387,7 +7374,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001541-1fe5faab.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_2.46.03_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7405,10 +7392,12 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
         <ul class="parent">
             <p>15. Code Generation Transformers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7432,7 +7421,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001292-2c82f92b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-04_at_1.03.59_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7468,7 +7457,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/93cb10ec-6ad4-462a-84a4-e1be334257e2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-15_at_5.10.30_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7522,7 +7511,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/7a9b4a39-fb73-4a29-938f-77c2ee02e285.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/da945303-09fa-49c9-b889-9cd626c639e3.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7540,10 +7529,12 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
         <ul class="parent">
             <p>16. Table Question Answering Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7567,7 +7558,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001356-3306298a.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_12.58.11_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7595,7 +7586,7 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001490-4c8cd668.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-15_at_5.23.23_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7613,10 +7604,12 @@ $k &lt;&lt; l$ and hence helps prevent overfitting. In practice, we use a small 
         <ul class="parent">
             <p>17. Machine Translation Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7656,7 +7649,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005529-54b7e509_qP1I8XX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-24_at_7.47.32_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7692,10 +7685,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>18. Question Answering Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7719,7 +7714,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001502-1fa928ac_46GZS17.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_8.09.58_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7751,7 +7746,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001511-0c8a01d0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_8.57.44_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7783,7 +7778,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001516-657667c9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_9.24.14_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7801,10 +7796,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>19. Relation Extraction Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7824,7 +7821,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001508-c2a058fa.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_8.47.28_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7870,7 +7867,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001434-05d94f27_7RtbLjz.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-25_at_9.48.38_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7909,10 +7906,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>20. Tokenizers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -7958,7 +7957,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000382-17174b8c_JuN7iMu.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_12.57.20_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -7986,7 +7985,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000031822-4f2b79d5_cUURnyl.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-30_at_1.12.02_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8004,10 +8003,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>21. Topic Embeddings</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8031,7 +8032,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000930-e7efd005_LZMtSqx.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/logo_e0vXbiC.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8064,7 +8065,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056911-979c350e_EVt5wxc.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.18.34_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8082,10 +8083,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>22. Entity Recognition Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8105,7 +8108,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001508-c2a058fa.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_8.47.28_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8123,10 +8126,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>23. Textual Meaning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8150,7 +8155,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001240-6b9efc9e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-04_at_11.34.12_AM_xt2D4sY.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8168,10 +8173,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>24. Document Summary Evaluation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8191,7 +8198,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001313-c976cfd8.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-04_at_5.16.31_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8209,10 +8216,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>25. Conversational Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8236,7 +8245,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001327-776c33fd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_9.31.26_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8264,7 +8273,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001340-fa4eb87b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_10.11.32_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8282,10 +8291,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>26. Dialog Adaptation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8305,7 +8316,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001358-05572ffd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_1.38.46_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8323,10 +8334,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>27. Text Augmentation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8346,7 +8359,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001483-64ae35d6.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-11_at_12.02.59_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8378,7 +8391,7 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c3ae91be-cef2-43b2-993d-4150b6bda147.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/ae0b6827-d70b-4af4-b6b9-6f5582b601ad.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8396,10 +8409,12 @@ from that vector. The second LSTM is essentially a recurrent neural network lang
         <ul class="parent">
             <p>28. Language Model Components</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8434,7 +8449,7 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000851-e9054beb.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-08-28_at_3.07.14_PM_8kAVYve.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8452,10 +8467,12 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
         <ul class="parent">
             <p>29. Sequence Decoding Methods</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8479,7 +8496,7 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/0754093b-e6e8-4a4e-a06f-494b17c5710a.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/15565d42-0ee8-4546-84ce-24b7f433b1f2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8521,10 +8538,12 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
         <ul class="parent">
             <p>30. Input Embedding Factorization</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8548,7 +8567,7 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056963-ce899e5f_rkQzZNH.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-31_at_1.34.39_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8566,10 +8585,12 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
         <ul class="parent">
             <p>31. Reading Comprehension Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8621,7 +8642,7 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000817-f5cd2c08_yteqR0W.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-19_at_6.10.33_PM_TbsJ3Qj.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8639,10 +8660,12 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
         <ul class="parent">
             <p>32. Passage Re-Ranking Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8691,7 +8714,7 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001530-a2cb0403_KsdSsqh.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_1.35.46_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8709,10 +8732,12 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
         <ul class="parent">
             <p>33. Exaggeration Detection Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8739,7 +8764,7 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001540-bc657182_cdCOiDD.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_2.41.54_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8757,10 +8782,12 @@ illustrated in the Figure, the cache stores pairs $\left(h_{i}, x_{i+1}\right)$ 
         <ul class="parent">
             <p>34. Reading Order Detection Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8808,7 +8835,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8e18e0c9-a4c3-4eca-a28d-e4cb7c13a22c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/82f68593-7263-40ea-91b1-1c8f48456c0b.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8826,10 +8853,12 @@ $$
         <ul class="parent">
             <p>35. Span Representations</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8857,7 +8886,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001531-f99f3586_jHj5Vzy.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_1.45.40_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8875,10 +8904,12 @@ $$
         <ul class="parent">
             <p>36. Taxonomy Expansion Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8898,7 +8929,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001312-e519bff8.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-04_at_5.14.34_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8916,10 +8947,12 @@ $$
         <ul class="parent">
             <p>37. Open-Domain Chatbots</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8943,7 +8976,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001340-fa4eb87b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_10.11.32_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -8961,10 +8994,12 @@ $$
         <ul class="parent">
             <p>38. Textual Inference Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -8984,7 +9019,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001348-f3b8354d.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_11.43.06_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9002,10 +9037,12 @@ $$
         <ul class="parent">
             <p>39. Dialog System Evaluation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9025,7 +9062,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001368-73b8f130.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-06_at_9.50.13_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9043,10 +9080,12 @@ $$
         <ul class="parent">
             <p>40. Inference Extrapolation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9087,7 +9126,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/b71acc99-d1f8-4845-aa37-864c95d99aa2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-31_at_9.34.28_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9105,10 +9144,12 @@ $$
         <ul class="parent">
             <p>41. Copy Mechanisms</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9128,7 +9169,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001532-040476c2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_1.51.12_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9146,10 +9187,12 @@ $$
         <ul class="parent">
             <p>42. Entity Retrieval Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9173,7 +9216,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001533-44648ea0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_1.52.50_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9191,10 +9234,12 @@ $$
         <ul class="parent">
             <p>43. Text Data Augmentation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9218,7 +9263,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001500-c6fe948f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-15_at_5.57.56_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9236,10 +9281,12 @@ $$
         <ul class="parent">
             <p>44. Paraphrase Generation Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9264,7 +9311,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001534-a5ac4586_WvJ3Vyj.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_1.56.10_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9282,10 +9329,12 @@ $$
         <ul class="parent">
             <p>45. Sequence Editing Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9312,7 +9361,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/4462319a-99a6-4cea-83a0-3de88854690f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/b472d8d4-c65b-4005-a946-b257e5732b5f.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9330,10 +9379,12 @@ $$
         <ul class="parent">
             <p>46. Dialogue State Trackers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9375,7 +9426,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/b1520b14-d4b3-49da-af30-d1944dab79f1.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/dc2b3fbc-7fcb-45bc-9c6f-33cc90c20b01.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9393,10 +9444,12 @@ $$
         <ul class="parent">
             <p>47. Document Understanding Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9419,7 +9472,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/31356c05-53dc-4697-8a68-951269c8e975.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/fb35941e-31e2-49e3-b8c4-70e56d5e6222.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -9437,10 +9490,12 @@ $$
         <ul class="parent">
             <p>48. Dependency Parsers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -9512,7 +9567,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/61feab3d-b2bd-4a0f-872a-10a25e47484b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/317fc17f-eab7-4afd-a885-3b55810398d2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>

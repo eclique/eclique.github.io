@@ -7,52 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	<script>
-		MathJax = {
-			tex: {
-				inlineMath: [['$', '$']],
-				displayMath: [['$$', '$$']]
-			}
-		};
-	</script>
-	<!-- <script>
-		window.onload = function() {
-			// Select all <details> elements
-			var details = document.querySelectorAll('details');
-
-			// Loop through each <details> element
-			details.forEach(function(detail) {
-				// Set the 'open' attribute to true
-				// if not detail.classList.contains('method')
-				if (!detail.classList.contains('method'))
-					detail.setAttribute('open', true);
-			});
-		};
-	</script> -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var navButtons = document.querySelectorAll(".nav-btn");
-
-			navButtons.forEach(function (button) {
-				if (button.href === window.location.href) {
-					button.classList.add("active");
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener('click', function (event) {
-			if (document.getElementById('lightbox').style.display != 'none') {
-				// Close lightbox
-				document.getElementById('lightbox').style.display = 'none';
-			}
-			else if (event.target.tagName == 'IMG') {
-				// Open lightbox
-				document.getElementById('lightbox-image').src = event.target.src;
-				document.getElementById('lightbox').style.display = 'block';
-			}
-		});
-	</script>
+	<script src="script.js"></script>
 </head>
 
 <body>
@@ -68,28 +23,34 @@
 		<a class="nav-btn" href="sequential.html">Sequential</a>
 		<a class="nav-btn" href="graphs.html">Graphs</a>
 	</div>
+	<div class="bottom-right-buttons">
+        <button id="toggle-cats-btn" class="bottom-right-button">Toggle categories</button>
+        <button id="close-methods-btn" class="bottom-right-button">Collapse methods</button>
+    </div>
 	<div class="container mx-auto">
         <ul class="parent">
             <p>1. Policy Gradient Methods</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
-<strong>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
+    <strong>
      Policy Gradient Methods
     </strong>
     try to optimize the policy function directly in reinforcement learning. This contrasts with, for example, Q-Learning, where the policy manifests itself as maximizing a value function. Below you can find a continuously updating catalog of policy gradient methods.
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -136,7 +97,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000574-965e3a73_JF2G6SY.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_9.57.17_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -172,7 +133,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000165-7e74433a.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-04_at_2.24.06_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -205,7 +166,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000265-61078f6f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_4.50.10_PM_r4MYqjA.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -245,7 +206,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000045-0b5e4409.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-05_at_1.37.32_PM_53mxkkW.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -297,7 +258,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000629-16c4dd9c.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_9.27.24_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -335,7 +296,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000171-96baf2c0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-04_at_2.18.53_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -353,10 +314,12 @@ objective by clipping the probability ratio, which removes the incentive for mov
         <ul class="parent">
             <p>2. Off-Policy TD Control</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -385,7 +348,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000466-c720d688.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_4.52.33_PM_cmcSSt1.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -427,7 +390,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000486-9af61132.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/dqn.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -480,7 +443,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/e9a6987d-1e42-455d-be32-6af4f3327fbe.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_2.12.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -518,7 +481,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000051-b30872c2.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-05_at_1.35.06_PM_BemawlV.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -530,7 +493,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
             </details>
         </li>
     
-            <br>
+            
         <li>
             <details class="category depth1">
             <summary>Q-Learning Networks</summary>
@@ -540,7 +503,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
                 </li>
                 
         <li>
-            <details class="method depth2">
+            <details class="method-all depth2">
             <summary>Top methods</summary>
             <ul>
                 
@@ -578,7 +541,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000486-9af61132.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/dqn.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -625,7 +588,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000215-c4cf0872_t9m8RIs.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_2.22.18_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -654,7 +617,7 @@ objective by clipping the probability ratio, which removes the incentive for mov
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000763-44b3207f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/architechture_figure_blog_kY2tL2V.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -689,7 +652,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056994-519b39d9_Z2Ui1AF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_3.24.01_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -712,10 +675,12 @@ estimate of the state-action value function Q as shown in the figure to the righ
         <ul class="parent">
             <p>3. Reinforcement Learning Frameworks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -801,10 +766,12 @@ estimate of the state-action value function Q as shown in the figure to the righ
         <ul class="parent">
             <p>4. Q-Learning Networks</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -842,7 +809,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000486-9af61132.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/dqn.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -889,7 +856,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000215-c4cf0872_t9m8RIs.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_2.22.18_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -918,7 +885,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000763-44b3207f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/architechture_figure_blog_kY2tL2V.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -953,7 +920,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056994-519b39d9_Z2Ui1AF.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_3.24.01_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -971,10 +938,12 @@ estimate of the state-action value function Q as shown in the figure to the righ
         <ul class="parent">
             <p>5. Heuristic Search Algorithms</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -991,7 +960,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000882-66e4e71b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/gadiagram-300x196_jThbitI.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1024,7 +993,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057296-7a3cec86.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-29_at_9.36.32_PM_Vc3hZmF.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1066,7 +1035,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000879-fb6d5280.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Exporation_trajectory_VQfTJ9T.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1084,10 +1053,12 @@ estimate of the state-action value function Q as shown in the figure to the righ
         <ul class="parent">
             <p>6. Value Function Estimation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1131,7 +1102,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000057011-863b485d.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-05_at_3.46.08_PM_E8wr9A4.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1164,7 +1135,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000181-7727e594.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-04_at_10.27.30_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1203,7 +1174,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000045745-856211df.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/nstep_diagram_d6Fm2sJ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1221,10 +1192,12 @@ estimate of the state-action value function Q as shown in the figure to the righ
         <ul class="parent">
             <p>7. Distributed Reinforcement Learning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1259,7 +1232,7 @@ estimate of the state-action value function Q as shown in the figure to the righ
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000618-ec4a8176.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_Single_worker.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1296,7 +1269,7 @@ And by learning off-policy, Ape-X has the ability to combine data from many dist
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000714-f96c6be9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_9.20.49_PM_q3EzDoU.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1384,10 +1357,12 @@ Distributed DataParallel scales very well (near-linear scaling up to 32,000 GPUs
         <ul class="parent">
             <p>8. On-Policy TD Control</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1419,7 +1394,7 @@ Distributed DataParallel scales very well (near-linear scaling up to 32,000 GPUs
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000468-deac60b0.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-07_at_4.51.59_PM_xUF1EvZ.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1477,7 +1452,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000591-8a10fb4a.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/unnamed_1_9FP3sdr.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1518,7 +1493,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000168-77bcdf09_CkOeCWd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/1_04P6VvjaGK2eiV0afZemPg_UD28JwA.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1548,7 +1523,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056990-27a18816_DTlx1QN.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_3.02.12_PM_Y0txTnB.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1566,10 +1541,12 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
         <ul class="parent">
             <p>9. Imitation Learning Methods</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1589,7 +1566,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/a7bad1a5-ab8a-4612-8c63-8101b03d3100.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/b4997e0d-2c52-4d3c-bb1b-b3312e7fc21b.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1617,7 +1594,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001360-0687452f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_2.54.47_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1658,7 +1635,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c9159d50-ccf3-4f29-a419-94a485c9cd45.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9024923b-8b9d-4fbe-8969-2b3520c6b706.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1697,10 +1674,12 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
         <ul class="parent">
             <p>10. Board Game Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1720,7 +1699,7 @@ $$ \textbf{z}_{t} = \gamma\lambda\textbf{z}_{t-1} + \nabla\hat{v}\left(S_{t}, \m
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000018973-841a128f_zj4WDJ9.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/new_chess_elos.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1755,7 +1734,7 @@ input and transforms it into a hidden state. The hidden state is then updated it
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000450-2a3153fe.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-29_at_9.29.21_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1786,7 +1765,7 @@ TD-Gammon
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056982-cbc26df4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_12.52.44_PM_GMUHdG2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1804,10 +1783,12 @@ TD-Gammon
         <ul class="parent">
             <p>11. Eligibility Traces</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -1838,7 +1819,7 @@ TD-Gammon
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056987-ca9f26f4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_1.51.31_PM_QIX7Umo.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1873,7 +1854,7 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056986-7441401b_BprPztK.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/download_1nlNB7N.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1908,7 +1889,7 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056988-52bdff31.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_1.51.36_PM_SJXt1fe.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1948,7 +1929,7 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056989-9d4bc918_SpMT7Ln.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-02_at_1.51.41_PM_mA0b2SL.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -1966,10 +1947,12 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
         <ul class="parent">
             <p>12. Behaviour Policies</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2007,7 +1990,7 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001226-5298c4cf_CPN1f8R.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-01_at_9.54.31_AM_sp5jrIk.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2037,7 +2020,7 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056995-f2c061ec.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/download_2_zwwuuoB.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2055,10 +2038,12 @@ $$E_{t}\left(s\right) = \gamma\lambda{E}_{t-1}\left(s\right) + \textbf{1}\left(S
         <ul class="parent">
             <p>13. Offline Reinforcement Learning Methods</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2119,7 +2104,7 @@ It was the first agent to exceed human-level performance in 52 of the 57 Atari g
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001553-2d3da05d_pw5JHxS.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_4.16.12_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2137,10 +2122,12 @@ It was the first agent to exceed human-level performance in 52 of the 57 Atari g
         <ul class="parent">
             <p>14. Replay Memory</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2166,7 +2153,7 @@ It was the first agent to exceed human-level performance in 52 of the 57 Atari g
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000021052-634c7be5.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/b6cdb8f5-ea3a-4cca-9331-f951c984d63a_MBK7MUl.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2221,7 +2208,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c27d508d-9fda-4fce-a8bd-6ab1081d68a4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_2.37.00_PM_30SiARt.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2239,10 +2226,12 @@ that they only scale the update downwards.
         <ul class="parent">
             <p>15. Efficient Planning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2265,7 +2254,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000160-99e3f0bd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/unnamed_2_f4euFT6.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2283,10 +2272,12 @@ that they only scale the update downwards.
         <ul class="parent">
             <p>16. Randomized Value Functions</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2311,7 +2302,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000763-44b3207f.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/architechture_figure_blog_kY2tL2V.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2349,7 +2340,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000056996-52211715.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-06-03_at_5.56.12_PM_jwFPrxl.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2367,10 +2358,12 @@ that they only scale the update downwards.
         <ul class="parent">
             <p>17. Video Game Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2399,7 +2392,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000886-be502495.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screenshot_2021-02-11_at_16.59.00_k4kr9Mg.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2473,7 +2466,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/25650e6f-2079-4d7e-9a59-4632bc879ea6.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/alphaStar_NN_q6dmlil.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2491,10 +2484,12 @@ that they only scale the update downwards.
         <ul class="parent">
             <p>18. RL Transformers</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2542,7 +2537,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8e028d84-2231-45d4-9a6e-5cab2058eedd.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/496da989-62b7-42a8-bc82-6661e5aef83f.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2585,7 +2580,7 @@ that they only scale the update downwards.
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/6f04b24c-f908-4124-9e2b-ad8400105ce4.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/2d2010a1-2ec0-40aa-89b0-f25943ab7df2.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2603,10 +2598,12 @@ that they only scale the update downwards.
         <ul class="parent">
             <p>19. Exploration Strategies</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2692,7 +2689,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/4e37422d-8040-4970-a385-97a79106f966.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/43efe733-bf41-4ee8-bedb-5087294e0d89.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2710,10 +2707,12 @@ $$
         <ul class="parent">
             <p>20. State Similarity Metrics</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2737,7 +2736,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001559-c383ef98.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_9.44.40_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2776,10 +2775,12 @@ $$
         <ul class="parent">
             <p>21. Motion Control</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2803,7 +2804,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001345-b8ac7ca5.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_10.49.48_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2821,10 +2822,12 @@ $$
         <ul class="parent">
             <p>22. Policy Evaluation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2848,7 +2851,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001329-3c3d2af5.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_9.37.03_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2866,10 +2869,12 @@ $$
         <ul class="parent">
             <p>23. Bayesian Reinforcement Learning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2889,7 +2894,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001338-51cac747.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_10.07.41_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2907,10 +2912,12 @@ $$
         <ul class="parent">
             <p>24. Path Planning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2934,7 +2941,7 @@ $$
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001345-b8ac7ca5.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-05_at_10.49.48_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2952,10 +2959,12 @@ $$
         <ul class="parent">
             <p>25. Actor-Critic Algorithms</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -2980,7 +2989,7 @@ reward given a (state, action) pair, called reward network. With the system netw
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001474-4aaa9255.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-08-11_at_10.13.58_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -2998,10 +3007,12 @@ reward given a (state, action) pair, called reward network. With the system netw
         <ul class="parent">
             <p>26. Environment Design Methods</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -3025,7 +3036,7 @@ reward given a (state, action) pair, called reward network. With the system netw
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8920498d-1463-400d-882e-57cc86675ead.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/b751050e-3237-422f-932a-e044a4339b0f.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3043,10 +3054,12 @@ reward given a (state, action) pair, called reward network. With the system netw
         <ul class="parent">
             <p>27. Density Ratio Learning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -3070,7 +3083,7 @@ reward given a (state, action) pair, called reward network. With the system netw
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/06b7783a-1811-4b6d-932a-2bc1e68edb0b.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/f4d88aea-31d7-468d-a94b-c4dea22bc24b.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -3088,10 +3101,12 @@ reward given a (state, action) pair, called reward network. With the system netw
         <ul class="parent">
             <p>28. Card Game Models</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -3123,7 +3138,7 @@ reward given a (state, action) pair, called reward network. With the system netw
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/88121bc4-d21d-4cd2-b402-7e14b4bf770e.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/8b63dbf2-a7ed-4e68-924d-3f397d4b2b5e.png" style="width: 100%">
                         </div>
                     </div>
                 </li>

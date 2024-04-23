@@ -7,52 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	<script>
-		MathJax = {
-			tex: {
-				inlineMath: [['$', '$']],
-				displayMath: [['$$', '$$']]
-			}
-		};
-	</script>
-	<!-- <script>
-		window.onload = function() {
-			// Select all <details> elements
-			var details = document.querySelectorAll('details');
-
-			// Loop through each <details> element
-			details.forEach(function(detail) {
-				// Set the 'open' attribute to true
-				// if not detail.classList.contains('method')
-				if (!detail.classList.contains('method'))
-					detail.setAttribute('open', true);
-			});
-		};
-	</script> -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var navButtons = document.querySelectorAll(".nav-btn");
-
-			navButtons.forEach(function (button) {
-				if (button.href === window.location.href) {
-					button.classList.add("active");
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener('click', function (event) {
-			if (document.getElementById('lightbox').style.display != 'none') {
-				// Close lightbox
-				document.getElementById('lightbox').style.display = 'none';
-			}
-			else if (event.target.tagName == 'IMG') {
-				// Open lightbox
-				document.getElementById('lightbox-image').src = event.target.src;
-				document.getElementById('lightbox').style.display = 'block';
-			}
-		});
-	</script>
+	<script src="script.js"></script>
 </head>
 
 <body>
@@ -68,20 +23,25 @@
 		<a class="nav-btn" href="sequential.html">Sequential</a>
 		<a class="nav-btn" href="graphs.html">Graphs</a>
 	</div>
+	<div class="bottom-right-buttons">
+        <button id="toggle-cats-btn" class="bottom-right-button">Toggle categories</button>
+        <button id="close-methods-btn" class="bottom-right-button">Collapse methods</button>
+    </div>
 	<div class="container mx-auto">
         <ul class="parent">
             <p>1. Graph Models</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     The Graph Methods include neural network architectures for learning on graphs with prior structure information, popularly called as Graph Neural Networks (GNNs).
    </p>
-<p>
+   <p>
     Recently, deep learning approaches are being extended to work on graph-structured data, giving rise to a series of graph neural networks addressing different challenges. Graph neural networks are particularly useful in applications where data are generated from non-Euclidean domains and represented as graphs with complex relationships.
    </p>
-<p>
+   <p>
     Some tasks where GNNs are widely used include
     <a href="https://paperswithcode.com/task/node-classification">
      node classification
@@ -96,7 +56,7 @@
     </a>
     , and much more.
    </p>
-<p>
+   <p>
     In the taxonomy presented by
     <a href="https://paperswithcode.com/paper/a-comprehensive-survey-on-graph-neural">
      Wu et al. (2019)
@@ -119,26 +79,27 @@
     </strong>
     .
    </p>
-<p>
+   <p>
     Image source:
     <a href="https://arxiv.org/pdf/1901.00596.pdf">
      A Comprehensive Survey on Graph NeuralNetworks
     </a>
-</p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-<div class="mb-3">
-<a id="pop">
-<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/272fdcd2-ba44-4eac-ab2b-5653662f4857.png" width="100%"/>
-</a>
-</div>
-</div>
+   </p>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+  <div class="mb-3">
+   <a id="pop">
+    <img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/272fdcd2-ba44-4eac-ab2b-5653662f4857.png" width="100%"/>
+   </a>
+  </div>
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -167,7 +128,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000009-0b3cf8af.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-23_at_4.06.05_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -194,7 +155,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/c8ee592b-d890-4c89-bcba-997d2480eb9d.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/676fec18-1483-45bc-a8ad-c8fa3273f9a9.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -248,7 +209,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000959-e28c0ba6_FdfKAVs.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screenshot_2020-12-18_at_00.18.33_TvlWs4g.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -280,7 +241,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000748-6536fb57.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-07-08_at_7.55.32_PM_vkdDcDx.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -307,7 +268,7 @@
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/31d509ef-4c71-435f-a438-36daf7bd9f88.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/1b38ceba-a031-474f-a39f-26abc1735e0b.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -347,7 +308,7 @@ The message functions $M_{t}$, vertex update functions $U_{t}$, and readout func
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000000923-a0c5e6b0_i61WQhX.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/MPNN_afcPv22.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -365,26 +326,28 @@ The message functions $M_{t}$, vertex update functions $U_{t}$, and readout func
         <ul class="parent">
             <p>2. Graph Embeddings</p>
             <hr>
-            <div class="row task-content">
-<div class="col-md-9 description">
-<div class="description-content">
-<p>
+            <li class="col-md-12">
+                <div class="row task-content">
+ <div class="col-md-9 description">
+  <div class="description-content">
+   <p>
     graph embeddings, can be homogeneous graph or heterogeneous graph
    </p>
-</div>
-</div>
-<div class="col-md-3 task-infobox">
-<div class="mb-3">
-<a id="pop">
-<img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/Screen_Shot_2020-05-26_at_11.47.11_PM_ryaXXP6.png" width="100%"/>
-</a>
-</div>
-</div>
+  </div>
+ </div>
+ <div class="col-md-3 task-infobox">
+  <div class="mb-3">
+   <a id="pop">
+    <img id="imageresource" src="https://production-media.paperswithcode.com/method_collections/Screen_Shot_2020-05-26_at_11.47.11_PM_ryaXXP6.png" width="100%"/>
+   </a>
+  </div>
+ </div>
 </div>
 
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -477,7 +440,7 @@ The message functions $M_{t}$, vertex update functions $U_{t}$, and readout func
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000009559-69a0a8ef_cU4IFQA.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.47.11_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -501,7 +464,7 @@ The message functions $M_{t}$, vertex update functions $U_{t}$, and readout func
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000027731-ca87c2b2_v6ZjG9Y.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-27_at_12.01.23_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -529,7 +492,7 @@ This mapping $\Phi$ represents the latent social representation associated with 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000005954-641729f8_JGcfacr.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2020-05-26_at_11.55.03_PM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -547,10 +510,12 @@ This mapping $\Phi$ represents the latent social representation associated with 
         <ul class="parent">
             <p>3. Graph Representation Learning</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -621,7 +586,7 @@ This mapping $\Phi$ represents the latent social representation associated with 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/b5606241-77f2-4785-9189-164b91e6efe1.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/9140bae0-27c1-4c07-8650-0acc229f18ed.jpg" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -639,10 +604,12 @@ This mapping $\Phi$ represents the latent social representation associated with 
         <ul class="parent">
             <p>4. Graph Data Augmentation</p>
             <hr>
-            
+            <li class="col-md-12">
+                
+            </li>
             
         <li>
-            <details class="method depth1">
+            <details class="method-all depth1">
             <summary>Top methods</summary>
             <ul>
                 
@@ -673,7 +640,7 @@ This mapping $\Phi$ represents the latent social representation associated with 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/8b30a8bf-82d1-42d7-809c-9eb2cff9ba2d.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/1f15b648-3477-4c48-996c-a1cd99b33f17.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
@@ -705,7 +672,7 @@ This mapping $\Phi$ represents the latent social representation associated with 
 </div>
 
                         <div class="col-md-4">
-                            <img src="https://production-media.paperswithcode.com/thumbnails/method/method-0000001523-b752360a.jpg" style="width: 100%">
+                            <img src="https://production-media.paperswithcode.com/methods/Screen_Shot_2021-09-16_at_10.25.08_AM.png" style="width: 100%">
                         </div>
                     </div>
                 </li>
