@@ -202,3 +202,11 @@ img:not(.lightbox img):hover {
 .bottom-right-button:hover {
     background-color: #2b4b82;
 }
+
+/******************* Importance Visibility *******************/
+.cat-importance-0 {
+    display: none;
+}
+.method-importance-0 {
+    display: none;
+}
